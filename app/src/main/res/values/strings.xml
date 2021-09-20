@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">T-Bank</string>
+    <string name="title_home">Home</string>
+    <string name="title_transact">Transact</string>
+    <string name="title_borrow">Borrow</string>
+    <string name="title_more">More</string>
+</resources>
