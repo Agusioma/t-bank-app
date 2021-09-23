@@ -16,10 +16,8 @@ public class MoreFragment extends Fragment {
 
     private MoreViewModel moreViewModel;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        moreViewModel =
-                new ViewModelProvider(this).get(MoreViewModel.class);
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        moreViewModel = new ViewModelProvider(this).get(MoreViewModel.class);
         View root = inflater.inflate(R.layout.fragment_more, container, false);
         final TextView textView = root.findViewById(R.id.text_more);
         moreViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
