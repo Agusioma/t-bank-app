@@ -13,9 +13,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.terrence.aluda.t_bank.R;
-import com.terrence.aluda.t_bank.adapters.HomeAdapter;
 import com.terrence.aluda.t_bank.adapters.MoreAdapter;
-import com.terrence.aluda.t_bank.models.home.HomeModel;
 import com.terrence.aluda.t_bank.models.more.MoreModel;
 
 import java.util.ArrayList;
@@ -34,14 +32,14 @@ public class MoreFragment extends Fragment {
         moreModelArrayList.add(new MoreModel(R.drawable.ic_baseline_logout_24));
 
         // we are initializing our adapter class and passing our arraylist to it.
-       MoreAdapter courseAdapter = new MoreAdapter(this, moreModelArrayList);
+       MoreAdapter moreeAdapter = new MoreAdapter(this, moreModelArrayList);
 
         // below line is for setting a layout manager for our recycler view.
         // here we are creating vertical list so we will provide orientation as vertical
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         // in below two lines we are setting layoutmanager and adapter to our recycler view.
         moreRV.setLayoutManager(linearLayoutManager);
-        moreRV.setAdapter(courseAdapter);
+        moreRV.setAdapter(moreeAdapter);
         return root;
     }
 }
