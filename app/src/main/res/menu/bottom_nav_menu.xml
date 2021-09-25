@@ -13,7 +13,7 @@
 
     <item
             android:id="@+id/navigation_borrow"
-            android:icon="@drawable/ic_baseline_keyboard_double_arrow_down_24"
+            android:icon="@drawable/ic_baseline_arrow_circle_down_24"
             android:title="@string/title_borrow"/>
     <item
             android:id="@+id/navigation_more"
