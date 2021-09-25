@@ -32,11 +32,6 @@ public class HomeFragment extends Fragment {
         // here we have created new array list and added data to it.
         courseModelArrayList = new ArrayList<>();
         courseModelArrayList.add(new HomeModel("KES"));
-        courseModelArrayList.add(new HomeModel("KES"));
-        courseModelArrayList.add(new HomeModel("KES"));
-        courseModelArrayList.add(new HomeModel("KES"));
-        courseModelArrayList.add(new HomeModel("KES"));
-        courseModelArrayList.add(new HomeModel("KES"));
 
 
 
