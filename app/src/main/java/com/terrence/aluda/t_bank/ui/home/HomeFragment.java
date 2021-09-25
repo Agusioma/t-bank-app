@@ -33,8 +33,6 @@ public class HomeFragment extends Fragment {
         courseModelArrayList = new ArrayList<>();
         courseModelArrayList.add(new HomeModel("KES"));
 
-
-
         // we are initializing our adapter class and passing our arraylist to it.
         HomeAdapter courseAdapter = new HomeAdapter(this, courseModelArrayList);
 
