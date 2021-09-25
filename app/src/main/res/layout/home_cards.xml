@@ -41,7 +41,7 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="You have"
+                    android:text="Savings"
                     android:id="@+id/text_name2"
                     android:layout_below="@id/text_name"
                     android:layout_marginTop="10dp"
