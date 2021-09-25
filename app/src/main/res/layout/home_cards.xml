@@ -52,7 +52,7 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="100000"
+                    android:text="415,757,841.78"
                     android:id="@+id/text_name3"
                     android:layout_below="@id/text_name2"
                     android:layout_marginTop="2dp"
@@ -60,7 +60,7 @@
                     android:textSize="15sp"
                     android:textStyle="bold"
                     android:textColor="@color/main_green"
-                    android:layout_marginLeft="20dp" android:fontFamily="sans-serif-medium"/>
+                    android:layout_marginLeft="20dp" android:fontFamily="sans-serif"/>
             <View
                     android:id="@+id/divider"
                     android:layout_width="1dp"
@@ -71,7 +71,7 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/app_name"
+                    android:text="Dividends"
                     android:id="@+id/text_name4"
                     android:layout_toEndOf="@id/divider"
                     android:layout_below="@id/text_name"
@@ -85,7 +85,7 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/app_name"
+                    android:text="1,547,285.77"
                     android:id="@+id/text_name5"
                     android:layout_toEndOf="@id/divider"
                     android:layout_below="@id/text_name2"
@@ -96,7 +96,7 @@
                     android:textStyle="bold"
                     android:textColor="@color/main_green"
                     android:layout_marginLeft="10dp"
-                    android:layout_toRightOf="@id/divider"/>
+                    android:layout_toRightOf="@id/divider" android:fontFamily="sans-serif"/>
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
     <View
@@ -157,7 +157,7 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="You have"
+                    android:text="Loan balance"
                     android:id="@+id/text_name7"
                     android:layout_below="@id/text_name6"
                     android:layout_marginTop="10dp"
@@ -168,7 +168,7 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="100000"
+                    android:text="0.00"
                     android:id="@+id/text_name8"
                     android:layout_below="@id/text_name7"
                     android:layout_marginTop="2dp"
@@ -176,7 +176,7 @@
                     android:textSize="15sp"
                     android:textStyle="bold"
                     android:textColor="@color/main_green"
-                    android:layout_marginLeft="20dp" android:fontFamily="sans-serif-medium"/>
+                    android:layout_marginLeft="20dp" android:fontFamily="sans-serif"/>
             <View
                     android:id="@+id/divider2"
                     android:layout_width="1dp"
@@ -187,7 +187,7 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/app_name"
+                    android:text="Loan Limit"
                     android:id="@+id/text_name9"
                     android:layout_toEndOf="@id/divider2"
                     android:layout_below="@id/text_name6"
@@ -201,7 +201,7 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/app_name"
+                    android:text="813,515,683.60"
                     android:id="@+id/text_name10"
                     android:layout_toEndOf="@id/divider2"
                     android:layout_below="@id/text_name7"
@@ -212,7 +212,7 @@
                     android:textStyle="bold"
                     android:textColor="@color/main_green"
                     android:layout_marginLeft="10dp"
-                    android:layout_toRightOf="@id/divider2"/>
+                    android:layout_toRightOf="@id/divider2" android:fontFamily="sans-serif"/>
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
     <androidx.cardview.widget.CardView
@@ -255,7 +255,7 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="100000 KES"
+                    android:text="415,757,841.78 KES"
                     android:id="@+id/text_name23"
                     android:layout_below="@id/text_name21"
                     android:layout_marginTop="2dp"
