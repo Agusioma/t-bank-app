@@ -27,9 +27,9 @@ public class MoreFragment extends Fragment {
 
         // here we have created new array list and added data to it.
         moreModelArrayList = new ArrayList<>();
-        moreModelArrayList.add(new MoreModel(R.drawable.ic_outline_call_24));
-        moreModelArrayList.add(new MoreModel(R.drawable.ic_outline_security_24));
-        moreModelArrayList.add(new MoreModel(R.drawable.ic_outline_logout_24));
+        moreModelArrayList.add(new MoreModel("Security","Change your sign-in details and password",R.drawable.ic_outline_security_24));
+        moreModelArrayList.add(new MoreModel("Support","Email, call or find us on social media ",R.drawable.ic_outline_call_24));
+        moreModelArrayList.add(new MoreModel("Sign out","",R.drawable.ic_outline_logout_24));
 
         // we are initializing our adapter class and passing our arraylist to it.
        MoreAdapter moreeAdapter = new MoreAdapter(this, moreModelArrayList);

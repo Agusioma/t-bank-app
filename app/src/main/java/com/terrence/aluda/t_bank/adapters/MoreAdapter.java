@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.terrence.aluda.t_bank.models.more.MoreModel;
@@ -33,6 +34,8 @@ public class MoreAdapter extends RecyclerView.Adapter<MoreAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull @NotNull MoreAdapter.ViewHolder holder, int position) {
         MoreModel model = moreModelArrayList.get(position);
         holder.imagee.setImageResource(model.getImage_id());
+        holder.firstLabel.setText(model.getFirst_label());
+        holder.secondLabel.setText(model.getSecond_label());
     }
 
     @Override
@@ -42,10 +45,14 @@ public class MoreAdapter extends RecyclerView.Adapter<MoreAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         private ImageView imagee;
+        private TextView firstLabel;
+        private TextView secondLabel;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imagee = itemView.findViewById(R.id.imageView1);
+            firstLabel = itemView.findViewById(R.id.text_prof);
+            secondLabel = itemView.findViewById(R.id.text_prof1);
         }
     }
 }
