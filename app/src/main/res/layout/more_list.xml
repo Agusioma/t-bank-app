@@ -27,7 +27,7 @@
                     android:layout_toRightOf="@+id/imageView1"
                     android:layout_marginTop="8dp"
                     android:layout_marginStart="10dp"
-                    android:textSize="14sp"
+                    android:textSize="15sp"
                     android:textStyle="bold"
                     android:textColor="@color/white"
                     android:layout_marginLeft="10dp"
@@ -41,23 +41,9 @@
                     android:layout_toRightOf="@+id/imageView1"
                     android:layout_marginTop="1dp"
                     android:layout_marginStart="10dp"
-                    android:textSize="14sp"
+                    android:textSize="15sp"
                     android:textColor="@color/white"
                     android:layout_marginLeft="10dp"
-                    android:fontFamily="sans-serif"/>
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="+254702277060"
-                    android:id="@+id/text_prof2"
-                    android:layout_below="@+id/text_prof1"
-                    android:layout_toRightOf="@+id/imageView1"
-                    android:layout_marginTop="1dp"
-                    android:layout_marginStart="10dp"
-                    android:textSize="14sp"
-                    android:textColor="@color/white"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginBottom="8dp"
                     android:fontFamily="sans-serif"/>
             <View
                     android:id="@+id/divider77"
@@ -65,7 +51,8 @@
                     android:layout_height="1dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:layout_below="@+id/text_prof2"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@+id/text_prof1"
                     android:layout_toRightOf="@+id/imageView1"
                     android:background="@color/our_grey"
             />
