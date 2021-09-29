@@ -51,7 +51,7 @@
                     android:layout_height="1dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="20dp"
                     android:layout_below="@+id/text_prof1"
                     android:layout_toRightOf="@+id/imageView1"
                     android:background="@color/our_grey"
