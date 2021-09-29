@@ -8,26 +8,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 import com.terrence.aluda.t_bank.R;
 
 public class TransactionFragment extends Fragment {
 
-    private TransactionViewModel transactionViewModel;
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        transactionViewModel =
-                new ViewModelProvider(this).get(TransactionViewModel.class);
         View root = inflater.inflate(R.layout.fragment_transact, container, false);
-        final TextView textView = root.findViewById(R.id.text_transact);
-        transactionViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+
         return root;
     }
 }
