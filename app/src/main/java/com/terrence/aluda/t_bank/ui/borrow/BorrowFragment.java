@@ -8,26 +8,36 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import com.terrence.aluda.t_bank.R;
+import com.terrence.aluda.t_bank.adapters.BorrowAdapter;
+import com.terrence.aluda.t_bank.models.borrow.BorrowModel;
+
+import java.util.ArrayList;
 
 public class BorrowFragment extends Fragment {
 
-    private BorrowViewModel borrowViewModel;
+    private RecyclerView loanRV;
+    private ArrayList<BorrowModel> loanModelArrayList;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        borrowViewModel =
-                new ViewModelProvider(this).get(BorrowViewModel.class);
         View root = inflater.inflate(R.layout.fragment_borrow, container, false);
-        final TextView textView = root.findViewById(R.id.text_borrow);
-        borrowViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+        loanRV = root.findViewById(R.id.loanRV);
+
+        loanModelArrayList = new ArrayList<>();
+        loanModelArrayList.add(new BorrowModel("Get Loan", R.drawable.ic_transact_credit_card_24));
+        loanModelArrayList.add(new BorrowModel("Pay Loan", R.drawable.ic_outline_arrow_circle_up_24));
+
+        BorrowAdapter loanAdapter = new BorrowAdapter(this, loanModelArrayList);
+
+        // below line is for setting a layout manager for our recycler view.
+        // here we are creating vertical list so we will provide orientation as vertical
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+        // in below two lines we are setting layoutmanager and adapter to our recycler view.
+        loanRV.setLayoutManager(linearLayoutManager);
+        loanRV.setAdapter(loanAdapter);
         return root;
     }
 }
