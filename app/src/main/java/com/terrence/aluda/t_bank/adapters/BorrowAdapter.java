@@ -48,7 +48,7 @@ public class BorrowAdapter extends RecyclerView.Adapter<BorrowAdapter.ViewHolder
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            our_image = itemView.findViewById(R.id.imageViewTrans);
+            our_image = itemView.findViewById(R.id.imageViewLoan);
             our_label = itemView.findViewById(R.id.text_loan_list1);
         }
     }

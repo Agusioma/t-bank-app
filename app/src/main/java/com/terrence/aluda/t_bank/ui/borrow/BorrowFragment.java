@@ -27,7 +27,7 @@ public class BorrowFragment extends Fragment {
         loanRV = root.findViewById(R.id.loanRV);
 
         loanModelArrayList = new ArrayList<>();
-        loanModelArrayList.add(new BorrowModel("Get Loan", R.drawable.ic_transact_credit_card_24));
+        loanModelArrayList.add(new BorrowModel("Get Loan", R.drawable.ic_outline_arrow_circle_down_24));
         loanModelArrayList.add(new BorrowModel("Pay Loan", R.drawable.ic_outline_arrow_circle_up_24));
 
         BorrowAdapter loanAdapter = new BorrowAdapter(this, loanModelArrayList);
