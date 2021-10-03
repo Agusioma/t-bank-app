@@ -1,5 +1,6 @@
 package com.terrence.aluda.t_bank.adapters;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.terrence.aluda.t_bank.R;
 import com.terrence.aluda.t_bank.models.transact.TransactModel;
+import com.terrence.aluda.t_bank.ui.transaction.DepositActivity;
 import com.terrence.aluda.t_bank.ui.transaction.TransactionFragment;
 import org.jetbrains.annotations.NotNull;;
 
@@ -55,22 +57,16 @@ public class TransactAdapter extends RecyclerView.Adapter<TransactAdapter.ViewHo
         public void onClick(View v) {
             Toast.makeText(v.getContext(), "position = " + getLayoutPosition(), Toast.LENGTH_SHORT).show();
 
-            //go through each item if you have few items within recycler view
-            /*if(getLayoutPosition()==0){
-                //Do whatever you want here
-
+            if(getLayoutPosition()==0){
+                Intent intent= new Intent(v.getContext(), DepositActivity.class);
+                v.getContext().startActivity(intent);
             }else if(getLayoutPosition()==1){
-                //Do whatever you want here
 
             }else if(getLayoutPosition()==2){
 
             }else if(getLayoutPosition()==3){
 
-            }else if(getLayoutPosition()==4){
-
-            }else if(getLayoutPosition()==5){
-
-            }*/
+            }
         }
     }
 }
