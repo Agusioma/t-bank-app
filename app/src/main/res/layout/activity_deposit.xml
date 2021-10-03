@@ -43,7 +43,7 @@
                 <EditText
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
-                        android:hint="Enter amount here"
+                        android:hint="0.00"
                         android:id="@+id/edit_depo"
                         android:background="@drawable/edit_bg"
                         android:layout_below="@+id/text_depo"
@@ -65,7 +65,7 @@
                         android:textAlignment="center"
                         android:id="@+id/btn_depo"
                         android:layout_below="@+id/edit_depo"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="8dp"
                         android:textSize="15sp"
                         android:textStyle="bold"
                         android:textColor="@color/white"

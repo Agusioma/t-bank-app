@@ -13,6 +13,7 @@ import com.terrence.aluda.t_bank.R;
 import com.terrence.aluda.t_bank.models.transact.TransactModel;
 import com.terrence.aluda.t_bank.ui.transaction.DepositActivity;
 import com.terrence.aluda.t_bank.ui.transaction.TransactionFragment;
+import com.terrence.aluda.t_bank.ui.transaction.WithdrawActivity;
 import org.jetbrains.annotations.NotNull;;
 
 import java.util.ArrayList;
@@ -61,7 +62,8 @@ public class TransactAdapter extends RecyclerView.Adapter<TransactAdapter.ViewHo
                 Intent intent= new Intent(v.getContext(), DepositActivity.class);
                 v.getContext().startActivity(intent);
             }else if(getLayoutPosition()==1){
-
+                Intent intent= new Intent(v.getContext(), WithdrawActivity.class);
+                v.getContext().startActivity(intent);
             }else if(getLayoutPosition()==2){
 
             }else if(getLayoutPosition()==3){
