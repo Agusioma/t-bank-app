@@ -11,8 +11,7 @@
             android:theme="@style/Theme.TBank">
         <activity
                 android:name=".ui.transaction.DepositActivity"
-                android:label="@string/title_activity_deposit"
-                android:theme="@style/Theme.TBank.NoActionBar">
+                android:label="@string/title_activity_deposit">
         </activity>
         <activity
                 android:name=".MainActivity"
