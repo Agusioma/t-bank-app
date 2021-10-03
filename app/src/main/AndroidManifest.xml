@@ -9,6 +9,8 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/Theme.TBank">
+        <activity android:name=".ui.transaction.WithdrawActivity">
+        </activity>
         <activity
                 android:name=".ui.transaction.DepositActivity"
                 android:label="@string/title_activity_deposit">
