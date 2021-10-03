@@ -32,7 +32,7 @@
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Terrence Agusioma"
+                        android:text="Enter the amount below"
                         android:id="@+id/text_depo"
                         android:layout_marginTop="8dp"
                         android:textSize="15sp"
@@ -48,7 +48,7 @@
                         android:id="@+id/edit_depo"
                         android:background="@drawable/edit_bg"
                         android:layout_below="@+id/text_depo"
-                        android:layout_marginTop="1dp"
+                        android:layout_marginTop="5dp"
                         android:layout_marginStart="10dp"
                         android:textSize="15sp"
                         android:textColorHint="@color/our_grey"
@@ -59,19 +59,23 @@
                         android:layout_centerHorizontal="true"
                         android:gravity="center_horizontal"/>
                 <Button
-                        android:layout_width="wrap_content"
+                        android:layout_width="150dp"
                         android:layout_height="wrap_content"
-                        android:text="+254702277060"
+                        android:text="Pay"
+                        android:textAlignment="center"
                         android:id="@+id/btn_depo"
                         android:layout_below="@+id/edit_depo"
-                        android:layout_marginTop="1dp"
-                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="5dp"
                         android:textSize="15sp"
+                        android:textStyle="bold"
                         android:textColor="@color/white"
-                        android:layout_marginLeft="10dp"
                         android:layout_marginBottom="8dp"
-                        android:fontFamily="sans-serif" app:backgroundTint="@color/bg2"
-                        android:layout_centerHorizontal="true"/>
+                        android:textAllCaps="false"
+                        android:paddingTop="6dp"
+                        android:fontFamily="sans-serif"
+                        app:backgroundTint="@color/bg2"
+                        android:layout_centerHorizontal="true"
+                        android:gravity="center_horizontal"/>
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
     </RelativeLayout>
