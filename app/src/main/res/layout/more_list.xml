@@ -26,11 +26,11 @@
                     android:id="@+id/text_prof"
                     android:layout_toRightOf="@+id/imageView1"
                     android:layout_marginTop="8dp"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="20dp"
                     android:textSize="15sp"
                     android:textStyle="bold"
                     android:textColor="@color/white"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="20dp"
                     android:fontFamily="sans-serif"/>
             <TextView
                     android:layout_width="wrap_content"
@@ -40,16 +40,16 @@
                     android:layout_below="@+id/text_prof"
                     android:layout_toRightOf="@+id/imageView1"
                     android:layout_marginTop="1dp"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="20dp"
                     android:textSize="15sp"
                     android:textColor="@color/white"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="20dp"
                     android:fontFamily="sans-serif"/>
             <View
                     android:id="@+id/divider77"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="20dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="20dp"
                     android:layout_below="@+id/text_prof1"

@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.terrence.aluda.t_bank.R;
@@ -39,14 +40,37 @@ public class TransactAdapter extends RecyclerView.Adapter<TransactAdapter.ViewHo
     public int getItemCount() {
         return transModelArrayList.size();
     }
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder implements  View.OnClickListener{
         private ImageView our_image;
         private TextView our_label;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            itemView.setOnClickListener(this);
             our_image = itemView.findViewById(R.id.imageViewTrans);
             our_label = itemView.findViewById(R.id.text_trans_list1);
+        }
+
+        @Override
+        public void onClick(View v) {
+            Toast.makeText(v.getContext(), "position = " + getLayoutPosition(), Toast.LENGTH_SHORT).show();
+
+            //go through each item if you have few items within recycler view
+            /*if(getLayoutPosition()==0){
+                //Do whatever you want here
+
+            }else if(getLayoutPosition()==1){
+                //Do whatever you want here
+
+            }else if(getLayoutPosition()==2){
+
+            }else if(getLayoutPosition()==3){
+
+            }else if(getLayoutPosition()==4){
+
+            }else if(getLayoutPosition()==5){
+
+            }*/
         }
     }
 }
