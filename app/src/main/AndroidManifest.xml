@@ -9,7 +9,11 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/Theme.TBank">
-        <activity android:name=".ui.transaction.SendActivity">
+        <activity
+                android:name=".ui.transaction.SendActivity"
+                android:label="Send to mobile wallet"
+                android:parentActivityName=".MainActivity"
+        >
         </activity>
         <activity
                 android:name=".ui.transaction.WithdrawActivity"

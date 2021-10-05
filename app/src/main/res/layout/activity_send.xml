@@ -20,7 +20,7 @@
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="From"
+            android:text="From:"
             android:layout_marginTop="12dp"
             android:layout_marginStart="20dp"
             android:textSize="14sp"
@@ -32,21 +32,22 @@
     <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
             android:backgroundTint="@color/grey_2"
+            android:inputType="textMultiLine"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="30dp"
             android:layout_marginRight="30dp"
             android:layout_below="@+id/send_textd"
             android:textColor="@color/white"
-            android:textSize="16sp"
+            android:textSize="15sp"
+
             android:layout_marginBottom="10dp"
             android:textColorHint="@color/our_grey"
             android:id="@+id/edit_sendd" android:layout_marginLeft="30dp"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Send to"
+            android:text="Send to:"
             android:layout_marginTop="12dp"
             android:layout_marginStart="20dp"
             android:textSize="14sp"
@@ -75,7 +76,7 @@
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Amount"
+            android:text="Amount:"
             android:layout_marginTop="12dp"
             android:layout_marginStart="20dp"
             android:textSize="14sp"
@@ -117,7 +118,7 @@
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Payment reason"
+            android:text="Payment reason:"
             android:layout_marginTop="12dp"
             android:layout_marginStart="20dp"
             android:textSize="14sp"
@@ -148,8 +149,8 @@
             android:textAlignment="center"
             android:id="@+id/btn_send"
             android:layout_below="@+id/edit_send3"
-            android:layout_marginTop="10dp"
-            android:textSize="15sp"
+            android:layout_marginTop="15dp"
+            android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="@color/white"
             android:layout_marginBottom="8dp"
@@ -159,4 +160,5 @@
             android:backgroundTint="@color/bg2"
             android:layout_centerHorizontal="true"
             android:gravity="center_horizontal"/>
+
 </RelativeLayout>
