@@ -9,7 +9,7 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/Theme.TBank">
-        <activity android:name=".ui.SendActivity">
+        <activity android:name=".ui.transaction.SendActivity">
         </activity>
         <activity
                 android:name=".ui.transaction.WithdrawActivity"
