@@ -29,30 +29,29 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Send to"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="35dp"
                     android:layout_marginStart="20dp"
-                    android:textSize="15sp"
+                    android:textSize="14sp"
                     android:id="@+id/send_text2"
                     android:layout_below="@+id/send_text1"
-                    android:textColor="@color/grey_2"
+                    android:textColor="@color/white"
                     android:layout_marginLeft="20dp"
                     android:fontFamily="sans-serif"/>
             <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
-                    android:backgroundTint="@color/white"
-                    android:layout_marginStart="30dp"
+                    android:backgroundTint="@color/grey_2"
+                    android:layout_marginStart="20dp"
                     android:layout_marginEnd="30dp"
                     android:layout_marginRight="30dp"
                     android:layout_below="@+id/send_text2"
                     android:textColor="@color/white"
-                    android:textAlignment="center"
                     android:textSize="16sp"
                     android:hint="Select or enter account number"
                     android:textColorHint="@color/our_grey"
                     android:id="@+id/edit_send1" android:layout_marginLeft="30dp"
-                    android:drawableRight="@drawable/ic_baseline_arrow_down_24" android:gravity="center_horizontal"/>
+                    android:drawableRight="@drawable/ic_baseline_arrow_down_24"/>
 
             <TextView
                     android:layout_width="wrap_content"
@@ -74,28 +73,27 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginStart="20dp"
                     android:textSize="16sp"
+
                     android:id="@+id/send_text4"
                     android:layout_marginRight="10dp"
                     android:layout_marginEnd="10dp"
                     android:layout_below="@+id/send_text3"
-                    android:textColor="@color/our_grey"
+                    android:textColor="@color/grey_2"
                     android:layout_marginLeft="20dp"
-                    android:fontFamily="sans-serif"/>
+                    android:fontFamily="monospace"/>
             <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textPersonName"
-                    android:backgroundTint="@color/white"
+                    android:backgroundTint="@color/grey_2"
                     android:layout_marginEnd="30dp"
                     android:layout_marginRight="30dp"
                     android:layout_toRightOf="@+id/send_text4"
                     android:layout_below="@+id/send_text3"
                     android:textColor="@color/white"
-                    android:textAlignment="center"
                     android:textSize="16dp"
                     android:hint="Please enter the amount"
                     android:textColorHint="@color/our_grey"
-                    android:id="@+id/edit_send2" android:layout_marginLeft="30dp" android:gravity="center_horizontal"/>
+                    android:id="@+id/edit_send2" android:layout_marginLeft="30dp"/>
 
             <TextView
                     android:layout_width="wrap_content"
@@ -114,17 +112,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
-                    android:backgroundTint="@color/white"
+                    android:backgroundTint="@color/grey_2"
                     android:layout_marginEnd="30dp"
-                    android:layout_marginStart="30dp"
+                    android:layout_marginStart="20dp"
                     android:layout_marginRight="30dp"
                     android:layout_below="@+id/send_text5"
                     android:textColor="@color/white"
                     android:hint="(Optional)"
                     android:textSize="16sp"
-                    android:textAlignment="center"
                     android:textColorHint="@color/our_grey"
-                    android:id="@+id/edit_send3" android:layout_marginLeft="30dp" android:gravity="center_horizontal"/>
+                    android:id="@+id/edit_send3" android:layout_marginLeft="30dp"/>
 
             <Button
                     android:layout_width="150dp"
