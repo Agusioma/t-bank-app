@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.terrence.aluda.t_bank.R;
 import com.terrence.aluda.t_bank.models.transact.TransactModel;
 import com.terrence.aluda.t_bank.ui.transaction.DepositActivity;
+import com.terrence.aluda.t_bank.ui.transaction.SendActivity;
 import com.terrence.aluda.t_bank.ui.transaction.TransactionFragment;
 import com.terrence.aluda.t_bank.ui.transaction.WithdrawActivity;
 import org.jetbrains.annotations.NotNull;;
@@ -65,7 +66,8 @@ public class TransactAdapter extends RecyclerView.Adapter<TransactAdapter.ViewHo
                 Intent intent= new Intent(v.getContext(), WithdrawActivity.class);
                 v.getContext().startActivity(intent);
             }else if(getLayoutPosition()==2){
-
+                Intent intent= new Intent(v.getContext(), SendActivity.class);
+                v.getContext().startActivity(intent);
             }else if(getLayoutPosition()==3){
 
             }
