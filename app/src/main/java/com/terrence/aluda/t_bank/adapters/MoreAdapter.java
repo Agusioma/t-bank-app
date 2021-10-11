@@ -1,5 +1,6 @@
 package com.terrence.aluda.t_bank.adapters;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.terrence.aluda.t_bank.models.more.MoreModel;
 import com.terrence.aluda.t_bank.ui.more.MoreFragment;
+import com.terrence.aluda.t_bank.ui.transaction.DepositActivity;
 import org.jetbrains.annotations.NotNull;
 
 import com.terrence.aluda.t_bank.R;
@@ -43,16 +45,25 @@ public class MoreAdapter extends RecyclerView.Adapter<MoreAdapter.ViewHolder> {
         return moreModelArrayList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder implements  View.OnClickListener{
         private ImageView imagee;
         private TextView firstLabel;
         private TextView secondLabel;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            itemView.setOnClickListener(this);
             imagee = itemView.findViewById(R.id.imageView1);
             firstLabel = itemView.findViewById(R.id.text_prof);
             secondLabel = itemView.findViewById(R.id.text_prof1);
+        }
+
+        @Override
+        public void onClick(View v) {
+            if(getLayoutPosition()==0){
+                Intent intent= new Intent(v.getContext(), DepositActivity.class);
+                v.getContext().startActivity(intent);
+            }
         }
     }
 }
