@@ -7,14 +7,62 @@
                 android:background="@color/bg1">
     <RelativeLayout
             android:layout_width="match_parent"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginBottom="30dp"
+            android:id="@+id/layout_deposit1"
             android:layout_height="wrap_content"
+            android:background="@color/dark_green" android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TERRENCE AGUSIOMA"
+                android:id="@+id/label_send"
+                android:textSize="15sp"
+                android:layout_marginBottom="15dp"
+                android:textColor="@color/white"
+                android:fontFamily="sans-serif"
+                android:textStyle="bold"
+                android:layout_centerVertical="false" android:layout_centerHorizontal="true"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Account Balance:"
+                android:id="@+id/label_send1"
+                android:layout_below="@+id/label_send"
+                android:textSize="15sp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/white"
+                android:fontFamily="sans-serif"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="415,757,841.78 KES"
+                android:layout_below="@+id/label_send"
+                android:textSize="15sp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/white"
+                android:fontFamily="sans-serif"
+                android:layout_alignParentRight="true"
+                android:textStyle="bold"/>
+
+    </RelativeLayout>
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/layout_deposit1"
             android:background="@color/bg1" android:layout_centerInParent="true">
         <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardElevation="10dp"
                 app:cardCornerRadius="2dp"
-                app:cardBackgroundColor="@color/bg"
+                app:cardBackgroundColor="@color/bg2"
                 app:cardMaxElevation="12dp"
                 app:cardPreventCornerOverlap="true"
                 app:cardUseCompatPadding="true"
@@ -73,7 +121,7 @@
                         android:textAllCaps="false"
                         android:paddingTop="6dp"
                         android:fontFamily="sans-serif"
-                        app:backgroundTint="@color/bg2"
+                        app:backgroundTint="@color/dark_green"
                         android:layout_centerHorizontal="true"
                         android:gravity="center_horizontal"/>
             </RelativeLayout>

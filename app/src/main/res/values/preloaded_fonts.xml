@@ -3,6 +3,7 @@
     <array name="preloaded_fonts" translatable="false">
         <item>@font/</item>
         <item>@font/actor</item>
+        <item>@font/assistant_extralight</item>
         <item>@font/carrois_gothic</item>
     </array>
 </resources>

@@ -6,15 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.terrence.aluda.t_bank.R;
 import com.terrence.aluda.t_bank.models.transact.TransactModel;
-import com.terrence.aluda.t_bank.ui.transaction.DepositActivity;
-import com.terrence.aluda.t_bank.ui.transaction.SendActivity;
-import com.terrence.aluda.t_bank.ui.transaction.TransactionFragment;
-import com.terrence.aluda.t_bank.ui.transaction.WithdrawActivity;
+import com.terrence.aluda.t_bank.ui.transaction.*;
 import org.jetbrains.annotations.NotNull;;
 
 import java.util.ArrayList;
@@ -57,7 +53,6 @@ public class TransactAdapter extends RecyclerView.Adapter<TransactAdapter.ViewHo
 
         @Override
         public void onClick(View v) {
-            Toast.makeText(v.getContext(), "position = " + getLayoutPosition(), Toast.LENGTH_SHORT).show();
 
             if(getLayoutPosition()==0){
                 Intent intent= new Intent(v.getContext(), DepositActivity.class);
@@ -69,7 +64,8 @@ public class TransactAdapter extends RecyclerView.Adapter<TransactAdapter.ViewHo
                 Intent intent= new Intent(v.getContext(), SendActivity.class);
                 v.getContext().startActivity(intent);
             }else if(getLayoutPosition()==3){
-
+                Intent intent= new Intent(v.getContext(), StatementActivity.class);
+                v.getContext().startActivity(intent);
             }
         }
     }

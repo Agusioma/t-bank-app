@@ -9,11 +9,12 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/Theme.TBank">
+        <activity android:name=".ui.transaction.StatementActivity"
+                  android:label="View Statements">
+        </activity>
         <activity
                 android:name=".ui.transaction.SendActivity"
-                android:label="Send to mobile wallet"
-                android:parentActivityName=".MainActivity"
-        >
+                android:label="Send to Another account">
         </activity>
         <activity
                 android:name=".ui.transaction.WithdrawActivity"

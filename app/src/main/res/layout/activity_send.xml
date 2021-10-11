@@ -149,7 +149,7 @@
             android:textAlignment="center"
             android:id="@+id/btn_send"
             android:layout_below="@+id/edit_send3"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="25dp"
             android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="@color/white"

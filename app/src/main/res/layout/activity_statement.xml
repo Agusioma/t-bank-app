@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/bg1">
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:id="@+id/layout1"
+            android:layout_height="wrap_content" android:background="@color/bg" android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TERRENCE AGUSIOMA"
+                android:id="@+id/text_transact"
+                android:textSize="15sp"
+                android:layout_marginBottom="15dp"
+                android:textColor="@color/white"
+                android:fontFamily="sans-serif"
+                android:textStyle="bold"
+                android:layout_centerVertical="false" android:layout_centerHorizontal="true"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Account Balance:"
+                android:id="@+id/text_transact1"
+                android:layout_below="@+id/text_transact"
+                android:textSize="15sp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/white"
+                android:fontFamily="sans-serif"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="415,757,841.78 KES"
+                android:layout_below="@+id/text_transact"
+                android:textSize="15sp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/white"
+                android:fontFamily="sans-serif"
+                android:layout_alignParentRight="true" android:textStyle="bold"/>
+    </RelativeLayout>
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/layout1"
+            android:id="@+id/layout2"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Transaction history"
+                android:id="@+id/text_transact4"
+                android:textSize="15sp"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/white"
+                android:layout_marginLeft="20dp"
+                android:fontFamily="sans-serif"
+                android:textStyle="bold"
+                android:layout_centerVertical="false" android:layout_centerHorizontal="false"/>
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Search"
+                android:id="@+id/edit_search"
+                android:background="@drawable/edit_stat_bg"
+                android:layout_below="@+id/text_transact4"
+                android:layout_marginTop="8dp"
+                android:textSize="18sp"
+                android:layout_marginRight="45dp"
+                android:layout_marginLeft="45dp"
+                android:textCursorDrawable="@drawable/cursor_white"
+                android:textColorHint="@color/our_grey"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:fontFamily="sans-serif"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_horizontal"
+                android:drawableEnd="@android:drawable/ic_menu_search"
+                android:drawableRight="@android:drawable/ic_menu_search"/>
+        <View
+                android:id="@+id/dividerTrans"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="0dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/edit_search"
+                android:background="@color/our_grey"
+        />
+    </RelativeLayout>
+    <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_below="@+id/layout2"
+            android:id="@+id/statRV"
+            android:layout_height="match_parent"/>
+
+</RelativeLayout>
