@@ -3,7 +3,7 @@ package com.terrence.aluda.t_bank.login;
 import com.google.gson.annotations.SerializedName;
 public class LoginTest {
     @SerializedName("id")
-    public Integer id;
+    public String id;
     @SerializedName("NatID")
     public String natID;
     @SerializedName("firstname")
@@ -19,7 +19,7 @@ public class LoginTest {
     @SerializedName("password")
     public String password;
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -51,7 +51,7 @@ public class LoginTest {
         this.regDate = regDate;
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 

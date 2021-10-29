@@ -2,6 +2,9 @@ package com.terrence.aluda.t_bank.ui.login;
 
 import android.app.ProgressDialog;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,52 +22,72 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LoginActivity extends AppCompatActivity {
-    APIInterface apiInterface;
-    TextView testDisplay;
-     List<LoginTest> testArray;
+
+    List<LoginTest> responseArray;
+    private String loggedInCheck, firstname, lastname, natID, userPassword, regDate, phoneParam, passwordParam;
+    private EditText editNum, editPassword;
+    private Button btnAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        testDisplay = (TextView) findViewById(R.id.text_depo2);
+
+        editNum = findViewById(R.id.edit_usernumber);
+        editPassword = findViewById(R.id.edit_password);
+        btnAuth = findViewById(R.id.btn_login);
+
+        btnAuth.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Perform action on click
+                //Intent activityChangeIntent = new Intent(PresentActivity.this, NextActivity.class);
+                // currentContext.startActivity(activityChangeIntent);
+                //PresentActivity.this.startActivity(activityChangeIntent);
+                sendAuthToken();
+            }
+        });
+    }
+
+    private void sendAuthToken() {
+        APIInterface apiInterface;
         Gson gson = new Gson();
         final ProgressDialog progressDialog = new ProgressDialog(LoginActivity.this);
+
+        phoneParam = editNum.getText().toString();
+        passwordParam = editPassword.getText().toString();
+
+        phoneParam = "254"+phoneParam.substring(phoneParam.length() - 9);
+
         progressDialog.setMessage("Testing");
         progressDialog.show();
-        testArray= new ArrayList<>();
+        responseArray = new ArrayList<>();
         apiInterface = APIClient.getClient().create(APIInterface.class);
         Toast.makeText(getApplicationContext(), "skrr", Toast.LENGTH_SHORT).show();
-        Call<List<LoginTest>> call = apiInterface.doGetListResources();
+        Call<List<LoginTest>> call = apiInterface.doAuthenticate(phoneParam, passwordParam);
         call.enqueue(new Callback<List<LoginTest>>() {
-                         @Override
-                         public void onResponse(Call<List<LoginTest>> call, Response<List<LoginTest>> response) {
+            @Override
+            public void onResponse(Call<List<LoginTest>> call, Response<List<LoginTest>> response) {
+                progressDialog.dismiss();
+                responseArray = response.body();
+                //String testdisplayToken = responseArray.get(0).getFirstname();
+                //Toast.makeText(getApplicationContext(), testdisplayToken, Toast.LENGTH_SHORT).show();
+                loggedInCheck = responseArray.get(0).getId();
+                if(loggedInCheck.equals("wrong55")){
+                    Toast.makeText(getApplicationContext(), "Registeer", Toast.LENGTH_SHORT).show();
+                }else if(loggedInCheck.equals("wrong00")){
+                    Toast.makeText(getApplicationContext(), "Wrong password", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(getApplicationContext(), "HTTP OK! :)", Toast.LENGTH_SHORT).show();
+                }
 
-                             progressDialog.dismiss();
-                             Log.d("TAG",response.code()+"");
+            }
 
-                             String displayResponse = "";
-                             testArray = response.body();
-                             String testdisplayToken = testArray.get(0).getFirstname();
-                             Toast.makeText(getApplicationContext(), testdisplayToken, Toast.LENGTH_SHORT).show();
+            @Override
+            public void onFailure(Call<List<LoginTest>> call, Throwable t) {
 
-                             /*Type collectionType = new TypeToken<Collection<LoginTest>>(){}.getType();
-                             Collection<LoginTest> enums = gson.fromJson(resource.natID, collectionType);*/
-
-                             /*String text = resource.natID;
-                             String total = resource.firstname;*/
-
-                             //displayResponse += "National ID "+text+"Firstname"+total;
-                            // Toast.makeText(getApplicationContext(), displayResponse, Toast.LENGTH_SHORT).show();
-                            //testDisplay.setText((CharSequence) enums);
-                         }
-                         @Override
-                         public void onFailure(Call<List<LoginTest>> call, Throwable t) {
-
-                             progressDialog.dismiss();
-                             Toast.makeText(getApplicationContext(), t.toString(), Toast.LENGTH_SHORT).show();
-                             testDisplay.setText(t.toString());
-                             call.cancel();
-                         }
+                progressDialog.dismiss();
+                Toast.makeText(getApplicationContext(), t.toString(), Toast.LENGTH_SHORT).show();
+                call.cancel();
+            }
         });
     }
 

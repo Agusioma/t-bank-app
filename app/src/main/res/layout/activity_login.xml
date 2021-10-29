@@ -72,7 +72,7 @@
                         android:layout_marginTop="13dp"
                         android:layout_marginStart="10dp"
                         android:textSize="15sp"
-                        android:inputType="number"
+                        android:inputType="textPassword"
                         android:textColorHint="@color/our_grey"
                         android:textAlignment="center"
                         android:textColor="@color/black"

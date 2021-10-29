@@ -12,9 +12,8 @@ import retrofit2.http.Query;
 import java.util.List;
 
 public interface APIInterface {
-
-    @GET("/customer/254702277060")
-    Call<List<LoginTest>> doGetListResources();
+    @GET("/customer/")
+    Call<List<LoginTest>> doAuthenticate(@Query("user_phone") String user_phone, @Query("user_token") String user_token);
 
    /* @POST("/api/users")
     Call<User> createUser(@Body User user);
