@@ -6,23 +6,29 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-class APIClient {
+import java.util.concurrent.TimeUnit;
+
+public class APIClient {
 
     private static Retrofit retrofit = null;
 
-    static Retrofit getClient() {
+    public static Retrofit getClient() {
 
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
-
+        OkHttpClient.Builder httpClient = new OkHttpClient.Builder()
+                .callTimeout(100, TimeUnit.MINUTES)
+                .connectTimeout(100, TimeUnit.SECONDS)
+                .readTimeout(300, TimeUnit.SECONDS)
+                .writeTimeout(300, TimeUnit.SECONDS);
 
         retrofit = new Retrofit.Builder()
-                .baseUrl("https://laravel.terrence-aluda.com/")
+                .baseUrl("https://laravel.terrence-aluda.com")
                 .addConverterFactory(GsonConverterFactory.create())
-                .client(client)
+                .client(httpClient.build())
                 .build();
-
+        //builder.client(httpClient.build());
 
         return retrofit;
     }

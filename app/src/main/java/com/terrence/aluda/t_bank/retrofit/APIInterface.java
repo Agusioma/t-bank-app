@@ -9,10 +9,12 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
+import java.util.List;
+
 public interface APIInterface {
 
-    @GET("/api/unknown")
-    Call<LoginTest> doGetListResources();
+    @GET("/customer/254702277060")
+    Call<List<LoginTest>> doGetListResources();
 
    /* @POST("/api/users")
     Call<User> createUser(@Body User user);
