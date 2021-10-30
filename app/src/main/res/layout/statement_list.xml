@@ -19,7 +19,7 @@
             android:layout_marginBottom="3dp"
             android:textColor="@color/white"
             android:layout_marginLeft="20dp"
-            android:fontFamily="@string/default_font"
+            android:fontFamily="@font/open_sans"
             android:layout_centerVertical="false"/>
     <TextView
             android:layout_width="wrap_content"
@@ -32,7 +32,7 @@
             android:layout_marginBottom="3dp"
             android:textColor="@color/white"
             android:layout_marginLeft="20dp"
-            android:fontFamily="@string/default_font"
+            android:fontFamily="@font/open_sans"
             android:layout_centerVertical="false"/>
     <TextView
             android:layout_width="wrap_content"
@@ -44,7 +44,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginBottom="3dp"
             android:textColor="@color/white"
-            android:fontFamily="@string/default_font"
+            android:fontFamily="@font/open_sans"
             android:layout_centerVertical="false"/>
     <TextView
             android:layout_width="wrap_content"
@@ -55,7 +55,7 @@
             android:layout_marginBottom="3dp"
             android:textColor="@color/main_green"
             android:layout_marginRight="20dp"
-            android:fontFamily="@string/default_font"
+            android:fontFamily="@font/open_sans"
             android:textStyle="bold"
             android:layout_alignParentRight="true" android:layout_centerVertical="true"/>
     <View

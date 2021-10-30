@@ -24,7 +24,7 @@
                 android:textSize="15sp"
                 android:layout_marginBottom="15dp"
                 android:textColor="@color/white"
-                android:fontFamily="@string/default_font"
+                android:fontFamily="@font/open_sans"
                 android:textStyle="bold"
                 android:layout_centerVertical="false" android:layout_centerHorizontal="true"/>
         <TextView
@@ -37,7 +37,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginBottom="10dp"
                 android:textColor="@color/white"
-                android:fontFamily="@string/default_font"/>
+                android:fontFamily="@font/open_sans"/>
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
                 android:layout_marginRight="20dp"
                 android:layout_marginBottom="10dp"
                 android:textColor="@color/white"
-                android:fontFamily="@string/default_font"
+                android:fontFamily="@font/open_sans"
                 android:layout_alignParentRight="true"
                 android:textStyle="bold"/>
 
@@ -85,7 +85,7 @@
                         android:layout_marginTop="8dp"
                         android:textSize="20sp"
                         android:textColor="@color/white"
-                        android:fontFamily="@string/default_font" android:layout_centerHorizontal="true"
+                        android:fontFamily="@font/open_sans" android:layout_centerHorizontal="true"
                         android:layout_marginLeft="20dp" android:layout_marginStart="20dp"
                         android:layout_marginRight="20dp" android:layout_marginEnd="20dp"/>
                 <EditText
@@ -103,7 +103,7 @@
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:layout_marginLeft="10dp"
-                        android:fontFamily="@string/default_font"
+                        android:fontFamily="@font/open_sans"
                         android:layout_centerHorizontal="true"
                         android:gravity="center_horizontal"/>
                 <Button
@@ -120,7 +120,7 @@
                         android:layout_marginBottom="8dp"
                         android:textAllCaps="false"
                         android:paddingTop="6dp"
-                        android:fontFamily="@string/default_font"
+                        android:fontFamily="@font/open_sans"
                         app:backgroundTint="@color/dark_green"
                         android:layout_centerHorizontal="true"
                         android:gravity="center_horizontal"/>

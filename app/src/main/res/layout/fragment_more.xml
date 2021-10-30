@@ -54,7 +54,7 @@
                         android:textStyle="bold"
                         android:textColor="@color/white"
                         android:layout_marginLeft="10dp"
-                        android:fontFamily="@string/default_font"/>
+                        android:fontFamily="@font/open_sans"/>
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -67,7 +67,7 @@
                         android:textSize="15sp"
                         android:textColor="@color/white"
                         android:layout_marginLeft="10dp"
-                        android:fontFamily="@string/default_font"/>
+                        android:fontFamily="@font/open_sans"/>
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -81,7 +81,7 @@
                         android:textColor="@color/white"
                         android:layout_marginLeft="10dp"
                         android:layout_marginBottom="8dp"
-                        android:fontFamily="@string/default_font"/>
+                        android:fontFamily="@font/open_sans"/>
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
         <androidx.recyclerview.widget.RecyclerView
