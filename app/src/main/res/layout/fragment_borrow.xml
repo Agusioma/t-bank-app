@@ -32,7 +32,7 @@
                     android:textStyle="bold"
                     android:textColor="@color/white"
                     android:layout_marginLeft="20dp"
-                    android:fontFamily="sans-serif"/>
+                    android:fontFamily="@string/default_font"/>
         </RelativeLayout>
         <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"

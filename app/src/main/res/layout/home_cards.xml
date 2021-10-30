@@ -48,7 +48,7 @@
                     android:layout_marginStart="20dp"
                     android:textSize="15sp"
                     android:textColor="@color/white"
-                    android:layout_marginLeft="20dp" android:fontFamily="sans-serif"/>
+                    android:layout_marginLeft="20dp" android:fontFamily="@font/open_sans"/>
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -60,7 +60,7 @@
                     android:textSize="15sp"
                     android:textStyle="bold"
                     android:textColor="@color/main_green"
-                    android:layout_marginLeft="20dp" android:fontFamily="sans-serif"/>
+                    android:layout_marginLeft="20dp" android:fontFamily="@string/default_font"/>
             <View
                     android:id="@+id/divider"
                     android:layout_width="1dp"
@@ -81,7 +81,7 @@
                     android:textSize="15sp"
                     android:textColor="@color/white"
                     android:layout_marginLeft="10dp"
-                    android:layout_toRightOf="@id/divider"/>
+                    android:layout_toRightOf="@id/divider" android:fontFamily="@font/open_sans"/>
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -96,7 +96,7 @@
                     android:textStyle="bold"
                     android:textColor="@color/main_green"
                     android:layout_marginLeft="10dp"
-                    android:layout_toRightOf="@id/divider" android:fontFamily="sans-serif"/>
+                    android:layout_toRightOf="@id/divider" android:fontFamily="@string/default_font"/>
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
     <View
@@ -118,7 +118,7 @@
             android:layout_below="@+id/divider3"
             android:textColor="@color/white"
             android:layout_marginLeft="20dp"
-            android:fontFamily="sans-serif"
+            android:fontFamily="@string/default_font"
             android:typeface="normal"/>
     <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -164,7 +164,7 @@
                     android:layout_marginStart="20dp"
                     android:textSize="15sp"
                     android:textColor="@color/white"
-                    android:layout_marginLeft="20dp" android:fontFamily="sans-serif"/>
+                    android:layout_marginLeft="20dp" android:fontFamily="@string/default_font"/>
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -176,7 +176,7 @@
                     android:textSize="15sp"
                     android:textStyle="bold"
                     android:textColor="@color/main_green"
-                    android:layout_marginLeft="20dp" android:fontFamily="sans-serif"/>
+                    android:layout_marginLeft="20dp" android:fontFamily="@string/default_font"/>
             <View
                     android:id="@+id/divider2"
                     android:layout_width="1dp"
@@ -212,7 +212,7 @@
                     android:textStyle="bold"
                     android:textColor="@color/main_green"
                     android:layout_marginLeft="10dp"
-                    android:layout_toRightOf="@id/divider2" android:fontFamily="sans-serif"/>
+                    android:layout_toRightOf="@id/divider2" android:fontFamily="@string/default_font"/>
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
     <androidx.cardview.widget.CardView
@@ -247,7 +247,7 @@
                     android:textSize="16sp"
                     android:textColor="@color/white"
                     android:layout_marginLeft="20dp"
-                    android:fontFamily="sans-serif"
+                    android:fontFamily="@string/default_font"
                     android:typeface="normal"
                     android:drawableRight="@drawable/ic_baseline_pending_24"
                     android:layout_marginRight="20dp"
@@ -281,7 +281,7 @@
                     android:layout_marginTop="50dp"
                     android:textSize="13sp"
                     android:textColor="@color/white"
-                    android:fontFamily="sans-serif"
+                    android:fontFamily="@string/default_font"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginBottom="5dp"/>

@@ -13,7 +13,7 @@
             android:theme="@style/Theme.TBank">
         <activity
                 android:name=".ui.login.LoginActivity"
-                android:label="Login">
+                android:label="T-Bank">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

@@ -31,7 +31,7 @@
                     android:textStyle="bold"
                     android:textColor="@color/white"
                     android:layout_marginLeft="20dp"
-                    android:fontFamily="sans-serif"/>
+                    android:fontFamily="@string/default_font"/>
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -46,7 +46,7 @@
                     android:textColor="@color/white"
                     android:layout_marginLeft="20dp"
                     android:layout_toLeftOf="@+id/left_img"
-                    android:fontFamily="sans-serif"/>
+                    android:fontFamily="@string/default_font"/>
             <ImageView android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
                        android:layout_marginRight="0dp"
