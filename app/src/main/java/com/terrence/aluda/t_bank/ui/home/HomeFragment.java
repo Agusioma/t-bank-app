@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -24,10 +25,17 @@ public class HomeFragment extends Fragment {
     private RecyclerView courseRV;
 
     // Arraylist for storing data
+    private String firstname, lastname, natID, userPassword, regDate;
     private ArrayList<HomeModel> courseModelArrayList;
+    //private  ArrayList<TokenData> tokenData;
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
         courseRV = root.findViewById(R.id.homeRV);
+        firstname = getArguments().getString("firstname");
+
+        /// tokenData = new ArrayList<>();
+        //firstname = tokenData.get(0).getFirstname();
+      Toast.makeText(getActivity(), firstname, Toast.LENGTH_SHORT).show();
 
         // here we have created new array list and added data to it.
         courseModelArrayList = new ArrayList<>();
@@ -35,7 +43,6 @@ public class HomeFragment extends Fragment {
 
         // we are initializing our adapter class and passing our arraylist to it.
         HomeAdapter courseAdapter = new HomeAdapter(this, courseModelArrayList);
-
         // below line is for setting a layout manager for our recycler view.
         // here we are creating vertical list so we will provide orientation as vertical
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
@@ -43,5 +50,10 @@ public class HomeFragment extends Fragment {
         courseRV.setLayoutManager(linearLayoutManager);
         courseRV.setAdapter(courseAdapter);
         return root;
+
     }
+
+
+
+
 }

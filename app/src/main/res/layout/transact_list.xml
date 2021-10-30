@@ -27,7 +27,7 @@
                 android:id="@+id/text_trans_list1"
                 android:layout_toRightOf="@+id/imageViewTrans"
                 android:layout_marginStart="20dp"
-                android:textSize="15sp"
+                android:textSize="14sp"
                 android:layout_marginBottom="40dp"
                 android:textColor="@color/white"
                 android:layout_marginLeft="20dp"
