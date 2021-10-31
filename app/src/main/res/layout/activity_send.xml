@@ -99,7 +99,7 @@
             android:layout_below="@+id/send_text3"
             android:textColor="@color/grey_2"
             android:layout_marginLeft="20dp"
-            android:fontFamily="monospace"/>
+            android:fontFamily="@font/open_sans"/>
     <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

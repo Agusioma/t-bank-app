@@ -14,30 +14,27 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
+import com.terrence.aluda.t_bank.MainActivity;
 import com.terrence.aluda.t_bank.R;
 import com.terrence.aluda.t_bank.adapters.HomeAdapter;
+import com.terrence.aluda.t_bank.login.LoginTest;
 import com.terrence.aluda.t_bank.models.home.HomeModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class HomeFragment extends Fragment {
 
     private RecyclerView courseRV;
-
+    private MainActivity testActivity;
     // Arraylist for storing data
     private String firstname, lastname, natID, userPassword, regDate;
+    private String nameTest;
     private ArrayList<HomeModel> courseModelArrayList;
-    //private  ArrayList<TokenData> tokenData;
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
         courseRV = root.findViewById(R.id.homeRV);
-        firstname = getArguments().getString("firstname");
-
-        /// tokenData = new ArrayList<>();
-        //firstname = tokenData.get(0).getFirstname();
-      Toast.makeText(getActivity(), firstname, Toast.LENGTH_SHORT).show();
-
-        // here we have created new array list and added data to it.
+        //thisActivity = new MainActivity();
         courseModelArrayList = new ArrayList<>();
         courseModelArrayList.add(new HomeModel("KES"));
 

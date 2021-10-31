@@ -2,6 +2,7 @@ package com.terrence.aluda.t_bank.adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+import com.terrence.aluda.t_bank.MainActivity;
 import com.terrence.aluda.t_bank.models.home.HomeModel;
 import com.terrence.aluda.t_bank.ui.home.HomeFragment;
 import org.jetbrains.annotations.NotNull;
@@ -19,10 +21,12 @@ import java.util.ArrayList;
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     private HomeFragment context;
     private ArrayList<HomeModel> courseModelArrayList;
+    private SharedPreferences sharedPreferences;
 
     public HomeAdapter(HomeFragment context, ArrayList<HomeModel> courseModelArrayList) {
         this.context = context;
         this.courseModelArrayList = courseModelArrayList;
+        sharedPreferences = context.getActivity().getSharedPreferences("MyTax", 0);
     }
     @NonNull
     @NotNull
@@ -36,7 +40,9 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull @NotNull HomeAdapter.ViewHolder holder, int position) {
         HomeModel model = courseModelArrayList.get(position);
-        holder.courseNameTV.setText(model.getCourse_name());
+
+        String setting = sharedPreferences.getString("Name", "defaultValue");
+        holder.courseNameTV.setText("KES");
     }
 
     @Override

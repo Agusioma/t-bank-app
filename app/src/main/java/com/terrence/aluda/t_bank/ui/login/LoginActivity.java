@@ -83,7 +83,6 @@ public class LoginActivity extends AppCompatActivity {
                     userPassword = responseArray.get(0).getPassword();
                     regDate = responseArray.get(0).getRegDate();
                     email = responseArray.get(0).getEmail();
-
                     Intent toMain = new Intent(LoginActivity.this, MainActivity.class);
 
                     toMain.putExtra("firstname", firstname);

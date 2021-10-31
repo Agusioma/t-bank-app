@@ -1,5 +1,8 @@
 package com.terrence.aluda.t_bank;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -16,7 +19,7 @@ import com.terrence.aluda.t_bank.ui.home.HomeFragment;
 
 public class MainActivity extends AppCompatActivity {
     private String firstname, email, lastname, natID, userPassword, regDate;
-
+    SharedPreferences sharedpreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,37 +35,8 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
 
-        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.nav_view);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                Fragment selectedFragment = null;
-
-                switch (item.getItemId()) {
-                    case R.id.navigation_News:
-                        selectedFragment = ItemoneFragment.newInstance();
-                        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                        transaction.replace(R.id.content, selectedFragment);
-                        transaction.addToBackStack(null);
-                        transaction.commit();
-                        return true;
-
-                    case R.id.navigation_profile:
-                        selectedFragment = ItemtwoFragment.newInstance();
-                        transaction = getSupportFragmentManager().beginTransaction();
-                        transaction.replace(R.id.content, selectedFragment);
-                        transaction.addToBackStack(null);
-                        transaction.commit();
-                        return true;
-
-                }
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.content, selectedFragment);
-                transaction.commit();
-                return true;
-            }
-        });
-
+        sharedpreferences = getSharedPreferences("MyTax" ,0);
+        Toast.makeText(getApplicationContext(), getData(), Toast.LENGTH_SHORT).show();
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
 
@@ -72,6 +46,10 @@ public class MainActivity extends AppCompatActivity {
             userPassword = extras.getString("userPassword");
             regDate = extras.getString("regDate");
             email = extras.getString("email");
+            SharedPreferences.Editor editor = sharedpreferences.edit();
+            editor.putString("Name", firstname);
+            editor.putString("Last", lastname);
+            editor.commit();
 
         }
 
@@ -86,5 +64,9 @@ public class MainActivity extends AppCompatActivity {
         HomeFragment homeFrag = new HomeFragment();
         homeFrag.setArguments(homeBundle);
     }
-
+        public String getData(){
+            SharedPreferences sharedPreferences = getSharedPreferences("MyTax", 0);
+            String setting = sharedPreferences.getString("Name", "defaultValue");
+            return setting;
+        }
 }
