@@ -35,23 +35,24 @@ public class LoginActivity extends AppCompatActivity {
         editNum = findViewById(R.id.edit_usernumber);
         editPassword = findViewById(R.id.edit_password);
         btnAuth = findViewById(R.id.btn_login);
-
-        btnAuth.setOnClickListener(new View.OnClickListener() {
+        sendAuthToken();
+       /* btnAuth.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 sendAuthToken();
             }
-        });
+        });*/
     }
 
     private void sendAuthToken() {
         APIInterface apiInterface;
         final ProgressDialog progressDialog = new ProgressDialog(LoginActivity.this);
 
-        phoneParam = editNum.getText().toString();
-        passwordParam = editPassword.getText().toString();
+        //phoneParam = editNum.getText().toString();
+        //passwordParam = editPassword.getText().toString();
 
-        phoneParam = "254" + phoneParam.substring(phoneParam.length() - 9);
-
+        //phoneParam = "254" + phoneParam.substring(phoneParam.length() - 9);
+        phoneParam = "254702277060";
+        passwordParam = "4141";
         progressDialog.setMessage("Testing");
         progressDialog.show();
 

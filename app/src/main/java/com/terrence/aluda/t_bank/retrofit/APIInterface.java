@@ -1,5 +1,6 @@
 package com.terrence.aluda.t_bank.retrofit;
 
+import com.terrence.aluda.t_bank.netrequests.AccountStatements;
 import com.terrence.aluda.t_bank.netrequests.LoginTest;
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -11,6 +12,8 @@ public interface APIInterface {
     @GET("/customer/")
     Call<List<LoginTest>> doAuthenticate(@Query("user_phone") String user_phone, @Query("user_token") String user_token);
 
+    @GET("/viewstatements/37378962")
+    Call<List<AccountStatements>> getStatements(/*@Query("user_phone") String user_phone*/);
    /* @POST("/api/users")
     Call<User> createUser(@Body User user);
 

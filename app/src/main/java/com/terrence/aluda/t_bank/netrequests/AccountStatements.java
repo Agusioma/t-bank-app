@@ -34,6 +34,10 @@ public class AccountStatements {
         this.transID = transID;
     }
 
+    public String getTransID() {
+        return transID;
+    }
+
     public String getTransType() {
         return transType;
     }
@@ -57,4 +61,5 @@ public class AccountStatements {
     public void setTransDate(String transDate) {
         this.transDate = transDate;
     }
+
 }

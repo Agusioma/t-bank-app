@@ -1,5 +1,6 @@
 package com.terrence.aluda.t_bank;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,11 +16,23 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import com.terrence.aluda.t_bank.netrequests.AccountStatements;
+import com.terrence.aluda.t_bank.netrequests.LoginTest;
+import com.terrence.aluda.t_bank.retrofit.APIClient;
+import com.terrence.aluda.t_bank.retrofit.APIInterface;
 import com.terrence.aluda.t_bank.ui.home.HomeFragment;
+import com.terrence.aluda.t_bank.ui.login.LoginActivity;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private String firstname, email, lastname, natID, userPassword, regDate;
+    private String firstname, email, lastname, natID, userPassword, regDate,statCheck;
     SharedPreferences sharedpreferences;
+    List<AccountStatements> responseArray;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,21 +65,40 @@ public class MainActivity extends AppCompatActivity {
             editor.commit();
 
         }
-
-        Bundle homeBundle = new Bundle();
-
-        homeBundle.putString("firstname", firstname);
-        homeBundle.putString("lastname", lastname);
-        homeBundle.putString("natID", natID);
-        homeBundle.putString("userPassword", userPassword);
-        homeBundle.putString("regDate", regDate);
-
-        HomeFragment homeFrag = new HomeFragment();
-        homeFrag.setArguments(homeBundle);
+        retrieveStatements();
     }
         public String getData(){
             SharedPreferences sharedPreferences = getSharedPreferences("MyTax", 0);
             String setting = sharedPreferences.getString("Name", "defaultValue");
             return setting;
         }
+    private void retrieveStatements() {
+        APIInterface apiInterface;
+        final ProgressDialog progressDialog = new ProgressDialog(MainActivity.this);
+
+        progressDialog.setMessage("Testing");
+        progressDialog.show();
+
+        responseArray = new ArrayList<>();
+
+        apiInterface = APIClient.getClient().create(APIInterface.class);
+        Call<List<AccountStatements>> call = apiInterface.getStatements();
+
+        call.enqueue(new Callback<List<AccountStatements>>() {
+            @Override
+            public void onResponse(Call<List<AccountStatements>> call, Response<List<AccountStatements>> response) {
+                progressDialog.dismiss();
+                responseArray = response.body();
+                statCheck = responseArray.get(0).getTransID();
+                Toast.makeText(getApplicationContext(), statCheck, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<List<AccountStatements>> call, Throwable t) {
+                progressDialog.dismiss();
+                Toast.makeText(getApplicationContext(), t.toString(), Toast.LENGTH_SHORT).show();
+                call.cancel();
+            }
+        });
+    }
 }
