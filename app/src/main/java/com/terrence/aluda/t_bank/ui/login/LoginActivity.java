@@ -2,22 +2,19 @@ package com.terrence.aluda.t_bank.ui.login;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.terrence.aluda.t_bank.MainActivity;
-import com.terrence.aluda.t_bank.login.LoginTest;
+import com.terrence.aluda.t_bank.netrequests.LoginTest;
 import com.terrence.aluda.t_bank.retrofit.APIClient;
 import com.terrence.aluda.t_bank.retrofit.APIInterface;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import com.google.gson.Gson;
 import com.terrence.aluda.t_bank.R;
 
 import java.util.ArrayList;

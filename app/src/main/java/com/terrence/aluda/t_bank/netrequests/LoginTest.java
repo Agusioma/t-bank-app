@@ -1,4 +1,4 @@
-package com.terrence.aluda.t_bank.login;
+package com.terrence.aluda.t_bank.netrequests;
 
 import com.google.gson.annotations.SerializedName;
 public class LoginTest {
