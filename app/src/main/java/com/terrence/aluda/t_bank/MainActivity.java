@@ -30,7 +30,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private String firstname, email, lastname, natID, userPassword, regDate,statCheck;
+    private String firstname, email, lastname, natID, userPassword, regDate,statCheck, totals;
     SharedPreferences sharedpreferences;
     List<AccountStatements> responseArray;
     @Override
@@ -101,4 +101,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 }

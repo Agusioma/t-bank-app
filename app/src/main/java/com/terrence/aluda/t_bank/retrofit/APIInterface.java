@@ -2,6 +2,7 @@ package com.terrence.aluda.t_bank.retrofit;
 
 import com.terrence.aluda.t_bank.netrequests.AccountStatements;
 import com.terrence.aluda.t_bank.netrequests.LoginTest;
+import com.terrence.aluda.t_bank.netrequests.TotalSavings;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
@@ -14,6 +15,8 @@ public interface APIInterface {
 
     @GET("/viewstatements/37378962")
     Call<List<AccountStatements>> getStatements(/*@Query("user_phone") String user_phone*/);
+    @GET("/totalsavings/37378962")
+    Call<List<TotalSavings>> getTotalSavings(/*@Query("user_phone") String user_phone*/);
    /* @POST("/api/users")
     Call<User> createUser(@Body User user);
 
