@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
@@ -33,8 +34,9 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     private ArrayList<HomeModel> courseModelArrayList;
     private SharedPreferences sharedPreferences;
     List<TotalSavings> totalsArray;
-    private String currencyPattern = "###,###,###.##";
-    DecimalFormat dF = new DecimalFormat(currencyPattern);
+
+   // private String currencyPattern = "###,###,###.##";
+    //DecimalFormat dF = new DecimalFormat(currencyPattern);
     private String totals, totalSavings, firstName, lastName, test;
 
     public HomeAdapter(HomeFragment context, ArrayList<HomeModel> courseModelArrayList) {
@@ -53,16 +55,20 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull HomeAdapter.ViewHolder holder, int position) {
+
         HomeModel model = courseModelArrayList.get(position);
         APIInterface apiInterface;
         totalsArray = new ArrayList<>();
 
         apiInterface = APIClient.getClient().create(APIInterface.class);
         Call<List<TotalSavings>> call = apiInterface.getTotalSavings();
-
+        holder.pgBar.setVisibility(View.VISIBLE);
+        holder.savingsLbl.setVisibility(View.GONE);
         call.enqueue(new Callback<List<TotalSavings>>() {
             @Override
             public void onResponse(Call<List<TotalSavings>> call, Response<List<TotalSavings>> response) {
+                holder.pgBar.setVisibility(View.GONE);
+                holder.savingsLbl.setVisibility(View.VISIBLE);
                 totalsArray = response.body();
                 totals = totalsArray.get(0).getTotals();
                 firstName = sharedPreferences.getString("Name", "defaultValue");
@@ -70,9 +76,9 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
                 holder.nameLbl.setText(firstName + " " + lastName);
                 holder.totalsLbl.setText(totals);
-                String total = dF.format(Double.parseDouble(totals));
-                holder.savingsLbl.setText(total);
-                holder.loanLimitLbl.setText(total);
+               // Double total = Double.parseDouble(totals);
+                holder.savingsLbl.setText(totals);
+                holder.loanLimitLbl.setText(totals);
             }
 
             @Override
@@ -92,12 +98,14 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView courseNameTV, savingsLbl, totalsLbl, nameLbl, loanLimitLbl;
+        private ProgressBar pgBar;
         private CardView cvt;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             courseNameTV = itemView.findViewById(R.id.text_name);
             cvt = itemView.findViewById(R.id.our_card);
+            pgBar = itemView.findViewById(R.id.progressBar);
             savingsLbl = itemView.findViewById(R.id.userSavings);
             totalsLbl = itemView.findViewById(R.id.totalsLbl);
             nameLbl = itemView.findViewById(R.id.nameLbl);

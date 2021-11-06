@@ -61,6 +61,16 @@
                     android:textStyle="bold"
                     android:textColor="@color/main_green"
                     android:layout_marginLeft="20dp" android:fontFamily="@font/open_sans"/>
+            <ProgressBar
+                    style="@style/Widget.AppCompat.ProgressBar"
+                    android:layout_below="@id/savingsLbl"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginStart="20dp"
+                    android:progressDrawable="@drawable/pgbg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="27dp"
+                    android:id="@+id/progressBar"
+                    android:layout_marginLeft="20dp"/>
             <View
                     android:id="@+id/divider"
                     android:layout_width="1dp"
