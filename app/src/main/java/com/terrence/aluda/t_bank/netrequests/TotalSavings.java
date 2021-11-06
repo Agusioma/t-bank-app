@@ -8,13 +8,13 @@ public class TotalSavings {
 
     @SerializedName("totals")
     @Expose
-    public Integer totals;
+    public String totals;
 
-    public void setTotals(Integer totals) {
+    public void setTotals(String totals) {
         this.totals = totals;
     }
 
-    public Integer getTotals() {
+    public String getTotals() {
         return totals;
     }
 }

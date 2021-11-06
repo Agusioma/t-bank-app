@@ -18,6 +18,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import com.terrence.aluda.t_bank.netrequests.AccountStatements;
 import com.terrence.aluda.t_bank.netrequests.LoginTest;
+import com.terrence.aluda.t_bank.netrequests.TotalSavings;
 import com.terrence.aluda.t_bank.retrofit.APIClient;
 import com.terrence.aluda.t_bank.retrofit.APIInterface;
 import com.terrence.aluda.t_bank.ui.home.HomeFragment;
@@ -32,7 +33,9 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     private String firstname, email, lastname, natID, userPassword, regDate,statCheck, totals;
     SharedPreferences sharedpreferences;
-    List<AccountStatements> responseArray;
+    List<AccountStatements> statementsArray;
+    List<TotalSavings> totalsArray;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
         retrieveStatements();
+        retrieveTotals();
     }
         public String getData(){
             SharedPreferences sharedPreferences = getSharedPreferences("MyTax", 0);
@@ -79,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
         progressDialog.setMessage("Testing");
         progressDialog.show();
 
-        responseArray = new ArrayList<>();
+        statementsArray = new ArrayList<>();
 
         apiInterface = APIClient.getClient().create(APIInterface.class);
         Call<List<AccountStatements>> call = apiInterface.getStatements();
@@ -88,8 +92,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<AccountStatements>> call, Response<List<AccountStatements>> response) {
                 progressDialog.dismiss();
-                responseArray = response.body();
-                statCheck = responseArray.get(0).getTransID();
+                statementsArray = response.body();
+                statCheck = statementsArray.get(0).getTransID();
                 Toast.makeText(getApplicationContext(), statCheck, Toast.LENGTH_SHORT).show();
             }
 
@@ -102,4 +106,26 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    private void retrieveTotals() {
+        APIInterface apiInterface;
+        totalsArray = new ArrayList<>();
+
+        apiInterface = APIClient.getClient().create(APIInterface.class);
+        Call<List<TotalSavings>> call = apiInterface.getTotalSavings();
+
+        call.enqueue(new Callback<List<TotalSavings>>() {
+            @Override
+            public void onResponse(Call<List<TotalSavings>> call, Response<List<TotalSavings>> response) {
+                totalsArray = response.body();
+                totals = totalsArray.get(0).getTotals();
+                Toast.makeText(getApplicationContext(), totals, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<List<TotalSavings>> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), t.toString(), Toast.LENGTH_SHORT).show();
+                call.cancel();
+            }
+        });
+    }
 }
