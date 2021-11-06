@@ -33,8 +33,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     private String firstname, email, lastname, natID, userPassword, regDate,statCheck, totals;
     SharedPreferences sharedpreferences;
-    List<AccountStatements> statementsArray;
-    List<TotalSavings> totalsArray;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navView, navController);
 
         sharedpreferences = getSharedPreferences("MyTax" ,0);
-        Toast.makeText(getApplicationContext(), getData(), Toast.LENGTH_SHORT).show();
+
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
 
@@ -62,70 +61,23 @@ public class MainActivity extends AppCompatActivity {
             userPassword = extras.getString("userPassword");
             regDate = extras.getString("regDate");
             email = extras.getString("email");
-            SharedPreferences.Editor editor = sharedpreferences.edit();
-            editor.putString("Name", firstname);
-            editor.putString("Last", lastname);
-            editor.commit();
+            totals = extras.getString("totals");
 
         }
-        retrieveStatements();
-        retrieveTotals();
+
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        editor.putString("Name", firstname);
+        editor.putString("Last", lastname);
+        editor.putString("NatID", natID);
+        editor.putString("Totals", totals);
+        editor.commit();
+        Toast.makeText(getApplicationContext(), totals, Toast.LENGTH_SHORT).show();
+
     }
         public String getData(){
             SharedPreferences sharedPreferences = getSharedPreferences("MyTax", 0);
             String setting = sharedPreferences.getString("Name", "defaultValue");
             return setting;
         }
-    private void retrieveStatements() {
-        APIInterface apiInterface;
-        final ProgressDialog progressDialog = new ProgressDialog(MainActivity.this);
 
-        progressDialog.setMessage("Testing");
-        progressDialog.show();
-
-        statementsArray = new ArrayList<>();
-
-        apiInterface = APIClient.getClient().create(APIInterface.class);
-        Call<List<AccountStatements>> call = apiInterface.getStatements();
-
-        call.enqueue(new Callback<List<AccountStatements>>() {
-            @Override
-            public void onResponse(Call<List<AccountStatements>> call, Response<List<AccountStatements>> response) {
-                progressDialog.dismiss();
-                statementsArray = response.body();
-                statCheck = statementsArray.get(0).getTransID();
-                Toast.makeText(getApplicationContext(), statCheck, Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onFailure(Call<List<AccountStatements>> call, Throwable t) {
-                progressDialog.dismiss();
-                Toast.makeText(getApplicationContext(), t.toString(), Toast.LENGTH_SHORT).show();
-                call.cancel();
-            }
-        });
-    }
-
-    private void retrieveTotals() {
-        APIInterface apiInterface;
-        totalsArray = new ArrayList<>();
-
-        apiInterface = APIClient.getClient().create(APIInterface.class);
-        Call<List<TotalSavings>> call = apiInterface.getTotalSavings();
-
-        call.enqueue(new Callback<List<TotalSavings>>() {
-            @Override
-            public void onResponse(Call<List<TotalSavings>> call, Response<List<TotalSavings>> response) {
-                totalsArray = response.body();
-                totals = totalsArray.get(0).getTotals();
-                Toast.makeText(getApplicationContext(), totals, Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onFailure(Call<List<TotalSavings>> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), t.toString(), Toast.LENGTH_SHORT).show();
-                call.cancel();
-            }
-        });
-    }
 }

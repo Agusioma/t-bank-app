@@ -9,7 +9,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.terrence.aluda.t_bank.MainActivity;
+import com.terrence.aluda.t_bank.netrequests.AccountStatements;
 import com.terrence.aluda.t_bank.netrequests.LoginTest;
+import com.terrence.aluda.t_bank.netrequests.TotalSavings;
 import com.terrence.aluda.t_bank.retrofit.APIClient;
 import com.terrence.aluda.t_bank.retrofit.APIInterface;
 import retrofit2.Call;
@@ -23,9 +25,11 @@ import java.util.List;
 public class LoginActivity extends AppCompatActivity {
 
     List<LoginTest> responseArray;
-    private String loggedInCheck, firstname, lastname, email, natID, userPassword, regDate, phoneParam, passwordParam;
+    private String loggedInCheck, firstname, lastname, email, natID, userPassword, regDate, phoneParam, passwordParam, statCheck, totals;
     private EditText editNum, editPassword;
     private Button btnAuth;
+    List<AccountStatements> statementsArray;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,15 +50,15 @@ public class LoginActivity extends AppCompatActivity {
     private void sendAuthToken() {
         APIInterface apiInterface;
         final ProgressDialog progressDialog = new ProgressDialog(LoginActivity.this);
-
+        progressDialog.setMessage("Testing");
+        progressDialog.show();
         //phoneParam = editNum.getText().toString();
         //passwordParam = editPassword.getText().toString();
 
         //phoneParam = "254" + phoneParam.substring(phoneParam.length() - 9);
         phoneParam = "254702277060";
         passwordParam = "4141";
-        progressDialog.setMessage("Testing");
-        progressDialog.show();
+
 
         responseArray = new ArrayList<>();
 
@@ -64,7 +68,6 @@ public class LoginActivity extends AppCompatActivity {
         call.enqueue(new Callback<List<LoginTest>>() {
             @Override
             public void onResponse(Call<List<LoginTest>> call, Response<List<LoginTest>> response) {
-
                 progressDialog.dismiss();
                 responseArray = response.body();
                 loggedInCheck = responseArray.get(0).getId();
@@ -74,6 +77,9 @@ public class LoginActivity extends AppCompatActivity {
                 } else if (loggedInCheck.equals("wrong00")) {
                     Toast.makeText(getApplicationContext(), "Wrong password", Toast.LENGTH_SHORT).show();
                 } else {
+                    //retrieveStatements();
+                    //retrieveTotals();
+
 
                     firstname = responseArray.get(0).getFirstname();
                     lastname = responseArray.get(0).getLastname();
@@ -81,7 +87,8 @@ public class LoginActivity extends AppCompatActivity {
                     userPassword = responseArray.get(0).getPassword();
                     regDate = responseArray.get(0).getRegDate();
                     email = responseArray.get(0).getEmail();
-                    Intent toMain = new Intent(LoginActivity.this, MainActivity.class);
+
+                   Intent toMain = new Intent(LoginActivity.this, MainActivity.class);
 
                     toMain.putExtra("firstname", firstname);
                     toMain.putExtra("lastname", lastname);
@@ -89,6 +96,7 @@ public class LoginActivity extends AppCompatActivity {
                     toMain.putExtra("userPassword", userPassword);
                     toMain.putExtra("regDate", regDate);
                     toMain.putExtra("email", email);
+                    toMain.putExtra("totals", totals);
 
                     startActivity(toMain);
                 }
@@ -104,6 +112,28 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+ /*   private void retrieveStatements() {
+        APIInterface apiInterface;
+        statementsArray = new ArrayList<>();
+
+        apiInterface = APIClient.getClient().create(APIInterface.class);
+        Call<List<AccountStatements>> call = apiInterface.getStatements();
+
+        call.enqueue(new Callback<List<AccountStatements>>() {
+            @Override
+            public void onResponse(Call<List<AccountStatements>> call, Response<List<AccountStatements>> response) {
+                statementsArray = response.body();
+                statCheck = statementsArray.get(0).getTransID();
+                Toast.makeText(getApplicationContext(), statCheck, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<List<AccountStatements>> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), t.toString(), Toast.LENGTH_SHORT).show();
+                call.cancel();
+            }
+        });
+    }*/
 
 
     /**
