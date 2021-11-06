@@ -96,7 +96,6 @@ public class LoginActivity extends AppCompatActivity {
                     toMain.putExtra("userPassword", userPassword);
                     toMain.putExtra("regDate", regDate);
                     toMain.putExtra("email", email);
-                    toMain.putExtra("totals", totals);
 
                     startActivity(toMain);
                 }

@@ -1,7 +1,5 @@
 package com.terrence.aluda.t_bank.adapters;
 
-import android.annotation.SuppressLint;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.view.LayoutInflater;
@@ -26,6 +24,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,7 +33,9 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     private ArrayList<HomeModel> courseModelArrayList;
     private SharedPreferences sharedPreferences;
     List<TotalSavings> totalsArray;
-    private String totals, totalSavings, firstName, lastName;
+    private String currencyPattern = "###,###,###.##";
+    DecimalFormat dF = new DecimalFormat(currencyPattern);
+    private String totals, totalSavings, firstName, lastName, test;
 
     public HomeAdapter(HomeFragment context, ArrayList<HomeModel> courseModelArrayList) {
         this.context = context;
@@ -53,10 +54,34 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull @NotNull HomeAdapter.ViewHolder holder, int position) {
         HomeModel model = courseModelArrayList.get(position);
-        retrieveTotals();
-        holder.nameLbl.setText(firstName + " " + lastName);
-        holder.totalsLbl.setText(totalSavings);
-        holder.savingsLbl.setText(totalSavings);
+        APIInterface apiInterface;
+        totalsArray = new ArrayList<>();
+
+        apiInterface = APIClient.getClient().create(APIInterface.class);
+        Call<List<TotalSavings>> call = apiInterface.getTotalSavings();
+
+        call.enqueue(new Callback<List<TotalSavings>>() {
+            @Override
+            public void onResponse(Call<List<TotalSavings>> call, Response<List<TotalSavings>> response) {
+                totalsArray = response.body();
+                totals = totalsArray.get(0).getTotals();
+                firstName = sharedPreferences.getString("Name", "defaultValue");
+                lastName = sharedPreferences.getString("Last", "defaultValue");
+
+                holder.nameLbl.setText(firstName + " " + lastName);
+                holder.totalsLbl.setText(totals);
+                String total = dF.format(Double.parseDouble(totals));
+                holder.savingsLbl.setText(total);
+                holder.loanLimitLbl.setText(total);
+            }
+
+            @Override
+            public void onFailure(Call<List<TotalSavings>> call, Throwable t) {
+                Toast.makeText(context.getActivity(), t.toString(), Toast.LENGTH_SHORT).show();
+                call.cancel();
+            }
+        });
+
 
     }
 
@@ -66,7 +91,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView courseNameTV, savingsLbl, totalsLbl, nameLbl;
+        private TextView courseNameTV, savingsLbl, totalsLbl, nameLbl, loanLimitLbl;
         private CardView cvt;
 
         public ViewHolder(@NonNull View itemView) {
@@ -76,10 +101,11 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
             savingsLbl = itemView.findViewById(R.id.userSavings);
             totalsLbl = itemView.findViewById(R.id.totalsLbl);
             nameLbl = itemView.findViewById(R.id.nameLbl);
+            loanLimitLbl = itemView.findViewById(R.id.loanLimitLbl);
         }
     }
 
-    private void retrieveTotals() {
+    /*private void retrieveTotals() {
         APIInterface apiInterface;
         final ProgressDialog progressDialog = new ProgressDialog(context.getActivity());
         progressDialog.setMessage("Testing");
@@ -96,11 +122,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
                 totalsArray = response.body();
                 totals = totalsArray.get(0).getTotals();
 
-                firstName = sharedPreferences.getString("Name", "defaultValue");
-                lastName = sharedPreferences.getString("Last", "defaultValue");
-                totalSavings = sharedPreferences.getString("Totals", "defaultValue");
-
-                //Toast.makeText(getApplicationContext(), totals, Toast.LENGTH_SHORT).show();
+                Toast.makeText(context.getActivity(), totals, Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -110,5 +132,6 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
                 call.cancel();
             }
         });
-    }
+    }*/
+
 }

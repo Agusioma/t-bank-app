@@ -61,7 +61,6 @@ public class MainActivity extends AppCompatActivity {
             userPassword = extras.getString("userPassword");
             regDate = extras.getString("regDate");
             email = extras.getString("email");
-            totals = extras.getString("totals");
 
         }
 
@@ -69,9 +68,7 @@ public class MainActivity extends AppCompatActivity {
         editor.putString("Name", firstname);
         editor.putString("Last", lastname);
         editor.putString("NatID", natID);
-        editor.putString("Totals", totals);
         editor.commit();
-        Toast.makeText(getApplicationContext(), totals, Toast.LENGTH_SHORT).show();
 
     }
         public String getData(){
