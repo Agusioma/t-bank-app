@@ -72,9 +72,8 @@ public class StatementActivity extends AppCompatActivity {
                     statementsArray.get(i).setTransDate(statementsArray.get(0).getTransDate());
                     statementsArray.get(i).setTransID(statementsArray.get(0).getTransID());
                     statementsArray.get(i).setTransType(statementsArray.get(0).getTransType());
+                    i+=1;
                 }
-                //statCheck = statementsArray.get(0).getTransID();
-                //  Toast.makeText(getApplicationContext(), statCheck, Toast.LENGTH_SHORT).show();
 
                 statAdapter = new StatementAdapter(getApplicationContext(),statementsArray);
                 statRV.setAdapter(statAdapter);
