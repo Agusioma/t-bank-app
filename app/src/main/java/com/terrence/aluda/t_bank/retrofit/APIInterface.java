@@ -7,6 +7,7 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public interface APIInterface {
@@ -14,7 +15,7 @@ public interface APIInterface {
     Call<List<LoginTest>> doAuthenticate(@Query("user_phone") String user_phone, @Query("user_token") String user_token);
 
     @GET("/viewstatements/37378962")
-    Call<List<AccountStatements>> getStatements(/*@Query("user_phone") String user_phone*/);
+    Call<ArrayList<AccountStatements>> getStatements(/*@Query("user_phone") String user_phone*/);
     @GET("/totalsavings/37378962")
     Call<List<TotalSavings>> getTotalSavings(/*@Query("user_phone") String user_phone*/);
    /* @POST("/api/users")

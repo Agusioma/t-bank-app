@@ -62,11 +62,10 @@
                     android:textColor="@color/main_green"
                     android:layout_marginLeft="20dp" android:fontFamily="@font/open_sans"/>
             <ProgressBar
-                    style="@style/Widget.AppCompat.ProgressBar"
+                    style="@android:style/Widget.Holo.Light.ProgressBar"
                     android:layout_below="@id/savingsLbl"
                     android:layout_marginTop="4dp"
                     android:layout_marginStart="20dp"
-                    android:progressDrawable="@drawable/pgbg"
                     android:layout_width="wrap_content"
                     android:layout_height="27dp"
                     android:id="@+id/progressBar"
@@ -280,6 +279,24 @@
                     android:textColor="@color/white"
                     android:layout_marginLeft="20dp"
                     android:fontFamily="@font/open_sans"/>
+            <ProgressBar
+                    style="@android:style/Widget.Holo.Light.ProgressBar"
+                    android:layout_below="@id/nameLbl"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_width="69dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/progressBar2"
+                    android:layout_marginLeft="20dp" android:layout_centerVertical="true"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="A moment please..."
+                    android:id="@+id/loadingTxt"
+                    android:textSize="15sp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/open_sans"
+                    android:typeface="normal" android:layout_centerInParent="true"/>
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -300,15 +317,15 @@
                     android:layout_marginTop="55dp"
                     android:background="#002001"
                     android:layout_centerHorizontal="true"/>
+
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1520177747921"
                     android:id="@+id/savingsLbl2"
                     android:layout_below="@id/nameLbl"
                     android:layout_toRightOf="@id/divider6"
                     android:layout_marginTop="50dp"
-                    android:textSize="13sp"
+                    android:textSize="12sp"
                     android:textColor="@color/white"
                     android:fontFamily="@font/open_sans"
                     android:layout_marginLeft="20dp"

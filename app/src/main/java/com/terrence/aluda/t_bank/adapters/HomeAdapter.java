@@ -37,7 +37,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
    // private String currencyPattern = "###,###,###.##";
     //DecimalFormat dF = new DecimalFormat(currencyPattern);
-    private String totals, totalSavings, firstName, lastName, test;
+    private String totals, totalSavings, firstName, lastName, natID, test;
 
     public HomeAdapter(HomeFragment context, ArrayList<HomeModel> courseModelArrayList) {
         this.context = context;
@@ -63,22 +63,34 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         apiInterface = APIClient.getClient().create(APIInterface.class);
         Call<List<TotalSavings>> call = apiInterface.getTotalSavings();
         holder.pgBar.setVisibility(View.VISIBLE);
+        holder.pgBar2.setVisibility(View.VISIBLE);
+        holder.loadingTxt.setVisibility(View.VISIBLE);
         holder.savingsLbl.setVisibility(View.GONE);
+        holder.savingsLbl4.setVisibility(View.GONE);
         call.enqueue(new Callback<List<TotalSavings>>() {
             @Override
             public void onResponse(Call<List<TotalSavings>> call, Response<List<TotalSavings>> response) {
                 holder.pgBar.setVisibility(View.GONE);
+                holder.pgBar2.setVisibility(View.GONE);
+                holder.loadingTxt.setVisibility(View.GONE);
                 holder.savingsLbl.setVisibility(View.VISIBLE);
+                holder.savingsLbl4.setVisibility(View.VISIBLE);
                 totalsArray = response.body();
                 totals = totalsArray.get(0).getTotals();
                 firstName = sharedPreferences.getString("Name", "defaultValue");
                 lastName = sharedPreferences.getString("Last", "defaultValue");
+                natID = sharedPreferences.getString("natID", "defaultValue");
 
                 holder.nameLbl.setText(firstName + " " + lastName);
                 holder.totalsLbl.setText(totals);
                // Double total = Double.parseDouble(totals);
                 holder.savingsLbl.setText(totals);
                 holder.loanLimitLbl.setText(totals);
+                holder.natIDLbl.setText("A/C NO: "+natID);
+
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("tot", totals);
+                editor.commit();
             }
 
             @Override
@@ -97,8 +109,8 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView courseNameTV, savingsLbl, totalsLbl, nameLbl, loanLimitLbl;
-        private ProgressBar pgBar;
+        private TextView courseNameTV, savingsLbl, totalsLbl, nameLbl, loanLimitLbl, natIDLbl, savingsLbl4, loadingTxt;
+        private ProgressBar pgBar, pgBar2;
         private CardView cvt;
 
         public ViewHolder(@NonNull View itemView) {
@@ -109,7 +121,11 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
             savingsLbl = itemView.findViewById(R.id.userSavings);
             totalsLbl = itemView.findViewById(R.id.totalsLbl);
             nameLbl = itemView.findViewById(R.id.nameLbl);
+            loadingTxt = itemView.findViewById(R.id.loadingTxt);
             loanLimitLbl = itemView.findViewById(R.id.loanLimitLbl);
+            natIDLbl = itemView.findViewById(R.id.savingsLbl2);
+            pgBar2 = itemView.findViewById(R.id.progressBar2);
+            savingsLbl4 = itemView.findViewById(R.id.savingsLbl4);
         }
     }
 

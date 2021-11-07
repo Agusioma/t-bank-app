@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = sharedpreferences.edit();
         editor.putString("Name", firstname);
         editor.putString("Last", lastname);
-        editor.putString("NatID", natID);
+        editor.putString("natID", natID);
         editor.commit();
 
     }

@@ -1,25 +1,38 @@
 package com.terrence.aluda.t_bank.adapters;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import com.terrence.aluda.t_bank.MainActivity;
 import com.terrence.aluda.t_bank.R;
 import com.terrence.aluda.t_bank.models.transact.StatementModel;
+import com.terrence.aluda.t_bank.netrequests.AccountStatements;
+import com.terrence.aluda.t_bank.retrofit.APIClient;
+import com.terrence.aluda.t_bank.retrofit.APIInterface;
+import com.terrence.aluda.t_bank.ui.login.LoginActivity;
 import com.terrence.aluda.t_bank.ui.transaction.StatementActivity;
 import org.jetbrains.annotations.NotNull;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class StatementAdapter extends RecyclerView.Adapter<com.terrence.aluda.t_bank.adapters.StatementAdapter.ViewHolder> {
-    private StatementActivity context;
-    private ArrayList<StatementModel> statementModelArrayList;
+    private Context context;
+    //private ArrayList<AccountStatements> statementsArray;
+    List<AccountStatements> statementsArray;
 
-    public StatementAdapter(StatementActivity context, ArrayList<StatementModel> statementModelArrayList) {
+    public StatementAdapter(Context context, ArrayList<AccountStatements> statementsArray) {
         this.context = context;
-        this.statementModelArrayList = statementModelArrayList;
+        this.statementsArray = statementsArray;
     }
 
     @NonNull
@@ -32,15 +45,15 @@ public class StatementAdapter extends RecyclerView.Adapter<com.terrence.aluda.t_
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull com.terrence.aluda.t_bank.adapters.StatementAdapter.ViewHolder holder, int position) {
-        StatementModel model = statementModelArrayList.get(position);
-        holder.trans_Type.setText(model.getTrans_type());
-        holder.trans_ID.setText(model.getTrans_id());
-        holder.trans_Date.setText(model.getTrans_date());
+        AccountStatements model = statementsArray.get(position);
+        holder.trans_Type.setText(model.getTransType());
+        holder.trans_ID.setText(model.getTransID());
+        holder.trans_Date.setText(model.getTransDate());
         holder.trans_Amount.setText(model.getAmount());
     }
 
     public int getItemCount() {
-        return statementModelArrayList.size();
+        return statementsArray.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
