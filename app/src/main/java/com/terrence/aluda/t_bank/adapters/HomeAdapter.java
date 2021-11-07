@@ -85,7 +85,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
                 holder.totalsLbl.setText(totals);
                // Double total = Double.parseDouble(totals);
                 holder.savingsLbl.setText(totals);
-                holder.loanLimitLbl.setText(totals);
+                //holder.loanLimitLbl.setText(totals);
                 holder.natIDLbl.setText("A/C NO: "+natID);
 
                 SharedPreferences.Editor editor = sharedPreferences.edit();
