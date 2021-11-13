@@ -1,6 +1,7 @@
 package com.terrence.aluda.t_bank.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,7 @@ import com.terrence.aluda.t_bank.models.home.HomeModel;
 import com.terrence.aluda.t_bank.netrequests.TotalSavings;
 import com.terrence.aluda.t_bank.retrofit.APIClient;
 import com.terrence.aluda.t_bank.retrofit.APIInterface;
+import com.terrence.aluda.t_bank.ui.accounts.AccountsActivity;
 import com.terrence.aluda.t_bank.ui.home.HomeFragment;
 import com.terrence.aluda.t_bank.ui.login.LoginActivity;
 import org.jetbrains.annotations.NotNull;
@@ -63,7 +65,8 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         holder.moreImg.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Your code.
-                Toast.makeText(context.getActivity(), "Haaaaa", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context.getActivity(), AccountsActivity.class);
+                context.startActivity(intent);
             }
         });
         apiInterface = APIClient.getClient().create(APIInterface.class);
