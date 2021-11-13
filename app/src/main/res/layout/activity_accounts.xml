@@ -37,7 +37,7 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Ksh. 4386"
+                    android:text="KES 4386"
                     android:id="@+id/accAmtLbl"
                     android:layout_marginTop="20dp"
                     android:layout_marginStart="20dp"
@@ -45,13 +45,13 @@
                     android:textColor="@color/white"
                     android:layout_marginLeft="20dp" android:fontFamily="@font/open_sans"
                     android:layout_alignParentRight="true" android:layout_marginRight="20dp"
-                    android:layout_marginEnd="20dp"/>
+                    android:layout_marginEnd="20dp" android:textStyle="bold"/>
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="****          ****            ****            ****"
+                    android:text="XXXX          XXXX            XXXX            XXXX"
                     android:id="@+id/accLbl"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginStart="20dp"
                     android:textSize="14sp"
                     android:layout_below="@id/icon_account"
@@ -66,11 +66,12 @@
                     android:id="@+id/accNoLbl"
                     android:layout_marginTop="5dp"
                     android:layout_marginStart="20dp"
-                    android:textSize="11sp"
+                    android:textSize="13sp"
                     android:layout_below="@id/accLbl"
                     android:textColor="@color/white"
-                    android:layout_marginLeft="20dp" android:fontFamily="@font/open_sans" android:layout_centerHorizontal="false"
-                    android:layout_alignParentLeft="true"/>
+                    android:layout_marginLeft="20dp" android:fontFamily="@font/open_sans"
+                    android:layout_centerHorizontal="false"
+                    android:layout_alignParentLeft="true" android:textStyle="bold"/>
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -78,7 +79,7 @@
                     android:id="@+id/accNoActLbl"
                     android:layout_marginTop="5dp"
                     android:layout_marginStart="10dp"
-                    android:textSize="11sp"
+                    android:textSize="13sp"
                     android:textStyle="bold"
                     android:layout_toRightOf="@+id/accNoLbl"
                     android:layout_below="@id/accLbl"
@@ -91,14 +92,14 @@
                     android:layout_height="wrap_content"
                     android:text="TERRENCE AGUSIOMA"
                     android:id="@+id/accNameLbl"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="8dp"
                     android:layout_marginStart="20dp"
-                    android:textSize="12sp"
+                    android:textSize="13sp"
                     android:layout_below="@id/accNoLbl"
                     android:textColor="@color/white"
                     android:layout_marginLeft="20dp" android:fontFamily="@font/open_sans"
                     android:layout_centerHorizontal="false"
-                    android:layout_alignParentLeft="true"/>
+                    android:layout_alignParentLeft="true" android:textStyle="bold"/>
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -106,7 +107,7 @@
                     android:id="@+id/accAppLbl"
                     android:layout_marginTop="5dp"
                     android:layout_marginStart="20dp"
-                    android:textSize="18sp"
+                    android:textSize="19sp"
                     android:layout_below="@id/accNoLbl"
                     android:layout_toRightOf="@id/accNameLbl"
                     android:textColor="@color/main_green"
@@ -140,18 +141,18 @@
                         android:layout_width="140dp"
                         android:layout_height="wrap_content"
                         android:text="Deposit"
-                        android:textAlignment="center"
                         android:id="@+id/btnD"
                         android:layout_marginTop="4dp"
                         android:textSize="14sp"
                         android:textStyle="bold"
-                        android:textColor="@color/white"
+                        android:textColor="@color/grey_2"
                         android:layout_marginBottom="8dp"
                         android:textAllCaps="false"
-                        android:paddingTop="6dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
                         android:fontFamily="@font/open_sans"
                         app:backgroundTint="@color/black"
-                        android:gravity="center_horizontal" android:layout_centerHorizontal="false"
+                        android:gravity="center_vertical" android:layout_centerHorizontal="false"
                         android:drawableLeft="@drawable/ic_plus"/>
             </RelativeLayout>
             <RelativeLayout
@@ -166,19 +167,19 @@
                         android:layout_width="140dp"
                         android:layout_height="wrap_content"
                         android:text="Withdraw"
-                        android:textAlignment="center"
                         android:id="@+id/btnW"
                         android:layout_marginTop="4dp"
                         android:textSize="14sp"
                         android:textStyle="bold"
-                        android:textColor="@color/white"
+                        android:textColor="@color/grey_2"
                         android:layout_marginBottom="8dp"
                         android:textAllCaps="false"
-                        android:paddingTop="6dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
                         android:fontFamily="@font/open_sans"
                         app:backgroundTint="@color/black"
                         android:layout_centerHorizontal="true"
-                        android:gravity="center_horizontal" android:layout_alignParentLeft="true"
+                        android:gravity="center_vertical" android:layout_alignParentLeft="true"
                         android:drawableLeft="@drawable/ic_minus"/>
             </RelativeLayout>
         </RelativeLayout>
@@ -202,28 +203,26 @@
                 android:layout_marginLeft="20dp" android:fontFamily="@font/open_sans"
                 android:layout_alignParentRight="false" android:layout_marginRight="20dp"
                 android:layout_marginEnd="20dp" android:layout_alignParentLeft="true"
-                android:layout_centerHorizontal="false" android:layout_centerVertical="true"/>
+                android:layout_centerHorizontal="false" android:layout_centerVertical="true" android:textStyle="bold"/>
         <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="View more"
-                android:textAlignment="center"
                 android:id="@+id/btnViewMore"
                 android:layout_marginTop="8dp"
                 android:textSize="13sp"
                 android:layout_marginRight="20dp"
                 android:textStyle="bold"
                 android:background="@drawable/radiusbg"
-                android:textColor="@color/bg"
+                android:textColor="@color/grey_2"
                 android:layout_marginBottom="8dp"
                 android:textAllCaps="false"
-                android:paddingTop="6dp"
                 android:paddingRight="25dp"
                 android:paddingLeft="25dp"
                 android:fontFamily="@font/open_sans"
                 app:backgroundTint="@color/black"
                 android:layout_centerHorizontal="true"
-                android:gravity="center_horizontal" android:layout_alignParentRight="true"/>
+                android:gravity="center_vertical" android:layout_alignParentRight="true"/>
     </RelativeLayout>
     <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
