@@ -1,34 +1,14 @@
 package com.terrence.aluda.t_bank;
 
-import android.app.ProgressDialog;
-import android.content.Context;
-import android.content.Intent;
+import android.app.ActionBar;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.MenuItem;
-import android.widget.Toast;
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-import com.terrence.aluda.t_bank.netrequests.AccountStatements;
-import com.terrence.aluda.t_bank.netrequests.LoginTest;
-import com.terrence.aluda.t_bank.netrequests.TotalSavings;
-import com.terrence.aluda.t_bank.retrofit.APIClient;
-import com.terrence.aluda.t_bank.retrofit.APIInterface;
-import com.terrence.aluda.t_bank.ui.home.HomeFragment;
-import com.terrence.aluda.t_bank.ui.login.LoginActivity;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private String firstname, email, lastname, natID, userPassword, regDate,statCheck, totals;

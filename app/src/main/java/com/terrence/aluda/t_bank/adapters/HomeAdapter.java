@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -59,7 +60,12 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         HomeModel model = courseModelArrayList.get(position);
         APIInterface apiInterface;
         totalsArray = new ArrayList<>();
-
+        holder.moreImg.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Your code.
+                Toast.makeText(context.getActivity(), "Haaaaa", Toast.LENGTH_SHORT).show();
+            }
+        });
         apiInterface = APIClient.getClient().create(APIInterface.class);
         Call<List<TotalSavings>> call = apiInterface.getTotalSavings();
         holder.pgBar.setVisibility(View.VISIBLE);
@@ -112,6 +118,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         private TextView courseNameTV, savingsLbl, totalsLbl, nameLbl, loanLimitLbl, natIDLbl, savingsLbl4, loadingTxt;
         private ProgressBar pgBar, pgBar2;
         private CardView cvt;
+        private ImageView moreImg;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -121,6 +128,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
             savingsLbl = itemView.findViewById(R.id.userSavings);
             totalsLbl = itemView.findViewById(R.id.totalsLbl);
             nameLbl = itemView.findViewById(R.id.nameLbl);
+            moreImg = itemView.findViewById(R.id.moreImg);
             loadingTxt = itemView.findViewById(R.id.loadingTxt);
             loanLimitLbl = itemView.findViewById(R.id.loanLimitLbl);
             natIDLbl = itemView.findViewById(R.id.savingsLbl2);
