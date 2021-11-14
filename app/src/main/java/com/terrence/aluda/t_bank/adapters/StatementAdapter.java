@@ -1,26 +1,15 @@
 package com.terrence.aluda.t_bank.adapters;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.terrence.aluda.t_bank.MainActivity;
 import com.terrence.aluda.t_bank.R;
-import com.terrence.aluda.t_bank.models.transact.StatementModel;
 import com.terrence.aluda.t_bank.netrequests.AccountStatements;
-import com.terrence.aluda.t_bank.retrofit.APIClient;
-import com.terrence.aluda.t_bank.retrofit.APIInterface;
-import com.terrence.aluda.t_bank.ui.login.LoginActivity;
-import com.terrence.aluda.t_bank.ui.transaction.StatementActivity;
 import org.jetbrains.annotations.NotNull;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,8 +53,8 @@ public class StatementAdapter extends RecyclerView.Adapter<com.terrence.aluda.t_
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            trans_Type = itemView.findViewById(R.id.text_transType);
-            trans_ID = itemView.findViewById(R.id.text_transID);
+            trans_Type = itemView.findViewById(R.id.acc_trans_type);
+            trans_ID = itemView.findViewById(R.id.acc_trans_date);
             trans_Date = itemView.findViewById(R.id.text_transDate);
             trans_Amount = itemView.findViewById(R.id.text_transAmount);
         }
