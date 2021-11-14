@@ -68,10 +68,10 @@ public class StatementActivity extends AppCompatActivity {
 
                 int i;
                 for(i=0; i<statementsArray.size(); i++){
-                    statementsArray.get(i).setAmount(statementsArray.get(0).getAmount());
-                    statementsArray.get(i).setTransDate(statementsArray.get(0).getTransDate());
-                    statementsArray.get(i).setTransID(statementsArray.get(0).getTransID());
-                    statementsArray.get(i).setTransType(statementsArray.get(0).getTransType());
+                    statementsArray.get(i).setAmount(statementsArray.get(i).getAmount());
+                    statementsArray.get(i).setTransDate(statementsArray.get(i).getTransDate());
+                    statementsArray.get(i).setTransID(statementsArray.get(i).getTransID());
+                    statementsArray.get(i).setTransType(statementsArray.get(i).getTransType());
                     i+=1;
                 }
 
