@@ -1,7 +1,10 @@
 package com.terrence.aluda.t_bank.ui.accounts;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +18,7 @@ import com.terrence.aluda.t_bank.netrequests.AccountStatements;
 import com.terrence.aluda.t_bank.retrofit.APIClient;
 import com.terrence.aluda.t_bank.retrofit.APIInterface;
 import com.terrence.aluda.t_bank.ui.accounts.AccountsActivity;
+import com.terrence.aluda.t_bank.ui.transaction.StatementActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -29,6 +33,8 @@ public class AccountsActivity extends AppCompatActivity {
     private String firstName, lastName, total, accNo;
     private TextView nameLbl, totalDisplay, accNoDisplay;
     private AccountsAdapter statAdapter;
+    private Button openTrans;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +43,7 @@ public class AccountsActivity extends AppCompatActivity {
         nameLbl = findViewById(R.id.accNameLbl);
         totalDisplay = findViewById(R.id.accAmtLbl);
         accNoDisplay = findViewById(R.id.accNoActLbl);
+        openTrans = findViewById(R.id.btnViewMore);
 
         sharedPreferences = this.getSharedPreferences("MyTax", 0);
         firstName = sharedPreferences.getString("Name", "defaultValue").toUpperCase(Locale.ROOT);
@@ -67,12 +74,15 @@ public class AccountsActivity extends AppCompatActivity {
                 progressDialog.dismiss();
 
                 int i;
-                for(i=0; i<6; i++){
+                for(i=0; i<statementsArray.size(); i++){
                     statementsArray.get(i).setAmount(statementsArray.get(i).getAmount());
                     statementsArray.get(i).setTransDate(statementsArray.get(i).getTransDate());
                     statementsArray.get(i).setTransID(statementsArray.get(i).getTransID());
                     statementsArray.get(i).setTransType(statementsArray.get(i).getTransType());
                     i+=1;
+                    if(i==3){
+                        break;
+                    }
                 }
 
                 statAdapter = new AccountsAdapter(getApplicationContext(),statementsArray);
@@ -87,6 +97,11 @@ public class AccountsActivity extends AppCompatActivity {
                 call.cancel();
             }
         });
-
+openTrans.setOnClickListener(new View.OnClickListener() {
+    public void onClick(View v) {
+        Intent intent = new Intent(AccountsActivity.this, StatementActivity.class);
+        startActivity(intent);
+    }
+});
     }
 }

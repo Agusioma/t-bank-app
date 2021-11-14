@@ -26,13 +26,13 @@
                 android:layout_width="match_parent"
                 android:paddingBottom="1dp"
                 android:paddingTop="1dp"
-                android:layout_height="wrap_content" android:layout_marginTop="5dp">
+                android:layout_height="wrap_content" android:layout_marginTop="6dp" android:layout_marginBottom="5dp">
             <ImageView
                     android:layout_marginLeft="10dp"
                     android:layout_marginBottom="5dp"
                     android:background="@drawable/round_img_bg"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
                     android:id="@+id/statIcon"
                     android:src="@drawable/ic_list"
                     android:layout_centerVertical="true"/>
