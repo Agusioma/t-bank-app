@@ -47,7 +47,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="DEPOSIT"
-                        android:id="@+id/acc_trans_type"
+                        android:id="@+id/transaction_label"
                         android:textSize="14sp"
                         android:layout_toRightOf="@+id/statIcon"
                         android:layout_marginBottom="3dp"
@@ -60,8 +60,8 @@
                         android:layout_height="wrap_content"
                         android:text="3RYD475UI"
                         android:layout_toRightOf="@+id/statIcon"
-                        android:layout_below="@id/acc_trans_type"
-                        android:id="@+id/acc_trans_date"
+                        android:layout_below="@id/transaction_label"
+                        android:id="@+id/transaction_date"
                         android:textSize="13sp"
                         android:textStyle="bold"
                         android:layout_marginBottom="3dp"
@@ -73,7 +73,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="DEPOSIT"
-                        android:id="@+id/acc_trans_amount"
+                        android:id="@+id/transaction_amount"
                         android:textSize="14sp"
                         android:layout_marginBottom="3dp"
                         android:textColor="@color/white"
@@ -88,13 +88,13 @@
                         android:text="DEPOSIT"
                         android:textSize="13sp"
                         android:layout_marginBottom="3dp"
-                        android:layout_below="@+id/acc_trans_amount"
+                        android:layout_below="@+id/transaction_amount"
                         android:textColor="@color/grey_2"
                         android:layout_marginLeft="20dp"
                         android:fontFamily="@font/open_sans"
                         android:layout_centerVertical="false" android:layout_alignParentLeft="false"
                         android:layout_alignParentRight="true" android:layout_marginRight="20dp"
-                        android:layout_marginEnd="20dp" android:id="@+id/acc_trans_ID"/>
+                        android:layout_marginEnd="20dp" android:id="@+id/transaction_ID"/>
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 

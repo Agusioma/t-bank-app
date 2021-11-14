@@ -53,10 +53,10 @@ public class StatementAdapter extends RecyclerView.Adapter<com.terrence.aluda.t_
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            trans_Type = itemView.findViewById(R.id.acc_trans_type);
-            trans_ID = itemView.findViewById(R.id.acc_trans_date);
-            trans_Date = itemView.findViewById(R.id.text_transDate);
-            trans_Amount = itemView.findViewById(R.id.text_transAmount);
+            trans_Type = itemView.findViewById(R.id.transaction_label1);
+            trans_ID = itemView.findViewById(R.id.transID1);
+            trans_Date = itemView.findViewById(R.id.transDate1);
+            trans_Amount = itemView.findViewById(R.id.transAmount1);
         }
     }
 }
