@@ -74,6 +74,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         holder.pgBar.setVisibility(View.VISIBLE);
         holder.pgBar2.setVisibility(View.VISIBLE);
         holder.loadingTxt.setVisibility(View.VISIBLE);
+        holder.moreImg.setVisibility(View.GONE);
         holder.savingsLbl.setVisibility(View.GONE);
         holder.savingsLbl4.setVisibility(View.GONE);
         call.enqueue(new Callback<List<TotalSavings>>() {
@@ -84,6 +85,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
                 holder.loadingTxt.setVisibility(View.GONE);
                 holder.savingsLbl.setVisibility(View.VISIBLE);
                 holder.savingsLbl4.setVisibility(View.VISIBLE);
+                holder.moreImg.setVisibility(View.VISIBLE);
                 totalsArray = response.body();
                 totals = totalsArray.get(0).getTotals();
                 firstName = sharedPreferences.getString("Name", "defaultValue");

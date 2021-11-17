@@ -80,9 +80,6 @@ public class AccountsActivity extends AppCompatActivity {
                     statementsArray.get(i).setTransID(statementsArray.get(i).getTransID());
                     statementsArray.get(i).setTransType(statementsArray.get(i).getTransType());
                     i+=1;
-                    if(i==3){
-                        break;
-                    }
                 }
 
                 statAdapter = new AccountsAdapter(getApplicationContext(),statementsArray);
