@@ -65,7 +65,7 @@ public class AccountsActivity extends AppCompatActivity {
         statementsArray = new ArrayList<>();
 
         apiInterface = APIClient.getClient().create(APIInterface.class);
-        Call<ArrayList<AccountStatements>> call = apiInterface.getStatements();
+        Call<ArrayList<AccountStatements>> call = apiInterface.getStatPreview();
 
         call.enqueue(new Callback<ArrayList<AccountStatements>>() {
             @Override

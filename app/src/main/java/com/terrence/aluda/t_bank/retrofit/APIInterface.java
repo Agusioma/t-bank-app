@@ -16,6 +16,8 @@ public interface APIInterface {
 
     @GET("/viewstatements/37378962")
     Call<ArrayList<AccountStatements>> getStatements(/*@Query("user_phone") String user_phone*/);
+    @GET("/statPreview/37378962")
+    Call<ArrayList<AccountStatements>> getStatPreview(/*@Query("user_phone") String user_phone*/);
     @GET("/totalsavings/37378962")
     Call<List<TotalSavings>> getTotalSavings(/*@Query("user_phone") String user_phone*/);
    /* @POST("/api/users")
