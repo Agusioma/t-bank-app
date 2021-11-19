@@ -21,12 +21,12 @@
             android:layout_marginStart="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginBottom="0dp" android:paddingBottom="0dp">
+            android:layout_marginBottom="0dp" android:paddingBottom="15dp" android:paddingTop="25dp">
         <RelativeLayout
                 android:layout_width="match_parent"
                 android:paddingBottom="1dp"
                 android:paddingTop="1dp"
-                android:layout_height="wrap_content" android:layout_marginTop="6dp" android:layout_marginBottom="5dp">
+                android:layout_height="wrap_content" android:layout_marginTop="7dp" android:layout_marginBottom="7dp">
             <ImageView
                     android:layout_marginLeft="10dp"
                     android:layout_marginBottom="5dp"
@@ -44,10 +44,10 @@
                     android:textSize="14sp"
                     android:layout_toRightOf="@+id/statIcon"
                     android:layout_marginBottom="3dp"
-                    android:textColor="@color/white"
+                    android:textColor="@color/grey_2"
                     android:layout_marginLeft="20dp"
                     android:fontFamily="@font/open_sans"
-                    android:layout_centerVertical="false"/>
+                    android:layout_centerVertical="false" android:textStyle="bold"/>
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -65,16 +65,15 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="DEPOSIT"
                     android:id="@+id/transaction_amount"
                     android:textSize="14sp"
                     android:layout_marginBottom="3dp"
-                    android:textColor="@color/white"
+                    android:textColor="@color/grey_2"
                     android:layout_marginLeft="20dp"
                     android:fontFamily="@font/open_sans"
                     android:layout_centerVertical="false" android:layout_alignParentLeft="false"
                     android:layout_alignParentRight="true" android:layout_marginRight="20dp"
-                    android:layout_marginEnd="20dp"/>
+                    android:layout_marginEnd="20dp" android:textStyle="bold"/>
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
