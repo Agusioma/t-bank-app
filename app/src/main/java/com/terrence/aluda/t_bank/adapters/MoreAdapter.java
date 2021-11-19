@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.terrence.aluda.t_bank.models.more.MoreModel;
 import com.terrence.aluda.t_bank.ui.login.LoginActivity;
+import com.terrence.aluda.t_bank.ui.login.TestActivity;
 import com.terrence.aluda.t_bank.ui.more.MoreFragment;
 import com.terrence.aluda.t_bank.ui.transaction.DepositActivity;
 import org.jetbrains.annotations.NotNull;
@@ -62,7 +63,7 @@ public class MoreAdapter extends RecyclerView.Adapter<MoreAdapter.ViewHolder> {
         @Override
         public void onClick(View v) {
             if(getLayoutPosition()==2){
-                Intent intent= new Intent(v.getContext(), LoginActivity.class);
+                Intent intent= new Intent(v.getContext(), TestActivity.class);
                 v.getContext().startActivity(intent);
             }
         }
