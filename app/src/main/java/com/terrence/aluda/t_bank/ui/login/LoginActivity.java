@@ -36,10 +36,10 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        editNum = findViewById(R.id.edit_usernumber);
-        editPassword = findViewById(R.id.edit_password);
-        btnAuth = findViewById(R.id.btn_login);
-        sendAuthToken();
+       // editNum = findViewById(R.id.edit_usernumber);
+       // editPassword = findViewById(R.id.edit_password);
+       // //btnAuth = findViewById(R.id.btn_login);
+       // sendAuthToken();
        /* btnAuth.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 sendAuthToken();
