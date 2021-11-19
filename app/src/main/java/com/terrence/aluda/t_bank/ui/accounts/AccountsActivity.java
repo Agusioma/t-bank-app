@@ -30,7 +30,7 @@ public class AccountsActivity extends AppCompatActivity {
     private RecyclerView accRV;
     private ArrayList<AccountStatements> statementsArray;
     private SharedPreferences sharedPreferences;
-    private String firstName, lastName, total, accNo;
+    private String firstName, lastName, total, accNo, natID;
     private TextView nameLbl, totalDisplay, accNoDisplay;
     private AccountsAdapter statAdapter;
     private Button openTrans;
@@ -50,6 +50,7 @@ public class AccountsActivity extends AppCompatActivity {
         lastName = sharedPreferences.getString("Last", "defaultValue").toUpperCase(Locale.ROOT);
         total = sharedPreferences.getString("tot", "defaultValue");
         accNo = sharedPreferences.getString("natID", "defaultValue");
+        natID = sharedPreferences.getString("natID", "defaultValue");
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         accRV.setLayoutManager(linearLayoutManager);
@@ -65,7 +66,7 @@ public class AccountsActivity extends AppCompatActivity {
         statementsArray = new ArrayList<>();
 
         apiInterface = APIClient.getClient().create(APIInterface.class);
-        Call<ArrayList<AccountStatements>> call = apiInterface.getStatPreview();
+        Call<ArrayList<AccountStatements>> call = apiInterface.getStatPreview(natID);
 
         call.enqueue(new Callback<ArrayList<AccountStatements>>() {
             @Override

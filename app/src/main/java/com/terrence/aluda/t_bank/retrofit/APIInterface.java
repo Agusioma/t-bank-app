@@ -14,12 +14,12 @@ public interface APIInterface {
     @GET("/customer/")
     Call<List<LoginTest>> doAuthenticate(@Query("user_phone") String user_phone, @Query("user_token") String user_token);
 
-    @GET("/viewstatements/37378962")
-    Call<ArrayList<AccountStatements>> getStatements(/*@Query("user_phone") String user_phone*/);
-    @GET("/statPreview/37378962")
-    Call<ArrayList<AccountStatements>> getStatPreview(/*@Query("user_phone") String user_phone*/);
-    @GET("/totalsavings/37378962")
-    Call<List<TotalSavings>> getTotalSavings(/*@Query("user_phone") String user_phone*/);
+    @GET("/viewstatements/")
+    Call<ArrayList<AccountStatements>> getStatements(@Query("user_id") String user_id);
+    @GET("/statPreview/")
+    Call<ArrayList<AccountStatements>> getStatPreview(@Query("user_id") String user_id);
+    @GET("/totalsavings/")
+    Call<List<TotalSavings>> getTotalSavings(@Query("user_id") String user_id);
    /* @POST("/api/users")
     Call<User> createUser(@Body User user);
 

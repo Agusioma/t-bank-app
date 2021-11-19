@@ -70,7 +70,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
             }
         });
         apiInterface = APIClient.getClient().create(APIInterface.class);
-        Call<List<TotalSavings>> call = apiInterface.getTotalSavings();
+        Call<List<TotalSavings>> call = apiInterface.getTotalSavings(sharedPreferences.getString("natID", "defaultValue"));
         holder.pgBar.setVisibility(View.VISIBLE);
         holder.pgBar2.setVisibility(View.VISIBLE);
         holder.loadingTxt.setVisibility(View.VISIBLE);
