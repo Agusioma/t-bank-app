@@ -15,7 +15,7 @@
         <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/phoneTxtLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                app:startIconDrawable="@drawable/ic_user_badge"
+                app:startIconDrawable="@drawable/ic_phone_no"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:boxCornerRadiusBottomEnd="10dp"
@@ -23,7 +23,7 @@
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
                 app:endIconMode="clear_text"
-                app:hintTextColor="@color/our_grey"
+                app:hintTextColor="@color/main_green"
                 android:hint="Phone number">
 
             <!--this is the actual edit text which takes the input-->
@@ -32,6 +32,7 @@
                     android:inputType="phone"
                     android:fontFamily="@font/open_sans"
                     android:layout_width="match_parent"
+                    android:maxLength="10"
                     android:layout_height="wrap_content" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -49,7 +50,7 @@
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
                 app:endIconMode="password_toggle"
-                app:hintTextColor="@color/our_grey"
+                app:hintTextColor="@color/main_green"
                 android:hint="Password">
 
             <!--this is the actual edit text which takes the input-->
