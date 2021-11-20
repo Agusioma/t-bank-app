@@ -12,6 +12,28 @@
             android:layout_marginRight="30dp"
             android:paddingRight="0dp"
             android:layout_centerInParent="true">
+        <TextView
+                android:text="Login"
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:textStyle="bold"
+                android:textSize="25sp"
+                android:textColor="@color/white"
+                android:layout_height="wrap_content" android:id="@+id/loginLbl" android:layout_centerHorizontal="false"
+                android:layout_alignParentTop="true" android:layout_marginLeft="0dp"
+                android:layout_marginStart="0dp" android:layout_marginBottom="5dp"/>
+        <TextView
+                android:text="Please sign in to continue"
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:layout_marginTop="0dp"
+                android:layout_below="@+id/loginLbl"
+                android:textColor="@color/grey_2"
+                android:layout_height="wrap_content" android:id="@+id/loginLbl2" android:layout_centerHorizontal="false"
+                android:layout_marginLeft="0dp"
+                android:layout_marginStart="0dp" android:layout_marginBottom="55dp"/>
         <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/phoneTxtLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -20,6 +42,7 @@
                 android:layout_height="wrap_content"
                 app:boxCornerRadiusBottomEnd="10dp"
                 app:boxCornerRadiusBottomStart="10dp"
+                android:layout_below="@id/loginLbl2"
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
                 app:endIconMode="clear_text"
@@ -33,7 +56,7 @@
                     android:fontFamily="@font/open_sans"
                     android:layout_width="match_parent"
                     android:maxLength="10"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"/>
 
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -59,7 +82,7 @@
                     android:inputType="textPassword"
                     android:layout_width="match_parent"
                     android:fontFamily="@font/open_sans"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"/>
 
         </com.google.android.material.textfield.TextInputLayout>
         <Button
@@ -69,13 +92,27 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
                 android:textAllCaps="false"
-                android:paddingTop ="7dp"
-                android:paddingBottom ="7dp"
+                android:paddingTop="7dp"
+                android:paddingBottom="7dp"
                 android:textStyle="bold"
                 android:fontFamily="@font/open_sans"
                 android:background="@drawable/roundbtn"
                 android:text="Proceed" android:layout_centerHorizontal="true"/>
-
+        <Button
+                android:id="@+id/forgotPwd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="0dp"
+                android:paddingBottom="0dp"
+                android:fontFamily="@font/open_sans"
+                android:layout_below="@id/submit_button"
+                android:text="Forgot your password?"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:layout_centerHorizontal="true"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+        />
 
     </RelativeLayout>
+
 </RelativeLayout>
