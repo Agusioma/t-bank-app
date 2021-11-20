@@ -60,7 +60,7 @@
 
         </com.google.android.material.textfield.TextInputLayout>
         <TextView
-                android:text="Please sign in to continue"
+                android:text=""
                 android:layout_width="wrap_content"
                 android:fontFamily="@font/open_sans"
                 android:textStyle="bold"
@@ -97,9 +97,21 @@
                     android:layout_height="wrap_content"/>
 
         </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+                android:text=""
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:textStyle="bold"
+                android:textSize="13sp"
+                android:layout_marginTop="2dp"
+                android:layout_below="@+id/passwordTxtLayout"
+                android:textColor="@color/red"
+                android:layout_height="wrap_content" android:id="@+id/passDisc"
+                android:layout_marginLeft="0dp"
+                android:layout_marginStart="0dp" android:layout_centerHorizontal="true"/>
         <Button
                 android:id="@+id/btn_login"
-                android:layout_below="@id/passwordTxtLayout"
+                android:layout_below="@id/passDisc"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"

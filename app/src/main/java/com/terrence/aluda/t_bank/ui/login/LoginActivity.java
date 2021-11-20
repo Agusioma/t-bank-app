@@ -27,7 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText editNum, editPassword;
     private Button btnAuth, btnFgPwd;
     private ProgressBar loginProgress;
-    private TextView numDisc;
+    private TextView numDisc, passDisc;
     List<AccountStatements> statementsArray;
 
 
@@ -36,25 +36,42 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-       editNum = findViewById(R.id.edit_usernumber);
-       editPassword = findViewById(R.id.edit_password);
-       btnAuth = findViewById(R.id.btn_login);
-       btnFgPwd = findViewById(R.id.forgotPwd);
-       loginProgress = findViewById(R.id.progressBarLgn);
-       numDisc = findViewById(R.id.numDisc);
+        editNum = findViewById(R.id.edit_usernumber);
+        editPassword = findViewById(R.id.edit_password);
+        btnAuth = findViewById(R.id.btn_login);
+        btnFgPwd = findViewById(R.id.forgotPwd);
+        loginProgress = findViewById(R.id.progressBarLgn);
+        numDisc = findViewById(R.id.numDisc);
+        passDisc = findViewById(R.id.passDisc);
+
         numDisc.setVisibility(View.GONE);
+        passDisc.setVisibility(View.GONE);
         loginProgress.setVisibility(View.GONE);
 
         editNum.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean hasFocus) {
-                if (hasFocus)
+                if (hasFocus) {
+                    passDisc.setVisibility(View.GONE);
                     numDisc.setVisibility(View.GONE);
                 }
+            }
         });
-       btnAuth.setOnClickListener(new View.OnClickListener() {
+
+        editPassword.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean hasFocus) {
+                if (hasFocus) {
+                    passDisc.setVisibility(View.GONE);
+                    numDisc.setVisibility(View.GONE);
+                }
+            }
+        });
+
+
+        btnAuth.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-               checkInput();
+                checkInput();
             }
         });
     }
@@ -84,9 +101,13 @@ public class LoginActivity extends AppCompatActivity {
                     loggedInCheck = responseArray.get(0).getId();
 
                     if (loggedInCheck.equals("wrong55")) {
-                        Toast.makeText(getApplicationContext(), "Registeer", Toast.LENGTH_SHORT).show();
+                        numDisc.setVisibility(View.VISIBLE);
+                        numDisc.setText("Please sign up. Rong");
+                        passDisc.setVisibility(View.VISIBLE);
+                        passDisc.setText("Please register");
                     } else if (loggedInCheck.equals("wrong00")) {
-                        Toast.makeText(getApplicationContext(), "Wrong password", Toast.LENGTH_SHORT).show();
+                        passDisc.setVisibility(View.VISIBLE);
+                        passDisc.setText("Wrong password");
                     } else {
                         //retrieveStatements();
                         //retrieveTotals();
@@ -120,26 +141,28 @@ public class LoginActivity extends AppCompatActivity {
                     call.cancel();
                 }
             });
-        }catch (Exception e){
+        } catch (Exception e) {
             hideBar();
             Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_SHORT).show();
         }
     }
 
-    private void checkInput(){
-        numDisc.setVisibility(View.GONE);
-        if(editNum.getText().length()==0){
+    private void checkInput() {
+        if (editNum.getText().length() == 0) {
             numDisc.setVisibility(View.VISIBLE);
-            numDisc.setText("Fill user number");
-        }else if(editPassword.getText().length()==0){
-            Toast.makeText(getApplicationContext(), "Fill user password", Toast.LENGTH_SHORT).show();
-        }else if(editNum.getText().length()<10){
-            Toast.makeText(getApplicationContext(), "Fill 10 digits", Toast.LENGTH_SHORT).show();
-        }else{
+            numDisc.setText("Please enter your phone number");
+        } else if (editNum.getText().length() < 10) {
+            numDisc.setVisibility(View.VISIBLE);
+            numDisc.setText("Please enter 10 digits");
+        } else if (editPassword.getText().length() == 0) {
+            passDisc.setVisibility(View.VISIBLE);
+            passDisc.setText("Please enter your password");
+        } else {
             sendAuthToken();
         }
     }
-    private void hideBar(){
+
+    private void hideBar() {
         btnAuth.setVisibility(View.VISIBLE);
         btnFgPwd.setVisibility(View.VISIBLE);
         loginProgress.setVisibility(View.GONE);
