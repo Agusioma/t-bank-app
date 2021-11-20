@@ -59,13 +59,25 @@
                     android:layout_height="wrap_content"/>
 
         </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+                android:text="Please sign in to continue"
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:textStyle="bold"
+                android:textSize="13sp"
+                android:layout_marginTop="2dp"
+                android:layout_below="@+id/phoneTxtLayout"
+                android:textColor="@color/red"
+                android:layout_height="wrap_content" android:id="@+id/numDisc"
+                android:layout_marginLeft="0dp"
+                android:layout_marginStart="0dp" android:layout_centerHorizontal="true"/>
         <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/passwordTxtLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 app:startIconDrawable="@drawable/ic_baseline_https_24"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/phoneTxtLayout"
+                android:layout_below="@id/numDisc"
                 android:layout_marginTop="15dp"
 
                 app:boxCornerRadiusBottomEnd="10dp"

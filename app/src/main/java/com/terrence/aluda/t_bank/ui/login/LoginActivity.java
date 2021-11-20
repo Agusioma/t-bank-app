@@ -3,10 +3,7 @@ package com.terrence.aluda.t_bank.ui.login;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ProgressBar;
-import android.widget.Toast;
+import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.terrence.aluda.t_bank.MainActivity;
@@ -30,6 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText editNum, editPassword;
     private Button btnAuth, btnFgPwd;
     private ProgressBar loginProgress;
+    private TextView numDisc;
     List<AccountStatements> statementsArray;
 
 
@@ -43,78 +41,108 @@ public class LoginActivity extends AppCompatActivity {
        btnAuth = findViewById(R.id.btn_login);
        btnFgPwd = findViewById(R.id.forgotPwd);
        loginProgress = findViewById(R.id.progressBarLgn);
+       numDisc = findViewById(R.id.numDisc);
+        numDisc.setVisibility(View.GONE);
         loginProgress.setVisibility(View.GONE);
 
+        editNum.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean hasFocus) {
+                if (hasFocus)
+                    numDisc.setVisibility(View.GONE);
+                }
+        });
        btnAuth.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                sendAuthToken();
+               checkInput();
             }
         });
     }
 
     private void sendAuthToken() {
-        APIInterface apiInterface;
+        try {
+            APIInterface apiInterface;
 
-        btnAuth.setVisibility(View.GONE);
-        btnFgPwd.setVisibility(View.GONE);
-        loginProgress.setVisibility(View.VISIBLE);
-        phoneParam = editNum.getText().toString();
-        passwordParam = editPassword.getText().toString();
+            btnAuth.setVisibility(View.GONE);
+            btnFgPwd.setVisibility(View.GONE);
+            loginProgress.setVisibility(View.VISIBLE);
+            phoneParam = editNum.getText().toString();
+            passwordParam = editPassword.getText().toString();
 
-        phoneParam = "254" + phoneParam.substring(phoneParam.length() - 9);
+            phoneParam = "254" + phoneParam.substring(phoneParam.length() - 9);
 
-        responseArray = new ArrayList<>();
+            responseArray = new ArrayList<>();
 
-        apiInterface = APIClient.getClient().create(APIInterface.class);
-        Call<List<LoginTest>> call = apiInterface.doAuthenticate(phoneParam, passwordParam);
+            apiInterface = APIClient.getClient().create(APIInterface.class);
+            Call<List<LoginTest>> call = apiInterface.doAuthenticate(phoneParam, passwordParam);
 
-        call.enqueue(new Callback<List<LoginTest>>() {
-            @Override
-            public void onResponse(Call<List<LoginTest>> call, Response<List<LoginTest>> response) {
-                btnAuth.setVisibility(View.VISIBLE);
-                btnFgPwd.setVisibility(View.VISIBLE);
-                loginProgress.setVisibility(View.GONE);
-                responseArray = response.body();
-                loggedInCheck = responseArray.get(0).getId();
+            call.enqueue(new Callback<List<LoginTest>>() {
+                @Override
+                public void onResponse(Call<List<LoginTest>> call, Response<List<LoginTest>> response) {
+                    hideBar();
+                    responseArray = response.body();
+                    loggedInCheck = responseArray.get(0).getId();
 
-                if (loggedInCheck.equals("wrong55")) {
-                    Toast.makeText(getApplicationContext(), "Registeer", Toast.LENGTH_SHORT).show();
-                } else if (loggedInCheck.equals("wrong00")) {
-                    Toast.makeText(getApplicationContext(), "Wrong password", Toast.LENGTH_SHORT).show();
-                } else {
-                    //retrieveStatements();
-                    //retrieveTotals();
+                    if (loggedInCheck.equals("wrong55")) {
+                        Toast.makeText(getApplicationContext(), "Registeer", Toast.LENGTH_SHORT).show();
+                    } else if (loggedInCheck.equals("wrong00")) {
+                        Toast.makeText(getApplicationContext(), "Wrong password", Toast.LENGTH_SHORT).show();
+                    } else {
+                        //retrieveStatements();
+                        //retrieveTotals();
 
 
-                    firstname = responseArray.get(0).getFirstname();
-                    lastname = responseArray.get(0).getLastname();
-                    natID = responseArray.get(0).getNatID();
-                    userPassword = responseArray.get(0).getPassword();
-                    regDate = responseArray.get(0).getRegDate();
-                    email = responseArray.get(0).getEmail();
+                        firstname = responseArray.get(0).getFirstname();
+                        lastname = responseArray.get(0).getLastname();
+                        natID = responseArray.get(0).getNatID();
+                        userPassword = responseArray.get(0).getPassword();
+                        regDate = responseArray.get(0).getRegDate();
+                        email = responseArray.get(0).getEmail();
 
-                   Intent toMain = new Intent(LoginActivity.this, MainActivity.class);
+                        Intent toMain = new Intent(LoginActivity.this, MainActivity.class);
 
-                    toMain.putExtra("firstname", firstname);
-                    toMain.putExtra("lastname", lastname);
-                    toMain.putExtra("natID", natID);
-                    toMain.putExtra("userPassword", userPassword);
-                    toMain.putExtra("regDate", regDate);
-                    toMain.putExtra("email", email);
+                        toMain.putExtra("firstname", firstname);
+                        toMain.putExtra("lastname", lastname);
+                        toMain.putExtra("natID", natID);
+                        toMain.putExtra("userPassword", userPassword);
+                        toMain.putExtra("regDate", regDate);
+                        toMain.putExtra("email", email);
 
-                    startActivity(toMain);
+                        startActivity(toMain);
+                    }
+
                 }
 
-            }
+                @Override
+                public void onFailure(Call<List<LoginTest>> call, Throwable t) {
+                    hideBar();
+                    Toast.makeText(getApplicationContext(), t.toString(), Toast.LENGTH_SHORT).show();
+                    call.cancel();
+                }
+            });
+        }catch (Exception e){
+            hideBar();
+            Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_SHORT).show();
+        }
+    }
 
-            @Override
-            public void onFailure(Call<List<LoginTest>> call, Throwable t) {
-                btnAuth.setVisibility(View.VISIBLE);
-                loginProgress.setVisibility(View.GONE);
-                Toast.makeText(getApplicationContext(), t.toString(), Toast.LENGTH_SHORT).show();
-                call.cancel();
-            }
-        });
+    private void checkInput(){
+        numDisc.setVisibility(View.GONE);
+        if(editNum.getText().length()==0){
+            numDisc.setVisibility(View.VISIBLE);
+            numDisc.setText("Fill user number");
+        }else if(editPassword.getText().length()==0){
+            Toast.makeText(getApplicationContext(), "Fill user password", Toast.LENGTH_SHORT).show();
+        }else if(editNum.getText().length()<10){
+            Toast.makeText(getApplicationContext(), "Fill 10 digits", Toast.LENGTH_SHORT).show();
+        }else{
+            sendAuthToken();
+        }
+    }
+    private void hideBar(){
+        btnAuth.setVisibility(View.VISIBLE);
+        btnFgPwd.setVisibility(View.VISIBLE);
+        loginProgress.setVisibility(View.GONE);
     }
  /*   private void retrieveStatements() {
         APIInterface apiInterface;
