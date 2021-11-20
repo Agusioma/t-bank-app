@@ -38,8 +38,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-       // editNum = findViewById(R.id.edit_usernumber);
-       // editPassword = findViewById(R.id.edit_password);
+       editNum = findViewById(R.id.edit_usernumber);
+       editPassword = findViewById(R.id.edit_password);
        btnAuth = findViewById(R.id.btn_login);
        btnFgPwd = findViewById(R.id.forgotPwd);
        loginProgress = findViewById(R.id.progressBarLgn);
@@ -61,9 +61,7 @@ public class LoginActivity extends AppCompatActivity {
         phoneParam = editNum.getText().toString();
         passwordParam = editPassword.getText().toString();
 
-        //phoneParam = "254" + phoneParam.substring(phoneParam.length() - 9);
-        phoneParam = "254702277060";
-        passwordParam = "4141";
+        phoneParam = "254" + phoneParam.substring(phoneParam.length() - 9);
 
         responseArray = new ArrayList<>();
 
