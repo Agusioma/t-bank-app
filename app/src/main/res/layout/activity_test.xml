@@ -59,7 +59,7 @@
     </com.google.android.material.textfield.TextInputLayout>
     <!--sample button to submit entered data inside from edit text-->
     <Button
-            android:id="@+id/submit_button"
+            android:id="@+id/btn_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"

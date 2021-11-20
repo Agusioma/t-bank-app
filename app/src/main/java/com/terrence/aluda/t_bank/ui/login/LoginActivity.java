@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,7 +28,8 @@ public class LoginActivity extends AppCompatActivity {
     List<LoginTest> responseArray;
     private String loggedInCheck, firstname, lastname, email, natID, userPassword, regDate, phoneParam, passwordParam, statCheck, totals;
     private EditText editNum, editPassword;
-    private Button btnAuth;
+    private Button btnAuth, btnFgPwd;
+    private ProgressBar loginProgress;
     List<AccountStatements> statementsArray;
 
 
@@ -38,8 +40,11 @@ public class LoginActivity extends AppCompatActivity {
 
        // editNum = findViewById(R.id.edit_usernumber);
        // editPassword = findViewById(R.id.edit_password);
-       // //btnAuth = findViewById(R.id.btn_login);
-       // sendAuthToken();
+       btnAuth = findViewById(R.id.btn_login);
+       btnFgPwd = findViewById(R.id.forgotPwd);
+       loginProgress = findViewById(R.id.progressBarLgn);
+        loginProgress.setVisibility(View.GONE);
+       sendAuthToken();
        /* btnAuth.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 sendAuthToken();
@@ -49,9 +54,10 @@ public class LoginActivity extends AppCompatActivity {
 
     private void sendAuthToken() {
         APIInterface apiInterface;
-        final ProgressDialog progressDialog = new ProgressDialog(LoginActivity.this);
-        progressDialog.setMessage("Testing");
-        progressDialog.show();
+
+        btnAuth.setVisibility(View.GONE);
+        btnFgPwd.setVisibility(View.GONE);
+        loginProgress.setVisibility(View.VISIBLE);
         //phoneParam = editNum.getText().toString();
         //passwordParam = editPassword.getText().toString();
 
@@ -68,7 +74,9 @@ public class LoginActivity extends AppCompatActivity {
         call.enqueue(new Callback<List<LoginTest>>() {
             @Override
             public void onResponse(Call<List<LoginTest>> call, Response<List<LoginTest>> response) {
-                progressDialog.dismiss();
+                btnAuth.setVisibility(View.VISIBLE);
+                btnFgPwd.setVisibility(View.VISIBLE);
+                loginProgress.setVisibility(View.GONE);
                 responseArray = response.body();
                 loggedInCheck = responseArray.get(0).getId();
 
@@ -104,8 +112,8 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<LoginTest>> call, Throwable t) {
-
-                progressDialog.dismiss();
+                btnAuth.setVisibility(View.VISIBLE);
+                loginProgress.setVisibility(View.GONE);
                 Toast.makeText(getApplicationContext(), t.toString(), Toast.LENGTH_SHORT).show();
                 call.cancel();
             }
