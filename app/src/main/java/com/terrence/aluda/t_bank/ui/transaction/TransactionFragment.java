@@ -25,8 +25,8 @@ public class TransactionFragment extends Fragment {
 
         transModelArrayList = new ArrayList<>();
         transModelArrayList.add(new TransactModel("Deposit", R.drawable.ic_transact_credit_card_24));
-        transModelArrayList.add(new TransactModel("Withdraw", R.drawable.ic_outline_point_of_sale_24));
-        transModelArrayList.add(new TransactModel("Send Money", R.drawable.ic_outline_send_to_mobile_24));
+        //transModelArrayList.add(new TransactModel("Withdraw", R.drawable.ic_outline_point_of_sale_24));
+        //transModelArrayList.add(new TransactModel("Send Money", R.drawable.ic_outline_send_to_mobile_24));
         transModelArrayList.add(new TransactModel("View Statements", R.drawable.ic_outline_statements));
             TransactAdapter transAdapter = new TransactAdapter(this, transModelArrayList);
 
