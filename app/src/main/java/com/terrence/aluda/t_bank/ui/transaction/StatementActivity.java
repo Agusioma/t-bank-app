@@ -2,6 +2,8 @@ package com.terrence.aluda.t_bank.ui.transaction;
 
 import android.app.ProgressDialog;
 import android.content.SharedPreferences;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -40,6 +42,7 @@ public class StatementActivity extends AppCompatActivity {
         statRV = findViewById(R.id.statRV);
         nameLbl = findViewById(R.id.text_transact);
         totalDisplay = findViewById(R.id.totalDisplay);
+
         sharedPreferences = this.getSharedPreferences("MyTax", 0);
         firstName = sharedPreferences.getString("Name", "defaultValue").toUpperCase(Locale.ROOT);
         lastName = sharedPreferences.getString("Last", "defaultValue").toUpperCase(Locale.ROOT);
