@@ -2,6 +2,8 @@ package com.terrence.aluda.t_bank.ui.login;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
@@ -67,7 +69,52 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+        editPassword.addTextChangedListener(new TextWatcher() {
+            boolean ignore = false;
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (ignore)
+                    return;
+                ignore = true;
+                passDisc.setVisibility(View.GONE);
+                numDisc.setVisibility(View.GONE);
+                ignore = false;
+            }
+        });
+
+        editNum.addTextChangedListener(new TextWatcher() {
+            boolean ignore = false;
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (ignore)
+                    return;
+                ignore = true;
+                passDisc.setVisibility(View.GONE);
+                numDisc.setVisibility(View.GONE);
+                ignore = false;
+            }
+        });
 
         btnAuth.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
