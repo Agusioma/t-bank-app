@@ -223,7 +223,8 @@
                 android:fontFamily="@font/open_sans"
                 app:backgroundTint="@color/black"
                 android:layout_centerHorizontal="true"
-                android:gravity="center_vertical" android:layout_alignParentRight="true"/>
+                android:gravity="center_vertical" android:layout_alignParentRight="true" android:paddingTop="2dp"
+                android:paddingBottom="2dp"/>
     </RelativeLayout>
     <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
