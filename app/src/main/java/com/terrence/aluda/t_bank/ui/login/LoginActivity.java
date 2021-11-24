@@ -135,7 +135,7 @@ public class LoginActivity extends AppCompatActivity {
             //passwordParam = editPassword.getText().toString();
 
            // phoneParam = "254" + phoneParam.substring(phoneParam.length() - 9);
-            phoneParam = "25470227060";
+            phoneParam = "254702277060";
             passwordParam = "4141";
             responseArray = new ArrayList<>();
 
