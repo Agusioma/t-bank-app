@@ -36,6 +36,8 @@ public class DepositActivity extends AppCompatActivity {
         lastName = sharedPreferences.getString("Last", "defaultValue").toUpperCase(Locale.ROOT);
         total = sharedPreferences.getString("tot", "defaultValue");
 
+        nameDisplay.setText(firstName+" "+lastName);
+        balanceDisplay.setText(total+" KES");
 
 
     }
