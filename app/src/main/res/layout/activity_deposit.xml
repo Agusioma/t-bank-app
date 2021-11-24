@@ -55,76 +55,89 @@
     <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/layout_deposit1"
-            android:background="@color/bg1" android:layout_centerInParent="true">
-        <androidx.cardview.widget.CardView
+            android:layout_marginLeft="30dp"
+            android:paddingLeft="0dp"
+            android:layout_marginRight="30dp"
+            android:paddingRight="0dp"
+            android:layout_centerInParent="true">
+        <TextView
+                android:text="Deposit"
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:textStyle="bold"
+                android:textSize="25sp"
+                android:textColor="@color/white"
+                android:layout_height="wrap_content" android:id="@+id/depoLbl" android:layout_centerHorizontal="false"
+                android:layout_alignParentTop="true" android:layout_marginLeft="0dp"
+                android:layout_marginStart="0dp" android:layout_marginBottom="5dp"/>
+        <TextView
+                android:text="Please enter the amount to continue"
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:layout_marginTop="0dp"
+                android:layout_below="@+id/depoLbl"
+                android:textColor="@color/grey_2"
+                android:layout_height="wrap_content" android:id="@+id/depoLbl2" android:layout_centerHorizontal="false"
+                android:layout_marginLeft="0dp"
+                android:layout_marginStart="0dp" android:layout_marginBottom="55dp"/>
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/amountTxtLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardElevation="10dp"
-                app:cardCornerRadius="2dp"
-                app:cardBackgroundColor="@color/bg2"
-                app:cardMaxElevation="12dp"
-                app:cardPreventCornerOverlap="true"
-                app:cardUseCompatPadding="true"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp">
-            <RelativeLayout
+                app:boxCornerRadiusBottomEnd="10dp"
+                app:boxCornerRadiusBottomStart="10dp"
+                android:layout_below="@id/depoLbl2"
+                app:boxCornerRadiusTopEnd="10dp"
+                app:boxCornerRadiusTopStart="10dp"
+                app:endIconMode="clear_text"
+                app:hintTextColor="@color/main_green"
+                android:hint="Amount">
+
+            <!--this is the actual edit text which takes the input-->
+            <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/depo_amount"
+                    android:inputType="phone"
+                    android:fontFamily="@font/open_sans"
                     android:layout_width="match_parent"
-                    android:paddingBottom="10dp"
-                    android:paddingTop="10dp"
-                    android:layout_height="wrap_content">
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Enter the amount below"
-                        android:id="@+id/text_depo"
-                        android:layout_marginTop="8dp"
-                        android:textSize="20sp"
-                        android:textColor="@color/white"
-                        android:fontFamily="@font/open_sans" android:layout_centerHorizontal="true"
-                        android:layout_marginLeft="20dp" android:layout_marginStart="20dp"
-                        android:layout_marginRight="20dp" android:layout_marginEnd="20dp"/>
-                <EditText
-                        android:layout_width="200dp"
-                        android:layout_height="wrap_content"
-                        android:hint="0.00"
-                        android:id="@+id/edit_depo"
-                        android:background="@drawable/edit_bg"
-                        android:layout_below="@+id/text_depo"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginStart="10dp"
-                        android:textSize="14sp"
-                        android:inputType="number"
-                        android:textColorHint="@color/our_grey"
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:layout_marginLeft="10dp"
-                        android:fontFamily="@font/open_sans"
-                        android:layout_centerHorizontal="true"
-                        android:gravity="center_horizontal"/>
-                <Button
-                        android:layout_width="150dp"
-                        android:layout_height="wrap_content"
-                        android:text="Deposit"
-                        android:textAlignment="center"
-                        android:id="@+id/btn_depo"
-                        android:layout_below="@+id/edit_depo"
-                        android:layout_marginTop="8dp"
-                        android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:layout_marginBottom="8dp"
-                        android:textAllCaps="false"
-                        android:paddingTop="6dp"
-                        android:fontFamily="@font/open_sans"
-                        app:backgroundTint="@color/dark_green"
-                        android:layout_centerHorizontal="true"
-                        android:gravity="center_horizontal"/>
-            </RelativeLayout>
-        </androidx.cardview.widget.CardView>
+                    android:maxLength="10"
+                    android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+                android:text=""
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:textStyle="bold"
+                android:textSize="13sp"
+                android:layout_marginTop="2dp"
+                android:layout_below="@+id/amountTxtLayout"
+                android:textColor="@color/red"
+                android:layout_height="wrap_content" android:id="@+id/amountDisc"
+                android:layout_marginLeft="0dp"
+                android:layout_marginStart="0dp" android:layout_centerHorizontal="true"/>
+        <Button
+                android:id="@+id/btn_depo"
+                android:layout_below="@id/amountDisc"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:textAllCaps="false"
+                android:paddingTop="7dp"
+                android:paddingBottom="7dp"
+                android:textStyle="bold"
+                android:fontFamily="@font/open_sans"
+                android:background="@drawable/roundbtn"
+                android:text="Proceed" android:layout_centerHorizontal="true"/>
+        <ProgressBar
+                style="@android:style/Widget.Holo.Light.ProgressBar"
+                android:layout_below="@id/amountTxtLayout"
+                android:layout_marginTop="15dp"
+                android:layout_centerHorizontal="true"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/progressBarLgn"/>
     </RelativeLayout>
 </RelativeLayout>
