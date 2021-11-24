@@ -65,9 +65,9 @@
                 android:layout_width="wrap_content"
                 android:fontFamily="@font/open_sans"
                 android:textStyle="bold"
-                android:textSize="14sp"
+                android:textSize="16sp"
                 android:layout_marginTop="0dp"
-                android:textColor="@color/grey_2"
+                android:textColor="@color/white"
                 android:layout_height="wrap_content" android:id="@+id/depoLbl2" android:layout_centerHorizontal="false"
                 android:layout_marginLeft="0dp"
                 android:layout_marginStart="0dp" android:layout_marginBottom="30dp"/>
@@ -92,7 +92,8 @@
                     android:fontFamily="@font/open_sans"
                     android:layout_width="match_parent"
                     android:maxLength="10"
-                    android:layout_height="wrap_content"/>
+                    android:textAlignment="center"
+                    android:layout_height="wrap_content" android:gravity="center_horizontal"/>
 
         </com.google.android.material.textfield.TextInputLayout>
         <TextView
