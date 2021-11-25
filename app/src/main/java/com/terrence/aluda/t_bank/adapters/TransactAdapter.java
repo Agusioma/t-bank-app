@@ -61,7 +61,9 @@ public class TransactAdapter extends RecyclerView.Adapter<TransactAdapter.ViewHo
                 Intent intent= new Intent(v.getContext(), WithdrawActivity.class);
                 v.getContext().startActivity(intent);
             }else if(getLayoutPosition()==2){
-                Intent intent= new Intent(v.getContext(), SendActivity.class);
+                //Intent intent= new Intent(v.getContext(), SendActivity.class);
+                //v.getContext().startActivity(intent);
+                Intent intent= new Intent(v.getContext(), StatementActivity.class);
                 v.getContext().startActivity(intent);
             }else if(getLayoutPosition()==3){
                 Intent intent= new Intent(v.getContext(), StatementActivity.class);
