@@ -43,6 +43,8 @@ public class UpdateActivity extends AppCompatActivity {
         emailDiscEdit = findViewById(R.id.emailDiscEdit);
         btn_update = findViewById(R.id.btn_update);
 
+        firstnameEdit.requestFocus();
+
         sharedPreferences = getSharedPreferences("MyTax", 0);
         firstname = sharedPreferences.getString("Name", "defaultValue");
         lastname = sharedPreferences.getString("Last", "defaultValue");
