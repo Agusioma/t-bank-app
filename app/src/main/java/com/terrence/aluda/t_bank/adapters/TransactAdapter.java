@@ -40,6 +40,7 @@ public class TransactAdapter extends RecyclerView.Adapter<TransactAdapter.ViewHo
     public int getItemCount() {
         return transModelArrayList.size();
     }
+
     public class ViewHolder extends RecyclerView.ViewHolder implements  View.OnClickListener{
         private ImageView our_image;
         private TextView our_label;
