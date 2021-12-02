@@ -43,6 +43,11 @@ public class UpdateActivity extends AppCompatActivity {
         emailDiscEdit = findViewById(R.id.emailDiscEdit);
 
         sharedPreferences = getSharedPreferences("MyTax", 0);
+        firstname = sharedPreferences.getString("Name", "defaultValue");
+        lastname = sharedPreferences.getString("Last", "defaultValue");
+        natID = sharedPreferences.getString("natID", "defaultValue");
+        phonee = sharedPreferences.getString("userPhone", "defaultValue");
+        email = sharedPreferences.getString("emailAddress", "defaultValue");
 
         firstnameDiscEdit.setVisibility(View.GONE);
         secondnameDiscEdit.setVisibility(View.GONE);
@@ -157,6 +162,10 @@ public class UpdateActivity extends AppCompatActivity {
             }
         });
 
+        firstnameEdit.setText(firstname);
+        secondnameEdit.setText(lastname);
+        emailEdit.setText(email);
+
     }
 
     private void checkInput() {
@@ -195,11 +204,10 @@ public class UpdateActivity extends AppCompatActivity {
             APIInterface apiInterface;
 
             showBar();
-            firstname = sharedPreferences.getString("Name", "defaultValue");
-            lastname = sharedPreferences.getString("Last", "defaultValue");
-            natID = sharedPreferences.getString("natID", "defaultValue");
-            phonee = sharedPreferences.getString("userPhone", "defaultValue");
-            email = sharedPreferences.getString("emailAddress", "defaultValue");
+            firstname = firstnameEdit.getText().toString();
+            lastname = secondnameEdit.getText().toString();
+            email = emailEdit.getText().toString();
+
 
             responseArray = new ArrayList<>();
 
