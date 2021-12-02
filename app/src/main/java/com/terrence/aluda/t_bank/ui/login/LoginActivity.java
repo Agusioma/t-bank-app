@@ -25,7 +25,7 @@ import java.util.List;
 public class LoginActivity extends AppCompatActivity {
 
     List<LoginTest> responseArray;
-    private String loggedInCheck, firstname, lastname, email, natID, userPassword, regDate, phoneParam, passwordParam, statCheck, totals;
+    private String loggedInCheck, firstname, lastname, email, natID, userPassword, regDate, PhoneNo, phoneParam, passwordParam, statCheck, totals;
     private EditText editNum, editPassword;
     private Button btnAuth, btnFgPwd;
     private ProgressBar loginProgress;
@@ -168,6 +168,7 @@ public class LoginActivity extends AppCompatActivity {
                         userPassword = responseArray.get(0).getPassword();
                         regDate = responseArray.get(0).getRegDate();
                         email = responseArray.get(0).getEmail();
+                        PhoneNo = responseArray.get(0).getPhoneNo();
 
                         Intent toMain = new Intent(LoginActivity.this, MainActivity.class);
 
@@ -177,6 +178,7 @@ public class LoginActivity extends AppCompatActivity {
                         toMain.putExtra("userPassword", userPassword);
                         toMain.putExtra("regDate", regDate);
                         toMain.putExtra("email", email);
+                        toMain.putExtra("PhoneNo", PhoneNo);
 
                         startActivity(toMain);
                     }

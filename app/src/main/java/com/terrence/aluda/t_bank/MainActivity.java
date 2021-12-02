@@ -11,7 +11,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 public class MainActivity extends AppCompatActivity {
-    private String firstname, email, lastname, natID, userPassword, regDate,statCheck, totals;
+    private String firstname, email, lastname, natID, userPassword, phoneNo, regDate,statCheck, totals;
     SharedPreferences sharedpreferences;
 
 
@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
             userPassword = extras.getString("userPassword");
             regDate = extras.getString("regDate");
             email = extras.getString("email");
+            phoneNo = extras.getString("PhoneNo");
 
         }
 
@@ -48,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
         editor.putString("Name", firstname);
         editor.putString("Last", lastname);
         editor.putString("natID", natID);
+        editor.putString("emailAddress", email);
+        editor.putString("userPhone", phoneNo);
         editor.commit();
 
     }
