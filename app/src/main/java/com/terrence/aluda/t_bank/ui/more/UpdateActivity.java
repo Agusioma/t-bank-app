@@ -41,6 +41,7 @@ public class UpdateActivity extends AppCompatActivity {
         secondnameDiscEdit = findViewById(R.id.secondnameDiscEdit);
         progressBarEdit = findViewById(R.id.progressBarEdit);
         emailDiscEdit = findViewById(R.id.emailDiscEdit);
+        btn_update = findViewById(R.id.btn_update);
 
         sharedPreferences = getSharedPreferences("MyTax", 0);
         firstname = sharedPreferences.getString("Name", "defaultValue");
@@ -166,6 +167,11 @@ public class UpdateActivity extends AppCompatActivity {
         secondnameEdit.setText(lastname);
         emailEdit.setText(email);
 
+        btn_update.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                checkInput();
+            }
+        });
     }
 
     private void checkInput() {
@@ -185,7 +191,7 @@ public class UpdateActivity extends AppCompatActivity {
             emailDiscEdit.setText("Please enter your email address");
 
         } else {
-            sendAuthToken();
+            sendUpdateTokens();
         }
     }
 
@@ -199,7 +205,8 @@ public class UpdateActivity extends AppCompatActivity {
         progressBarEdit.setVisibility(View.VISIBLE);
     }
 
-    private void sendAuthToken() {
+    private void sendUpdateTokens() {
+        responseArray = new ArrayList<>();
         try {
             APIInterface apiInterface;
 
@@ -207,9 +214,6 @@ public class UpdateActivity extends AppCompatActivity {
             firstname = firstnameEdit.getText().toString();
             lastname = secondnameEdit.getText().toString();
             email = emailEdit.getText().toString();
-
-
-            responseArray = new ArrayList<>();
 
             apiInterface = APIClient.getClient().create(APIInterface.class);
             Call<List<LoginTest>> call = apiInterface.doUpdate(firstname, lastname, email, natID, phonee);
@@ -229,6 +233,7 @@ public class UpdateActivity extends AppCompatActivity {
                     regDate = responseArray.get(0).getRegDate();
                     email = responseArray.get(0).getEmail();
                     phonee = responseArray.get(0).getPhoneNo();
+
                     updateSharedPreferences(firstname, lastname, natID, email, phonee);
                 }
 
