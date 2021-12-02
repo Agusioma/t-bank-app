@@ -36,7 +36,7 @@ public class MoreFragment extends Fragment {
         phonee = sharedPreferences.getString("userPhone", "defaultValue");
         email = sharedPreferences.getString("emailAddress", "defaultValue");
 
-        text_prof.setText(firstname+lastname);
+        text_prof.setText(firstname+" "+lastname);
         text_prof1.setText(email);
         text_prof2.setText(phonee);
 
