@@ -170,7 +170,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/progressBarLgn"/>
+                android:id="@+id/progressBarEdit"/>
 
     </RelativeLayout>
 

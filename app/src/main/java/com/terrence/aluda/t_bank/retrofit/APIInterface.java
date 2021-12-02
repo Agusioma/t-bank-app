@@ -20,6 +20,9 @@ public interface APIInterface {
     Call<ArrayList<AccountStatements>> getStatPreview(@Query("user_id") String user_id);
     @GET("/totalsavings/")
     Call<List<TotalSavings>> getTotalSavings(@Query("user_id") String user_id);
+    @GET("/updatedetails/")
+    Call<List<LoginTest>> doUpdate(@Query("_fName") String _fName, @Query("_lName") String _lName, @Query("_eAddress") String _eAddress, @Query("_natID") String _natID, @Query("_pNumber") String _pNumber);
+
    /* @POST("/api/users")
     Call<User> createUser(@Body User user);
 
