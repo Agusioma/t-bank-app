@@ -1,6 +1,7 @@
 package com.terrence.aluda.t_bank.retrofit;
 
 import com.terrence.aluda.t_bank.netrequests.AccountStatements;
+import com.terrence.aluda.t_bank.netrequests.DefaultResponse;
 import com.terrence.aluda.t_bank.netrequests.LoginTest;
 import com.terrence.aluda.t_bank.netrequests.TotalSavings;
 import retrofit2.Call;
@@ -16,13 +17,18 @@ public interface APIInterface {
 
     @GET("/viewstatements/")
     Call<ArrayList<AccountStatements>> getStatements(@Query("user_id") String user_id);
+
     @GET("/statPreview/")
     Call<ArrayList<AccountStatements>> getStatPreview(@Query("user_id") String user_id);
+
     @GET("/totalsavings/")
     Call<List<TotalSavings>> getTotalSavings(@Query("user_id") String user_id);
+
     @GET("/updatedetails/")
     Call<List<LoginTest>> doUpdate(@Query("_fName") String _fName, @Query("_lName") String _lName, @Query("_eAddress") String _eAddress, @Query("_natID") String _natID, @Query("_pNumber") String _pNumber);
 
+    @GET("/updatepassword/")
+    Call<List<DefaultResponse>> changePassword(@Query("_natID") String _natID, @Query("_password") String _password);
    /* @POST("/api/users")
     Call<User> createUser(@Body User user);
 
