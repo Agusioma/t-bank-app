@@ -21,6 +21,8 @@ import com.terrence.aluda.t_bank.R;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -212,6 +214,8 @@ public class LoginActivity extends AppCompatActivity {
             sendAuthToken();
         }
     }
+
+
 
     private void hideBar() {
         btnAuth.setVisibility(View.VISIBLE);
