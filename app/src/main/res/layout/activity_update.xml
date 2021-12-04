@@ -193,7 +193,7 @@
                 android:id="@+id/updateLbl3" android:layout_centerVertical="true" android:layout_marginLeft="0dp"
                 android:layout_marginStart="0dp"/>
         <Button
-                android:id="@+id/toSignUpBtn"
+                android:id="@+id/toUpdatePwdBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="0dp"

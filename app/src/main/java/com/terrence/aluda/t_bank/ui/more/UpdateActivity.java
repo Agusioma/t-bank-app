@@ -1,5 +1,6 @@
 package com.terrence.aluda.t_bank.ui.more;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -7,10 +8,12 @@ import android.view.View;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import com.terrence.aluda.t_bank.MainActivity;
 import com.terrence.aluda.t_bank.R;
 import com.terrence.aluda.t_bank.netrequests.LoginTest;
 import com.terrence.aluda.t_bank.retrofit.APIClient;
 import com.terrence.aluda.t_bank.retrofit.APIInterface;
+import com.terrence.aluda.t_bank.ui.login.LoginActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -23,7 +26,7 @@ public class UpdateActivity extends AppCompatActivity {
     private EditText firstnameEdit, secondnameEdit, emailEdit;
     private TextView firstnameDiscEdit, secondnameDiscEdit, emailDiscEdit;
     private ProgressBar progressBarEdit;
-    private Button btn_update;
+    private Button btn_update, toUpdatePwdBtn;
     private SharedPreferences sharedPreferences;
     List<LoginTest> responseArray;
 
@@ -39,6 +42,7 @@ public class UpdateActivity extends AppCompatActivity {
         progressBarEdit = findViewById(R.id.progressBarEdit);
         emailDiscEdit = findViewById(R.id.emailDiscEdit);
         btn_update = findViewById(R.id.btn_update);
+        toUpdatePwdBtn = findViewById(R.id.toUpdatePwdBtn);
 
         firstnameEdit.requestFocus();
 
@@ -169,6 +173,12 @@ public class UpdateActivity extends AppCompatActivity {
         btn_update.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 checkInput();
+            }
+        });
+        toUpdatePwdBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent toUpdatePwd = new Intent(UpdateActivity.this, UpdatePwdActivity.class);
+                startActivity(toUpdatePwd);
             }
         });
     }

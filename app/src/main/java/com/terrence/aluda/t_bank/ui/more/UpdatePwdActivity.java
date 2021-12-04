@@ -156,11 +156,11 @@ public class UpdatePwdActivity extends AppCompatActivity {
             }
         });
 
-        /*btn_Pwd.setOnClickListener(new View.OnClickListener() {
+        btn_Pwd.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 checkInput();
             }
-        });*/
+        });
     }
 
     private void checkInput() {
@@ -178,9 +178,18 @@ public class UpdatePwdActivity extends AppCompatActivity {
 
             confirmDiscPwd.setVisibility(View.VISIBLE);
             confirmDiscPwd.setText("Please confirm your new password");
+
         } else if(!checkAndValidatePassword(currentPwd.getText().toString())){
-            currentDiscPwd.setVisibility(View.VISIBLE);
-            currentDiscPwd.setText("Type in a strong password");
+
+            firstDiscPwd.setVisibility(View.VISIBLE);
+            firstDiscPwd.setText("Type in a strong password");
+            confirmDiscPwd.setVisibility(View.VISIBLE);
+            confirmDiscPwd.setText("Type in a strong password");
+        } else if(!((confirmPwd.getText().toString()).equals(firstPwd.getText().toString()))){
+            firstDiscPwd.setVisibility(View.VISIBLE);
+            firstDiscPwd.setText("Your passwords don't match");
+            confirmDiscPwd.setVisibility(View.VISIBLE);
+            confirmDiscPwd.setText("Your passwords don't match");
         } else {
             sendUpdateTokens();
         }
@@ -238,4 +247,3 @@ public class UpdatePwdActivity extends AppCompatActivity {
         }
     }
     }
-}
