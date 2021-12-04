@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:paddingLeft="0dp"
+            android:layout_marginRight="30dp"
+            android:paddingRight="0dp"
+            android:layout_centerInParent="true">
+        <TextView
+                android:text="Password Update"
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:textStyle="bold"
+                android:textSize="25sp"
+                android:textColor="@color/white"
+                android:layout_height="wrap_content" android:id="@+id/updatePwdLbl" android:layout_centerHorizontal="false"
+                android:layout_alignParentTop="true" android:layout_marginLeft="0dp"
+                android:layout_marginStart="0dp" android:layout_marginBottom="5dp"/>
+        <TextView
+                android:text="Please enter the required details"
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:layout_marginTop="0dp"
+                android:layout_below="@+id/updatePwdLbl"
+                android:textColor="@color/grey_2"
+                android:layout_height="wrap_content"
+                android:id="@+id/updatePwdLbl2"
+                android:layout_centerHorizontal="false"
+                android:layout_marginLeft="0dp"
+                android:layout_marginStart="0dp" android:layout_marginBottom="55dp"/>
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/phoneTxtLayoutPwd"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxCornerRadiusBottomEnd="10dp"
+                app:boxCornerRadiusBottomStart="10dp"
+                android:layout_below="@id/updatePwdLbl2"
+                app:boxCornerRadiusTopEnd="10dp"
+                app:boxCornerRadiusTopStart="10dp"
+                app:endIconMode="password_toggle"
+                app:hintTextColor="@color/main_green"
+                android:hint="First name">
+
+            <!--this is the actual edit text which takes the input-->
+            <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/currentPwd"
+                    android:inputType="text"
+                    android:fontFamily="@font/open_sans"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+                android:text=""
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:textStyle="bold"
+                android:textSize="13sp"
+                android:layout_marginTop="2dp"
+                android:layout_below="@+id/phoneTxtLayoutPwd"
+                android:textColor="@color/red"
+                android:layout_height="wrap_content"
+                android:id="@+id/currentDiscPwd"
+                android:layout_marginLeft="0dp"
+                android:layout_marginStart="0dp" android:layout_centerHorizontal="true"/>
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/firstPwdTxtLayoutPwd"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/currentDiscPwd"
+                android:layout_marginTop="15dp"
+
+                app:boxCornerRadiusBottomEnd="10dp"
+                app:boxCornerRadiusBottomStart="10dp"
+                app:boxCornerRadiusTopEnd="10dp"
+                app:boxCornerRadiusTopStart="10dp"
+                app:endIconMode="password_toggle"
+                app:hintTextColor="@color/main_green"
+                android:hint="Second name">
+
+            <!--this is the actual edit text which takes the input-->
+            <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/firstPwd"
+                    android:inputType="text"
+                    android:layout_width="match_parent"
+                    android:fontFamily="@font/open_sans"
+                    android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+                android:text=""
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:textStyle="bold"
+                android:textSize="13sp"
+                android:layout_marginTop="2dp"
+                android:layout_below="@+id/firstPwdTxtLayoutPwd"
+                android:textColor="@color/red"
+                android:layout_height="wrap_content" android:id="@+id/firstDiscPwd"
+                android:layout_marginLeft="0dp"
+                android:layout_marginStart="0dp" android:layout_centerHorizontal="true"/>
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/confirmPwdTxtLayoutPwd"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/firstDiscPwd"
+                android:layout_marginTop="15dp"
+
+                app:boxCornerRadiusBottomEnd="10dp"
+                app:boxCornerRadiusBottomStart="10dp"
+                app:boxCornerRadiusTopEnd="10dp"
+                app:boxCornerRadiusTopStart="10dp"
+                app:endIconMode="password_toggle"
+                app:hintTextColor="@color/main_green"
+                android:hint="Email address">
+
+            <!--this is the actual edit text which takes the input-->
+            <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/confirmPwd"
+                    android:inputType="text"
+                    android:layout_width="match_parent"
+                    android:fontFamily="@font/open_sans"
+                    android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+                android:text=""
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:textStyle="bold"
+                android:textSize="13sp"
+                android:layout_marginTop="2dp"
+                android:layout_below="@+id/confirmPwdTxtLayoutPwd"
+                android:textColor="@color/red"
+                android:layout_height="wrap_content" android:id="@+id/confirmDiscPwd"
+                android:layout_marginLeft="0dp"
+                android:layout_marginStart="0dp" android:layout_centerHorizontal="true"/>
+
+        <Button
+                android:id="@+id/btn_Pwd"
+                android:layout_below="@id/confirmDiscPwd"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:textAllCaps="false"
+                android:paddingTop="7dp"
+                android:paddingBottom="7dp"
+                android:textStyle="bold"
+                android:fontFamily="@font/open_sans"
+                android:background="@drawable/roundbtn"
+                android:text="Proceed" android:layout_centerHorizontal="true"/>
+        <ProgressBar
+                style="@android:style/Widget.Holo.Light.ProgressBar"
+                android:layout_below="@id/confirmPwdTxtLayoutPwd"
+                android:layout_marginTop="15dp"
+                android:layout_centerHorizontal="true"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/progressBarPwd"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

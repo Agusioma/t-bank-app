@@ -1,6 +1,5 @@
 package com.terrence.aluda.t_bank.ui.more;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -8,12 +7,10 @@ import android.view.View;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import com.terrence.aluda.t_bank.MainActivity;
 import com.terrence.aluda.t_bank.R;
 import com.terrence.aluda.t_bank.netrequests.LoginTest;
 import com.terrence.aluda.t_bank.retrofit.APIClient;
 import com.terrence.aluda.t_bank.retrofit.APIInterface;
-import com.terrence.aluda.t_bank.ui.login.LoginActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
