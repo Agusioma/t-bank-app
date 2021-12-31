@@ -23,7 +23,7 @@ import java.util.regex.Pattern;
 public class UpdatePwdActivity extends AppCompatActivity {
 
     private EditText currentPwd, firstPwd, confirmPwd;
-    private TextView currentDiscPwd, firstDiscPwd, confirmDiscPwd;
+    private TextView currentDiscPwd, firstDiscPwd, confirmDiscPwd, noteLbl, note1, note2, note3, note4, note5;
     private ProgressBar progressBarPwd;
     private Button btn_Pwd;
     private String currentPassword, newPassword, natID, checkPass;
@@ -39,6 +39,12 @@ public class UpdatePwdActivity extends AppCompatActivity {
         firstDiscPwd = findViewById(R.id.firstDiscPwd);
         progressBarPwd = findViewById(R.id.progressBarPwd);
         confirmDiscPwd = findViewById(R.id.confirmDiscPwd);
+        noteLbl = findViewById(R.id.strength_note_tt);
+        note1 = findViewById(R.id.strength_note1);
+        note2 = findViewById(R.id.strength_note2);
+        note3 = findViewById(R.id.strength_note3);
+        note4 = findViewById(R.id.strength_note4);
+        note5 = findViewById(R.id.strength_note5);
         btn_Pwd = findViewById(R.id.btn_Pwd);
 
         currentPwd.requestFocus();
@@ -213,11 +219,24 @@ public class UpdatePwdActivity extends AppCompatActivity {
     private void hideBar() {
         btn_Pwd.setVisibility(View.VISIBLE);
         progressBarPwd.setVisibility(View.GONE);
+        noteLbl.setVisibility(View.VISIBLE);
+        note1.setVisibility(View.VISIBLE);
+        note2.setVisibility(View.VISIBLE);
+        note3.setVisibility(View.VISIBLE);
+        note4.setVisibility(View.VISIBLE);
+        note5.setVisibility(View.VISIBLE);
     }
 
     private void showBar() {
         btn_Pwd.setVisibility(View.GONE);
         progressBarPwd.setVisibility(View.VISIBLE);
+        noteLbl.setVisibility(View.GONE);
+        note1.setVisibility(View.GONE);
+        note2.setVisibility(View.GONE);
+        note3.setVisibility(View.GONE);
+        note4.setVisibility(View.GONE);
+        note5.setVisibility(View.GONE);
+
     }
     private void sendUpdateTokens() {
         try {
@@ -239,6 +258,10 @@ public class UpdatePwdActivity extends AppCompatActivity {
                     SharedPreferences.Editor editor = sharedPreferences2.edit();
                     editor.putString("userPassword", firstPwd.getText().toString());
                     editor.commit();
+                    currentPwd.setText("");
+                    firstPwd.setText("");
+                    confirmPwd.setText("");
+                    currentPwd.requestFocus();
                 }
 
                 @Override
