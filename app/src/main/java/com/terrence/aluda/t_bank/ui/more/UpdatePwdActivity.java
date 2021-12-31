@@ -26,7 +26,7 @@ public class UpdatePwdActivity extends AppCompatActivity {
     private TextView currentDiscPwd, firstDiscPwd, confirmDiscPwd;
     private ProgressBar progressBarPwd;
     private Button btn_Pwd;
-    private String currentPassword, newPassword, natID;
+    private String currentPassword, newPassword, natID, checkPass;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,13 +41,15 @@ public class UpdatePwdActivity extends AppCompatActivity {
         confirmDiscPwd = findViewById(R.id.confirmDiscPwd);
         btn_Pwd = findViewById(R.id.btn_Pwd);
 
-        firstPwd.requestFocus();
+        currentPwd.requestFocus();
 
         currentDiscPwd.setVisibility(View.GONE);
         firstDiscPwd.setVisibility(View.GONE);
         confirmDiscPwd.setVisibility(View.GONE);
         progressBarPwd.setVisibility(View.GONE);
 
+        SharedPreferences sharedPreferences = getSharedPreferences("MyTax", 0);
+        checkPass = sharedPreferences.getString("userPassword", "defaultValue");
         firstPwd.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean hasFocus) {
@@ -164,27 +166,28 @@ public class UpdatePwdActivity extends AppCompatActivity {
     }
 
     private void checkInput() {
-        if (firstPwd.getText().length() == 0) {
-
-            firstDiscPwd.setVisibility(View.VISIBLE);
-            firstDiscPwd.setText("Please enter your current password");
-
-        } else if (currentPwd.getText().length() == 0) {
+        if (currentPwd.getText().length() == 0) {
 
             currentDiscPwd.setVisibility(View.VISIBLE);
-            currentDiscPwd.setText("Please enter your new password");
+            currentDiscPwd.setText("Please enter your current password");
+
+        } else if (firstPwd.getText().length() == 0) {
+
+            firstDiscPwd.setVisibility(View.VISIBLE);
+            firstDiscPwd.setText("Please enter your new password");
 
         } else if (confirmPwd.getText().length() == 0) {
 
             confirmDiscPwd.setVisibility(View.VISIBLE);
             confirmDiscPwd.setText("Please confirm your new password");
+        }else if(!((currentPwd.getText().toString()).equals(checkPass))){
 
-        } else if(!checkAndValidatePassword(currentPwd.getText().toString())){
+            currentDiscPwd.setVisibility(View.VISIBLE);
+            currentDiscPwd.setText("Wrong password");
+        } else if(!checkAndValidatePassword(firstPwd.getText().toString())){
 
             firstDiscPwd.setVisibility(View.VISIBLE);
             firstDiscPwd.setText("Type in a strong password");
-            confirmDiscPwd.setVisibility(View.VISIBLE);
-            confirmDiscPwd.setText("Type in a strong password");
         } else if(!((confirmPwd.getText().toString()).equals(firstPwd.getText().toString()))){
             firstDiscPwd.setVisibility(View.VISIBLE);
             firstDiscPwd.setText("Your passwords don't match");
@@ -198,7 +201,7 @@ public class UpdatePwdActivity extends AppCompatActivity {
     public static boolean checkAndValidatePassword(String password)
     {
 
-        String regex = "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=.*[\\S])(?=.{8,})";
+        String regex = "^(?=.*[0-9])" + "(?=.*[a-z])(?=.*[A-Z])" + "(?=.*[@#$%^&+=])"+ "(?=\\S+$).{8,20}$";
 
         Pattern p = Pattern.compile(regex);
 
@@ -232,6 +235,10 @@ public class UpdatePwdActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<List<DefaultResponse>> call, Response<List<DefaultResponse>> response) {
                     hideBar();
+                    SharedPreferences sharedPreferences2 = getSharedPreferences("MyTax", 0);
+                    SharedPreferences.Editor editor = sharedPreferences2.edit();
+                    editor.putString("userPassword", firstPwd.getText().toString());
+                    editor.commit();
                 }
 
                 @Override

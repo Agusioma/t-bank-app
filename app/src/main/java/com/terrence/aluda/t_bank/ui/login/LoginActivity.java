@@ -138,7 +138,7 @@ public class LoginActivity extends AppCompatActivity {
 
            // phoneParam = "254" + phoneParam.substring(phoneParam.length() - 9);
             phoneParam = "254702277060";
-            passwordParam = "4141";
+            passwordParam = "TerrAld$$254!";
             responseArray = new ArrayList<>();
 
             apiInterface = APIClient.getClient().create(APIInterface.class);

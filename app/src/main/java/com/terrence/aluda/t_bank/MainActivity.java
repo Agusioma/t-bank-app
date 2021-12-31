@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         editor.putString("Name", firstname);
         editor.putString("Last", lastname);
         editor.putString("natID", natID);
+        editor.putString("userPassword", userPassword);
         editor.putString("emailAddress", email);
         editor.putString("userPhone", phoneNo);
         editor.commit();
