@@ -130,7 +130,7 @@ public class LoginActivity extends AppCompatActivity {
                 checkInput();
             }
         });*/
-        //sendAuthToken();
+        sendAuthToken();
     }
 
     private void sendAuthToken() {
