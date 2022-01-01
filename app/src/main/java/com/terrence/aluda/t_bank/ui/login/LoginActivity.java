@@ -9,6 +9,7 @@ import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.terrence.aluda.t_bank.MainActivity;
+import com.terrence.aluda.t_bank.SignUp;
 import com.terrence.aluda.t_bank.netrequests.AccountStatements;
 import com.terrence.aluda.t_bank.netrequests.LoginTest;
 import com.terrence.aluda.t_bank.netrequests.TotalSavings;
@@ -29,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
     List<LoginTest> responseArray;
     private String loggedInCheck, firstname, lastname, email, natID, userPassword, regDate, PhoneNo, phoneParam, passwordParam, statCheck, totals;
     private EditText editNum, editPassword;
-    private Button btnAuth, btnFgPwd;
+    private Button btnAuth, btnFgPwd, toSignUpBtn;
     private ProgressBar loginProgress;
     private TextView numDisc, passDisc;
     List<AccountStatements> statementsArray;
@@ -47,6 +48,7 @@ public class LoginActivity extends AppCompatActivity {
         loginProgress = findViewById(R.id.progressBarLgn);
         numDisc = findViewById(R.id.numDisc);
         passDisc = findViewById(R.id.passDisc);
+        toSignUpBtn = findViewById(R.id.toSignUpBtn);
 
         numDisc.setVisibility(View.GONE);
         passDisc.setVisibility(View.GONE);
@@ -117,13 +119,18 @@ public class LoginActivity extends AppCompatActivity {
                 ignore = false;
             }
         });
-
+        toSignUpBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent toSignUp = new Intent(LoginActivity.this, SignUp.class);
+                startActivity(toSignUp);
+            }
+        });
         /*btnAuth.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 checkInput();
             }
         });*/
-        sendAuthToken();
+        //sendAuthToken();
     }
 
     private void sendAuthToken() {
