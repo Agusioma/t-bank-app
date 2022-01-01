@@ -238,7 +238,7 @@
                     app:boxCornerRadiusTopStart="10dp"
                     app:endIconMode="password_toggle"
                     app:hintTextColor="@color/main_green"
-                    android:hint="Password">
+                    android:hint="Enter Password">
 
                 <!--this is the actual edit text which takes the input-->
                 <com.google.android.material.textfield.TextInputEditText
@@ -421,6 +421,7 @@
                     android:layout_marginBottom="10dp"
                     android:layout_below="@id/btn_process_personal"
                     android:layout_height="wrap_content"
+                    android:id="@+id/footer"
                     android:layout_marginLeft="0dp"
                     android:layout_marginRight="0dp" android:layout_marginStart="0dp" android:layout_marginEnd="0dp">
                 <TextView
@@ -444,6 +445,31 @@
                         android:text="Click here"
                         android:textAllCaps="false"
 
+                        android:textStyle="bold"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                />
+            </RelativeLayout>
+            <RelativeLayout
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_below="@id/reg_strength_note5"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/footer2"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="0dp" android:layout_marginStart="0dp" android:layout_marginEnd="0dp">
+                <Button
+                        android:id="@+id/toPersonals"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="0dp"
+                        android:paddingBottom="0dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/open_sans"
+                        android:text="Back"
+                        android:textAllCaps="false"
+                        android:textSize="17sp"
+                        android:layout_marginTop="15dp"
                         android:textStyle="bold"
                         style="@style/Widget.MaterialComponents.Button.TextButton"
                 />
