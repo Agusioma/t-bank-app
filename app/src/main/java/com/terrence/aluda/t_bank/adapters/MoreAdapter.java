@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.terrence.aluda.t_bank.models.more.MoreModel;
 import com.terrence.aluda.t_bank.ui.login.LoginActivity;
 import com.terrence.aluda.t_bank.ui.login.TestActivity;
+import com.terrence.aluda.t_bank.ui.more.ContactActivity;
 import com.terrence.aluda.t_bank.ui.more.MoreFragment;
 import com.terrence.aluda.t_bank.ui.more.UpdateActivity;
 import com.terrence.aluda.t_bank.ui.transaction.DepositActivity;
@@ -67,8 +68,8 @@ public class MoreAdapter extends RecyclerView.Adapter<MoreAdapter.ViewHolder> {
                 Intent intent= new Intent(v.getContext(), UpdateActivity.class);
                 v.getContext().startActivity(intent);
             }else if(getLayoutPosition()==1){
-               // Intent intent= new Intent(v.getContext(), LoginActivity.class);
-                //v.getContext().startActivity(intent);
+               Intent intent= new Intent(v.getContext(), ContactActivity.class);
+                v.getContext().startActivity(intent);
             }if(getLayoutPosition()==2){
                 Intent intent= new Intent(v.getContext(), LoginActivity.class);
                 v.getContext().startActivity(intent);

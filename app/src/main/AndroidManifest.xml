@@ -12,6 +12,8 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/Theme.TBank">
+        <activity android:name=".ui.more.ContactActivity">
+        </activity>
         <activity android:name=".SignUp">
         </activity>
         <activity android:name=".ui.more.UpdatePwdActivity">
