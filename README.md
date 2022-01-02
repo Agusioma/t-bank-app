@@ -12,5 +12,22 @@ For the backend, PHP's Laravel and Java was used. The Laravel repository and its
 
 For the UI, Android's XML styling was used.
 
-It is still under development and it may have some bugs(not yet on Google Playstore).
+> It is still under development and it may have some bugs(not yet on Google Playstore).
 
+### Screenshots
+Some of the screens
+
+i. Login
+![](login.png)
+
+ii. Home
+![](dash.png)
+
+iii. Account details
+![](account.png)
+
+iv. Update details
+![](update.png)
+
+v.  Contact us
+![](contact.png)
