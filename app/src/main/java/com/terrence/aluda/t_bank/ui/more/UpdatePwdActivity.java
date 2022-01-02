@@ -60,9 +60,7 @@ public class UpdatePwdActivity extends AppCompatActivity {
             @Override
             public void onFocusChange(View view, boolean hasFocus) {
                 if (hasFocus) {
-                    firstDiscPwd.setVisibility(View.GONE);
-                    currentDiscPwd.setVisibility(View.GONE);
-                    confirmDiscPwd.setVisibility(View.GONE);
+                    hideBanners();
                 }
             }
         });
@@ -71,9 +69,7 @@ public class UpdatePwdActivity extends AppCompatActivity {
             @Override
             public void onFocusChange(View view, boolean hasFocus) {
                 if (hasFocus) {
-                    firstDiscPwd.setVisibility(View.GONE);
-                    currentDiscPwd.setVisibility(View.GONE);
-                    confirmDiscPwd.setVisibility(View.GONE);
+                    hideBanners();
                 }
             }
         });
@@ -82,9 +78,7 @@ public class UpdatePwdActivity extends AppCompatActivity {
             @Override
             public void onFocusChange(View view, boolean hasFocus) {
                 if (hasFocus) {
-                    firstDiscPwd.setVisibility(View.GONE);
-                    currentDiscPwd.setVisibility(View.GONE);
-                    confirmDiscPwd.setVisibility(View.GONE);
+                    hideBanners();
                 }
             }
         });
@@ -107,9 +101,7 @@ public class UpdatePwdActivity extends AppCompatActivity {
                 if (ignore)
                     return;
                 ignore = true;
-                firstDiscPwd.setVisibility(View.GONE);
-                currentDiscPwd.setVisibility(View.GONE);
-                confirmDiscPwd.setVisibility(View.GONE);
+                hideBanners();
                 ignore = false;
             }
         });
@@ -132,9 +124,7 @@ public class UpdatePwdActivity extends AppCompatActivity {
                 if (ignore)
                     return;
                 ignore = true;
-                firstDiscPwd.setVisibility(View.GONE);
-                currentDiscPwd.setVisibility(View.GONE);
-                confirmDiscPwd.setVisibility(View.GONE);
+                hideBanners();
                 ignore = false;
             }
         });
@@ -157,9 +147,7 @@ public class UpdatePwdActivity extends AppCompatActivity {
                 if (ignore)
                     return;
                 ignore = true;
-                firstDiscPwd.setVisibility(View.GONE);
-                currentDiscPwd.setVisibility(View.GONE);
-                confirmDiscPwd.setVisibility(View.GONE);
+                hideBanners();
                 ignore = false;
             }
         });
@@ -237,6 +225,11 @@ public class UpdatePwdActivity extends AppCompatActivity {
         note4.setVisibility(View.GONE);
         note5.setVisibility(View.GONE);
 
+    }
+    private void hideBanners(){
+        firstDiscPwd.setVisibility(View.GONE);
+        currentDiscPwd.setVisibility(View.GONE);
+        confirmDiscPwd.setVisibility(View.GONE);
     }
     private void sendUpdateTokens() {
         try {

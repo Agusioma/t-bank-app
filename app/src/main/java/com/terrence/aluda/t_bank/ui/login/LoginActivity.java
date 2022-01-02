@@ -58,8 +58,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onFocusChange(View view, boolean hasFocus) {
                 if (hasFocus) {
-                    passDisc.setVisibility(View.GONE);
-                    numDisc.setVisibility(View.GONE);
+                    hideBanners();
                 }
             }
         });
@@ -68,13 +67,13 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onFocusChange(View view, boolean hasFocus) {
                 if (hasFocus) {
-                    passDisc.setVisibility(View.GONE);
-                    numDisc.setVisibility(View.GONE);
+                    hideBanners();
                 }
             }
         });
         editPassword.addTextChangedListener(new TextWatcher() {
             boolean ignore = false;
+
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -90,8 +89,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (ignore)
                     return;
                 ignore = true;
-                passDisc.setVisibility(View.GONE);
-                numDisc.setVisibility(View.GONE);
+                hideBanners();
                 ignore = false;
             }
         });
@@ -114,8 +112,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (ignore)
                     return;
                 ignore = true;
-                passDisc.setVisibility(View.GONE);
-                numDisc.setVisibility(View.GONE);
+                hideBanners();
                 ignore = false;
             }
         });
@@ -143,7 +140,7 @@ public class LoginActivity extends AppCompatActivity {
             //phoneParam = editNum.getText().toString();
             //passwordParam = editPassword.getText().toString();
 
-           // phoneParam = "254" + phoneParam.substring(phoneParam.length() - 9);
+            // phoneParam = "254" + phoneParam.substring(phoneParam.length() - 9);
             phoneParam = "254702277060";
             passwordParam = "TerrAld$$254!";
             responseArray = new ArrayList<>();
@@ -222,7 +219,10 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-
+    private void hideBanners() {
+        passDisc.setVisibility(View.GONE);
+        numDisc.setVisibility(View.GONE);
+    }
 
     private void hideBar() {
         btnAuth.setVisibility(View.VISIBLE);
