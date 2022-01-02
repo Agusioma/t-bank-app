@@ -1,5 +1,6 @@
 package com.terrence.aluda.t_bank.adapters;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.terrence.aluda.t_bank.R;
 import com.terrence.aluda.t_bank.models.transact.TransactModel;
 import com.terrence.aluda.t_bank.ui.transaction.*;
@@ -59,8 +61,21 @@ public class TransactAdapter extends RecyclerView.Adapter<TransactAdapter.ViewHo
                 Intent intent= new Intent(v.getContext(), DepositActivity.class);
                 v.getContext().startActivity(intent);
             }else if(getLayoutPosition()==1){
-                Intent intent= new Intent(v.getContext(), WithdrawActivity.class);
-                v.getContext().startActivity(intent);
+                        new MaterialAlertDialogBuilder(context.getActivity())
+                                .setTitle("Coming soon")
+                                .setMessage("This functionality is currently being worked on.")
+
+                                .setPositiveButton("OK, I got it", new DialogInterface.OnClickListener() {
+
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        dialog.cancel();
+                                    }
+                                })
+                                .setCancelable(true)
+                                .show();
+                //Intent intent= new Intent(v.getContext(), WithdrawActivity.class);
+                //v.getContext().startActivity(intent);
             }else if(getLayoutPosition()==2){
                 //Intent intent= new Intent(v.getContext(), SendActivity.class);
                 //v.getContext().startActivity(intent);

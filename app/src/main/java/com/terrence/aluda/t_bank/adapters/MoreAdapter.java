@@ -67,9 +67,10 @@ public class MoreAdapter extends RecyclerView.Adapter<MoreAdapter.ViewHolder> {
                 Intent intent= new Intent(v.getContext(), UpdateActivity.class);
                 v.getContext().startActivity(intent);
             }else if(getLayoutPosition()==1){
-                //no code
+               // Intent intent= new Intent(v.getContext(), LoginActivity.class);
+                //v.getContext().startActivity(intent);
             }if(getLayoutPosition()==2){
-                Intent intent= new Intent(v.getContext(), TestActivity.class);
+                Intent intent= new Intent(v.getContext(), LoginActivity.class);
                 v.getContext().startActivity(intent);
             }
         }

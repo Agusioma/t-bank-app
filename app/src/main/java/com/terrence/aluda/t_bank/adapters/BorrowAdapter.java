@@ -1,5 +1,6 @@
 package com.terrence.aluda.t_bank.adapters;
 
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.terrence.aluda.t_bank.R;
 import com.terrence.aluda.t_bank.models.borrow.BorrowModel;
 import com.terrence.aluda.t_bank.ui.borrow.BorrowFragment;
@@ -28,6 +30,19 @@ public class BorrowAdapter extends RecyclerView.Adapter<BorrowAdapter.ViewHolder
     @Override
     public BorrowAdapter.ViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.loan_list, parent, false);
+        new MaterialAlertDialogBuilder(context.getActivity())
+                .setTitle("Coming soon")
+                .setMessage("The loan functionality is currently being worked on and will appear soon.")
+
+                .setPositiveButton("OK, I got it", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                })
+                .setCancelable(true)
+                .show();
         return new BorrowAdapter.ViewHolder(view);
     }
 
