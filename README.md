@@ -17,22 +17,22 @@ For the UI, Android's XML styling was used.
 ### Screenshots
 Some of the screens
 
-i. Login
+## i. Login
 
 ![](login.png)
 
-ii. Home
+## ii. Home
 
 ![](dash.png)
 
-iii. Account details
+## iii. Account details
 
 ![](account.png)
 
-iv. Update details
+## iv. Update details
 
 ![](update.png)
 
-v.  Contact us
+## v.  Contact us
 
 ![](contact.png)
