@@ -103,10 +103,33 @@
                 android:background="@color/our_grey"
         />
     </RelativeLayout>
+    <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_below="@+id/layout2"
+                    android:layout_height="match_parent"
+                    android:background="@color/bg1">
     <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_below="@+id/layout2"
             android:id="@+id/statRV"
             android:layout_height="match_parent"/>
+        <ProgressBar
+                style="@android:style/Widget.Holo.Light.ProgressBar"
+                android:layout_marginTop="2dp"
+                android:layout_marginStart="20dp"
+                android:layout_width="69dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/statsPg"
+                android:layout_marginLeft="20dp" android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Processing. Hang on..."
+                android:id="@+id/statsLoadingTxt"
+                android:textSize="15sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/open_sans"
+                android:typeface="normal" android:layout_centerInParent="true" android:layout_below="@id/statsPg"/>
+    </RelativeLayout>
 
 </RelativeLayout>

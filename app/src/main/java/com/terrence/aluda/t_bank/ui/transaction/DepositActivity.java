@@ -52,7 +52,7 @@ public class DepositActivity extends AppCompatActivity {
             public void onClick(View v) {
                 new MaterialAlertDialogBuilder(DepositActivity.this)
                         .setTitle("Coming soon")
-                        .setMessage("This functionality is currently being worked on. Please head on to the web version(https://sacco.terrence-aluda.com) to access this functionality")
+                        .setMessage("This functionality is currently being worked on. For now, please head on to the web version(https://sacco.terrence-aluda.com) to access it.")
 
                         .setPositiveButton("OK, I got it", new DialogInterface.OnClickListener() {
 

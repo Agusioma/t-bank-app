@@ -31,8 +31,9 @@ public class StatementActivity extends AppCompatActivity {
     private ArrayList<AccountStatements> statementsArray;
     private SharedPreferences sharedPreferences;
     private String firstName, lastName, total, natID;
-    private TextView nameLbl, totalDisplay;
+    private TextView nameLbl, totalDisplay, statsLoadingTxt;
     private StatementAdapter statAdapter;
+    private ProgressBar statsPg;
 
 
     @Override
@@ -42,6 +43,11 @@ public class StatementActivity extends AppCompatActivity {
         statRV = findViewById(R.id.statRV);
         nameLbl = findViewById(R.id.text_transact);
         totalDisplay = findViewById(R.id.totalDisplay);
+        statsLoadingTxt = findViewById(R.id.statsLoadingTxt);
+        statsPg = findViewById(R.id.statsPg);
+
+        statsPg.setVisibility(View.GONE);
+        statsLoadingTxt.setVisibility(View.GONE);
 
         sharedPreferences = this.getSharedPreferences("MyTax", 0);
         firstName = sharedPreferences.getString("Name", "defaultValue").toUpperCase(Locale.ROOT);
@@ -56,9 +62,8 @@ public class StatementActivity extends AppCompatActivity {
         totalDisplay.setText(total +" KES");
         statementsArray = new ArrayList<>();
         APIInterface apiInterface;
-        final ProgressDialog progressDialog = new ProgressDialog(StatementActivity.this);
-        progressDialog.setMessage("Testing");
-        progressDialog.show();
+        statsPg.setVisibility(View.VISIBLE);
+        statsLoadingTxt.setVisibility(View.VISIBLE);
         statementsArray = new ArrayList<>();
 
         apiInterface = APIClient.getClient().create(APIInterface.class);
@@ -68,7 +73,8 @@ public class StatementActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<ArrayList<AccountStatements>> call, Response<ArrayList<AccountStatements>> response) {
                 statementsArray = response.body();
-                progressDialog.dismiss();
+                statsPg.setVisibility(View.GONE);
+                statsLoadingTxt.setVisibility(View.GONE);
 
                 int i;
                 for(i=0; i<statementsArray.size(); i++){
@@ -86,7 +92,8 @@ public class StatementActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ArrayList<AccountStatements>> call, Throwable t) {
-                progressDialog.dismiss();
+                statsPg.setVisibility(View.GONE);
+                statsLoadingTxt.setVisibility(View.GONE);
                 Toast.makeText(StatementActivity.this, t.toString(), Toast.LENGTH_SHORT).show();
                 call.cancel();
             }

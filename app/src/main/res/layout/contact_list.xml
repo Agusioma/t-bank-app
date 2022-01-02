@@ -9,9 +9,10 @@
             android:layout_width="match_parent"
             android:paddingBottom="5dp"
             android:paddingTop="5dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_height="wrap_content" android:background="@color/bg1">
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="wrap_content" android:background="@color/bg1" android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp">
         <ImageView
                 android:layout_marginLeft="10dp"
                 android:layout_marginBottom="5dp"
@@ -43,7 +44,7 @@
                 android:layout_marginStart="20dp"
                 android:textSize="14sp"
                 android:layout_marginRight="10dp"
-                android:textColor="@color/white"
+                android:textColor="@color/grey_2"
                 android:layout_marginLeft="20dp"
                 android:layout_toLeftOf="@+id/left_img_cont"
                 android:fontFamily="@font/open_sans"/>
@@ -60,7 +61,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="20dp"
-                android:layout_below="@+id/contactLbl1"
+                android:layout_below="@+id/contactLbl2"
                 android:layout_toRightOf="@+id/contactBadge"
                 android:background="@color/our_grey"
         />
