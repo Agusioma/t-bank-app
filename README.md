@@ -18,16 +18,21 @@ For the UI, Android's XML styling was used.
 Some of the screens
 
 i. Login
+
 ![](login.png)
 
 ii. Home
+
 ![](dash.png)
 
 iii. Account details
+
 ![](account.png)
 
 iv. Update details
+
 ![](update.png)
 
 v.  Contact us
+
 ![](contact.png)
