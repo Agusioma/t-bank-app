@@ -125,12 +125,12 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
-        /*btnAuth.setOnClickListener(new View.OnClickListener() {
+        btnAuth.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 checkInput();
             }
-        });*/
-       sendAuthToken();
+        });
+      // sendAuthToken();
     }
 
 
