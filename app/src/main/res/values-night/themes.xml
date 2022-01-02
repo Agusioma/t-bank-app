@@ -11,6 +11,21 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.App.MaterialAlertDialog</item>
+        <item name="fontFamily">@font/open_sans</item>
+        <item name="android:fontFamily">@font/open_sans</item>
         <!-- Customize your theme here. -->
+    </style>
+    <style name="ThemeOverlay.App.MaterialAlertDialog" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="colorPrimary">@color/bg</item>
+        <item name="colorSecondary">@color/bg2</item>
+        <item name="textAppearanceBody1">@font/open_sans</item>
+        <item name="textAppearanceBody2">@font/open_sans</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="textAppearanceButton">@style/AppTextAppearance.Button</item>
+    </style>
+    <style name="AppTextAppearance.Button" parent="TextAppearance.MaterialComponents.Button">
+        ...
+        <item name="android:textStyle">bold</item>
     </style>
 </resources>

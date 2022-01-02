@@ -1,6 +1,7 @@
 package com.terrence.aluda.t_bank.ui.login;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.terrence.aluda.t_bank.MainActivity;
 import com.terrence.aluda.t_bank.SignUp;
 import com.terrence.aluda.t_bank.netrequests.AccountStatements;
@@ -120,6 +122,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent toSignUp = new Intent(LoginActivity.this, SignUp.class);
                 startActivity(toSignUp);
+
             }
         });
         /*btnAuth.setOnClickListener(new View.OnClickListener() {
@@ -127,8 +130,9 @@ public class LoginActivity extends AppCompatActivity {
                 checkInput();
             }
         });*/
-        sendAuthToken();
+       sendAuthToken();
     }
+
 
     private void sendAuthToken() {
         try {

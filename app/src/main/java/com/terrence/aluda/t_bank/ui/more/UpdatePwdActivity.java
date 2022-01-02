@@ -164,24 +164,22 @@ public class UpdatePwdActivity extends AppCompatActivity {
 
             currentDiscPwd.setVisibility(View.VISIBLE);
             currentDiscPwd.setText("Please enter your current password");
+        }else if(!((currentPwd.getText().toString()).equals(checkPass))){
 
+                currentDiscPwd.setVisibility(View.VISIBLE);
+                currentDiscPwd.setText("Wrong password");
         } else if (firstPwd.getText().length() == 0) {
 
             firstDiscPwd.setVisibility(View.VISIBLE);
             firstDiscPwd.setText("Please enter your new password");
+        }else if(!checkAndValidatePassword(firstPwd.getText().toString())){
 
+                firstDiscPwd.setVisibility(View.VISIBLE);
+                firstDiscPwd.setText("Type in a strong password");
         } else if (confirmPwd.getText().length() == 0) {
 
             confirmDiscPwd.setVisibility(View.VISIBLE);
             confirmDiscPwd.setText("Please confirm your new password");
-        }else if(!((currentPwd.getText().toString()).equals(checkPass))){
-
-            currentDiscPwd.setVisibility(View.VISIBLE);
-            currentDiscPwd.setText("Wrong password");
-        } else if(!checkAndValidatePassword(firstPwd.getText().toString())){
-
-            firstDiscPwd.setVisibility(View.VISIBLE);
-            firstDiscPwd.setText("Type in a strong password");
         } else if(!((confirmPwd.getText().toString()).equals(firstPwd.getText().toString()))){
             firstDiscPwd.setVisibility(View.VISIBLE);
             firstDiscPwd.setText("Your passwords don't match");
@@ -226,11 +224,13 @@ public class UpdatePwdActivity extends AppCompatActivity {
         note5.setVisibility(View.GONE);
 
     }
+
     private void hideBanners(){
         firstDiscPwd.setVisibility(View.GONE);
         currentDiscPwd.setVisibility(View.GONE);
         confirmDiscPwd.setVisibility(View.GONE);
     }
+
     private void sendUpdateTokens() {
         try {
             APIInterface apiInterface;
@@ -269,4 +269,5 @@ public class UpdatePwdActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_SHORT).show();
         }
     }
+
     }

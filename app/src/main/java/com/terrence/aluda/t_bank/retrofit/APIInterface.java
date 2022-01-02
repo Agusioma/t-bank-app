@@ -27,6 +27,9 @@ public interface APIInterface {
     @GET("/updatedetails/")
     Call<List<LoginTest>> doUpdate(@Query("_fName") String _fName, @Query("_lName") String _lName, @Query("_eAddress") String _eAddress, @Query("_natID") String _natID, @Query("_pNumber") String _pNumber);
 
+    @GET("/register_user/")
+    Call<List<DefaultResponse>> doRegister(@Query("_fName") String _fName, @Query("_lName") String _lName, @Query("_eAddress") String _eAddress, @Query("_natID") String _natID, @Query("_pNumber") String _pNumber, @Query("_userPass") String _userPass);
+
     @GET("/updatepassword/")
     Call<List<DefaultResponse>> changePassword(@Query("_natID") String _natID, @Query("_password") String _password);
    /* @POST("/api/users")

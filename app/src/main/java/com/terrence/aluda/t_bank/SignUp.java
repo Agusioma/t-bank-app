@@ -1,5 +1,6 @@
 package com.terrence.aluda.t_bank;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -7,8 +8,21 @@ import android.view.View;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputLayout;
+import com.terrence.aluda.t_bank.netrequests.DefaultResponse;
+import com.terrence.aluda.t_bank.netrequests.LoginTest;
+import com.terrence.aluda.t_bank.retrofit.APIClient;
+import com.terrence.aluda.t_bank.retrofit.APIInterface;
 import com.terrence.aluda.t_bank.ui.login.LoginActivity;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class SignUp extends AppCompatActivity {
 
@@ -20,7 +34,8 @@ public class SignUp extends AppCompatActivity {
     private EditText fNameEditTxt, lNameEditTxt, phoneEditTxt, NatIDEditTxt, EmailEditTxt, NewPassEditTxt, CNewPassEditTxt;
     private ProgressBar progressBarReg;
     private RelativeLayout footer, footer2;
-    private String _fName, _lName, _eAddress, _natID, _pNumber, _userPass;
+    private String _fName, _lName, _eAddress, _natID, _pNumber, _userPass, _cPass;
+    List<DefaultResponse> responseArray;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,10 +88,18 @@ public class SignUp extends AppCompatActivity {
         NewPassDisc.setVisibility(View.GONE);
         CNewPassDisc.setVisibility(View.GONE);
 
+
         btn_process_personal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                hidePersonalDetailsFields();
+                checkPersonalInput();
+            }
+        });
+
+        btn_process_passwords.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                checkPasswordInput();
             }
         });
 
@@ -319,6 +342,7 @@ public class SignUp extends AppCompatActivity {
             }
         });
 
+
     }
 
     private void hidePasswordBanners() {
@@ -363,8 +387,6 @@ public class SignUp extends AppCompatActivity {
         NewPassLayout.setVisibility(View.VISIBLE);
         CNewPassLayout.setVisibility(View.VISIBLE);
         progressBarReg.setVisibility(View.GONE);
-        NewPassDisc.setVisibility(View.VISIBLE);
-        CNewPassDisc.setVisibility(View.VISIBLE);
         reg_strength_note_tt.setVisibility(View.VISIBLE);
         reg_strength_note1.setVisibility(View.VISIBLE);
         reg_strength_note2.setVisibility(View.VISIBLE);
@@ -380,5 +402,177 @@ public class SignUp extends AppCompatActivity {
         NatIDLayout.setVisibility(View.GONE);
         EmailLayout.setVisibility(View.GONE);
         footer.setVisibility(View.GONE);
+    }
+
+    private void checkPersonalInput() {
+
+        _fName = fNameEditTxt.getText().toString();
+        _lName = lNameEditTxt.getText().toString();
+        _pNumber = phoneEditTxt.getText().toString();
+        _natID = NatIDEditTxt.getText().toString();
+        _eAddress = EmailEditTxt.getText().toString();
+
+        if (_fName.length() == 0) {
+
+            fNameDisc.setVisibility(View.VISIBLE);
+            fNameDisc.setText("Please enter your first name");
+
+        } else if (_lName.length() == 0) {
+
+            lNameDisc.setVisibility(View.VISIBLE);
+            lNameDisc.setText("Please enter your last name");
+
+        } else if (_pNumber.length() == 0) {
+
+            phoneDisc.setVisibility(View.VISIBLE);
+            phoneDisc.setText("Please enter your phone number");
+        } else if ((_pNumber.length() > 12) || (_pNumber.length() < 10)) {
+
+            phoneDisc.setVisibility(View.VISIBLE);
+            phoneDisc.setText("Please enter a valid phone number");
+
+        } else if (_natID.length() == 0) {
+
+            NatIDDisc.setVisibility(View.VISIBLE);
+            NatIDDisc.setText("Please enter your National ID number");
+
+        } else if (_eAddress.length() == 0) {
+
+            EmailDisc.setVisibility(View.VISIBLE);
+            EmailDisc.setText("Please enter your email address");
+
+        } else if (!isEmail(_eAddress)) {
+
+            EmailDisc.setVisibility(View.VISIBLE);
+            EmailDisc.setText("Type in a valid email address");
+        } else {
+            hidePersonalDetailsFields();
+        }
+    }
+
+    private void checkPasswordInput() {
+
+        _userPass = NewPassEditTxt.getText().toString();
+        _cPass = CNewPassEditTxt.getText().toString();
+
+        if (_userPass.length() == 0) {
+
+            NewPassDisc.setVisibility(View.VISIBLE);
+            NewPassDisc.setText("Please enter your password");
+        } else if (!isPassword(_userPass)) {
+
+            NewPassDisc.setVisibility(View.VISIBLE);
+            NewPassDisc.setText("Type in a strong password");
+        } else if (_cPass.length() == 0) {
+
+            CNewPassDisc.setVisibility(View.VISIBLE);
+            CNewPassDisc.setText("Please confirm your password");
+
+
+        } else if (!((_cPass).equals(_userPass))) {
+            NewPassDisc.setVisibility(View.VISIBLE);
+            NewPassDisc.setText("Your passwords don't match");
+            CNewPassDisc.setVisibility(View.VISIBLE);
+            CNewPassDisc.setText("Your passwords don't match");
+        } else {
+            sendRegToken();
+            //showDialog();
+        }
+
+    }
+
+    private void showProgress(boolean check) {
+        if (check) {
+            btn_process_passwords.setVisibility(View.GONE);
+            reg_strength_note_tt.setVisibility(View.GONE);
+            reg_strength_note1.setVisibility(View.GONE);
+            reg_strength_note2.setVisibility(View.GONE);
+            reg_strength_note3.setVisibility(View.GONE);
+            reg_strength_note4.setVisibility(View.GONE);
+            reg_strength_note5.setVisibility(View.GONE);
+            progressBarReg.setVisibility(View.VISIBLE);
+            footer2.setVisibility(View.GONE);
+        } else {
+            btn_process_passwords.setVisibility(View.VISIBLE);
+            reg_strength_note_tt.setVisibility(View.VISIBLE);
+            reg_strength_note1.setVisibility(View.VISIBLE);
+            reg_strength_note2.setVisibility(View.VISIBLE);
+            reg_strength_note3.setVisibility(View.VISIBLE);
+            reg_strength_note4.setVisibility(View.VISIBLE);
+            reg_strength_note5.setVisibility(View.VISIBLE);
+            progressBarReg.setVisibility(View.GONE);
+            footer2.setVisibility(View.VISIBLE);
+        }
+    }
+
+    public static boolean isEmail(String email) {
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\." + "[a-zA-Z0-9_+&*-]+)*@" + "(?:[a-zA-Z0-9-]+\\.)+[a-z" + "A-Z]{2,7}$";
+
+        Pattern pat = Pattern.compile(emailRegex);
+        if (email == null)
+            return false;
+        return pat.matcher(email).matches();
+    }
+
+    public static boolean isPassword(String password) {
+
+        String regex = "^(?=.*[0-9])" + "(?=.*[a-z])(?=.*[A-Z])" + "(?=.*[@#$%^&+=])" + "(?=\\S+$).{8,20}$";
+
+        Pattern p = Pattern.compile(regex);
+
+        Matcher m = p.matcher(password);
+
+        return m.matches();
+    }
+
+    private void showDialog() {
+
+        new MaterialAlertDialogBuilder(this)
+                .setTitle("Success")
+                .setMessage("Welcome to T-Bank. You will be taken to the login page where you will sign in to start using our services")
+
+                .setPositiveButton("OK, I got it", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        Intent toSignIn = new Intent(SignUp.this, LoginActivity.class);
+                        startActivity(toSignIn);
+                    }
+                })
+                .setCancelable(false)
+                .show();
+
+    }
+
+    private void sendRegToken() {
+        try {
+            APIInterface apiInterface;
+
+            showProgress(true);
+            _pNumber = "254" + _pNumber.substring(_pNumber.length() - 9);
+            responseArray = new ArrayList<>();
+
+            apiInterface = APIClient.getClient().create(APIInterface.class);
+            Call<List<DefaultResponse>> call = apiInterface.doRegister(_fName, _lName, _eAddress, _natID, _pNumber, _userPass);
+
+
+            call.enqueue(new Callback<List<DefaultResponse>>() {
+                @Override
+                public void onResponse(Call<List<DefaultResponse>> call, Response<List<DefaultResponse>> response) {
+                    showProgress(false);
+                    showDialog();
+                }
+
+                @Override
+                public void onFailure(Call<List<DefaultResponse>> call, Throwable t) {
+                    showProgress(false);
+                    Toast.makeText(getApplicationContext(), t.toString(), Toast.LENGTH_SHORT).show();
+                    call.cancel();
+                }
+            });
+        } catch (Exception e) {
+            showProgress(false);
+            Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_SHORT).show();
+        }
     }
 }
