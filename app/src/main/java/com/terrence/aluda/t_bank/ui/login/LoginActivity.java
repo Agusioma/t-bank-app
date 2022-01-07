@@ -141,12 +141,10 @@ public class LoginActivity extends AppCompatActivity {
             btnAuth.setVisibility(View.GONE);
             btnFgPwd.setVisibility(View.GONE);
             loginProgress.setVisibility(View.VISIBLE);
-            //phoneParam = editNum.getText().toString();
-            //passwordParam = editPassword.getText().toString();
+            phoneParam = editNum.getText().toString();
+            passwordParam = editPassword.getText().toString();
 
-            // phoneParam = "254" + phoneParam.substring(phoneParam.length() - 9);
-            phoneParam = "254702277060";
-            passwordParam = "TerrAld$$254!";
+            phoneParam = "254" + phoneParam.substring(phoneParam.length() - 9);
             responseArray = new ArrayList<>();
 
             apiInterface = APIClient.getClient().create(APIInterface.class);
