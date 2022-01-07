@@ -1,7 +1,5 @@
 # t-bank-app
 
-> Dark mode. Still working on light mode.
-
 This is a mini-banking app whose logic is based on [this](https://sacco.terrence-aluda.com/) website. It allows basic functionalities such as depositing, viewing statements, viewing balances, updating details etc. Currently, the deposit functionality is still being worked on. On completion, the app should have these features:
 
 1. Deposit
