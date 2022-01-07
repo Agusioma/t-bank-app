@@ -158,8 +158,6 @@ public class LoginActivity extends AppCompatActivity {
                     loggedInCheck = responseArray.get(0).getId();
 
                     if (loggedInCheck.equals("wrong55")) {
-                        numDisc.setVisibility(View.VISIBLE);
-                        numDisc.setText("Please sign up. Rong");
                         passDisc.setVisibility(View.VISIBLE);
                         passDisc.setText("Please register");
                     } else if (loggedInCheck.equals("wrong00")) {
