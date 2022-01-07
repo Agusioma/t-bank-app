@@ -22,22 +22,39 @@ For the **network requests** and communitcation Retrofit library was used.
 ### Screenshots
 Some of the screens
 
-## i. Login
+## i. Login(Dark)
 
 ![](login.png)
 
-## ii. Home
+## ii. Login(Light)
+
+![](login_light.png)
+
+## iii. Home(Dark)
 
 ![](dash.png)
 
-## iii. Account details
+## iv. Home(Light)
 
-![](account.png)
+![](dash_light.png)
 
-## iv. Update details
+## v. Update details(Dark)
 
 ![](update.png)
 
-## v.  Contact us
+## vi. Password details(Light)
+
+![](pass_light.png)
+
+## vii. Statement details(Light)
+
+![](stat_light.png)
+
+## viii. Account details
+
+![](account.png)
+
+
+## ix.  Contact us
 
 ![](contact.png)
