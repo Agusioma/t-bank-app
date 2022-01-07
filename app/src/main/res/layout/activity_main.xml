@@ -3,7 +3,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/container"
-        android:background="@color/bg1"
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingTop="0dp">
@@ -13,7 +13,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="0dp"
             android:layout_marginEnd="0dp"
-            android:background="#002001"
+            android:background="?attr/colorAccent"
             app:labelVisibilityMode="labeled"
             app:itemTextAppearanceActive="@color/bg"
             app:itemTextAppearanceInactive="@color/white"

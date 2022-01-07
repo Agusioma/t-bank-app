@@ -18,7 +18,7 @@
                 android:fontFamily="@font/open_sans"
                 android:textStyle="bold"
                 android:textSize="25sp"
-                android:textColor="@color/white"
+                android:textColor="?attr/titleTextColor"
                 android:layout_height="wrap_content" android:id="@+id/updateLbl" android:layout_centerHorizontal="false"
                 android:layout_alignParentTop="true" android:layout_marginLeft="0dp"
                 android:layout_marginStart="0dp" android:layout_marginBottom="5dp"/>
@@ -30,7 +30,7 @@
                 android:textSize="14sp"
                 android:layout_marginTop="0dp"
                 android:layout_below="@+id/updateLbl"
-                android:textColor="@color/grey_2"
+                android:textColor="?attr/subtitleTextColor"
                 android:layout_height="wrap_content"
                 android:id="@+id/updateLbl2"
                 android:layout_centerHorizontal="false"
@@ -48,7 +48,7 @@
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
                 app:endIconMode="clear_text"
-                app:hintTextColor="@color/main_green"
+                app:hintTextColor="?attr/hintTextColor"
                 android:hint="First name">
 
             <!--this is the actual edit text which takes the input-->
@@ -87,7 +87,7 @@
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
                 app:endIconMode="clear_text"
-                app:hintTextColor="@color/main_green"
+                app:hintTextColor="?attr/hintTextColor"
                 android:hint="Second name">
 
             <!--this is the actual edit text which takes the input-->
@@ -125,7 +125,7 @@
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
                 app:endIconMode="clear_text"
-                app:hintTextColor="@color/main_green"
+                app:hintTextColor="?attr/hintTextColor"
                 android:hint="Email address">
 
             <!--this is the actual edit text which takes the input-->
@@ -188,7 +188,7 @@
                 android:fontFamily="@font/open_sans"
                 android:textStyle="bold"
                 android:textSize="14sp"
-                android:textColor="@color/grey_2"
+                android:textColor="?attr/subtitleTextColor"
                 android:layout_height="wrap_content"
                 android:id="@+id/updateLbl3" android:layout_centerVertical="true" android:layout_marginLeft="0dp"
                 android:layout_marginStart="0dp"/>

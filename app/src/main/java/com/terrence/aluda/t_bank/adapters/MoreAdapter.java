@@ -10,11 +10,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.terrence.aluda.t_bank.models.more.MoreModel;
 import com.terrence.aluda.t_bank.ui.login.LoginActivity;
-import com.terrence.aluda.t_bank.ui.login.TestActivity;
 import com.terrence.aluda.t_bank.ui.more.ContactActivity;
 import com.terrence.aluda.t_bank.ui.more.MoreFragment;
 import com.terrence.aluda.t_bank.ui.more.UpdateActivity;
-import com.terrence.aluda.t_bank.ui.transaction.DepositActivity;
 import org.jetbrains.annotations.NotNull;
 
 import com.terrence.aluda.t_bank.R;

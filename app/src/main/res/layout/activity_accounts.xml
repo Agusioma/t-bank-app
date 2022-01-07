@@ -4,7 +4,7 @@
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/bg1">
+                >
     <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -124,18 +124,18 @@
             android:id="@+id/rlv0"
             android:layout_below="@+id/acc_card"
             android:layout_height="wrap_content"
-            android:background="@color/bg1" android:gravity="center|center_horizontal">
+             android:gravity="center|center_horizontal">
         <RelativeLayout
                 android:layout_width="wrap_content"
                 android:id="@+id/rlvn1"
                 android:layout_height="wrap_content"
-                android:background="@color/bg1" android:layout_alignParentLeft="false" android:layout_marginRight="10dp"
+                 android:layout_alignParentLeft="false" android:layout_marginRight="10dp"
                 android:layout_marginEnd="10dp">
             <RelativeLayout
                     android:layout_width="wrap_content"
                     android:id="@+id/rlvn3"
                     android:layout_height="wrap_content"
-                    android:background="@color/bg1" android:layout_alignParentLeft="false"
+                     android:layout_alignParentLeft="false"
                     android:layout_marginRight="10dp"
                     android:layout_marginEnd="10dp">
                 <Button
@@ -162,7 +162,7 @@
                     android:layout_toRightOf="@+id/rlvn3"
                     android:gravity="center_horizontal"
                     android:layout_height="wrap_content"
-                    android:background="@color/bg1" android:layout_alignParentLeft="false"
+                     android:layout_alignParentLeft="false"
                     android:layout_alignParentRight="false">
                 <Button
                         android:layout_width="140dp"
@@ -190,7 +190,7 @@
                     android:id="@+id/rlv1"
                     android:layout_below="@+id/rlv0"
                     android:layout_height="wrap_content"
-                    android:background="@color/bg1">
+                    >
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -200,7 +200,7 @@
                 android:layout_marginStart="20dp"
                 android:textSize="13sp"
 
-                android:textColor="@color/white"
+                android:textColor="?attr/titleTextColor"
                 android:layout_marginLeft="20dp" android:fontFamily="@font/open_sans"
                 android:layout_alignParentRight="false" android:layout_marginRight="20dp"
                 android:layout_marginEnd="20dp" android:layout_alignParentLeft="true"
@@ -230,7 +230,7 @@
             android:layout_width="match_parent"
             android:layout_below="@+id/rlv1"
             android:layout_height="match_parent"
-            android:background="@color/bg1">
+            >
     <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:id="@+id/accountsRV"
@@ -250,7 +250,7 @@
                 android:text="A moment please..."
                 android:id="@+id/acctsLoadingTxt"
                 android:textSize="15sp"
-                android:textColor="@color/white"
+                android:textColor="?attr/titleTextColor"
                 android:fontFamily="@font/open_sans"
                 android:typeface="normal" android:layout_centerInParent="true" android:layout_below="@id/accountsPg"/>
     </RelativeLayout>

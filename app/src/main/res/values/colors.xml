@@ -10,4 +10,14 @@
     <color name="grey_2">#A9A9A9</color>
     <color name="dark_green">#002001</color>
     <color name="red">#FF0000</color>
+    <color name="titleLight">@color/bg2</color>
+    <color name="subTitleLight">#535d5f</color>
+    <color name="hintLight">#FF0000</color>
+    <color name="titleDark">@color/white</color>
+    <color name="subTitleDark">@color/grey_2</color>
+    <color name="hintDark">@color/main_green</color>
+    <color name="currencyDark">@color/main_green</color>
+    <color name="currencyLight">@color/black</color>
+    <color name="iconDark">@color/white</color>
+    <color name="iconLight">@color/black</color>
 </resources>

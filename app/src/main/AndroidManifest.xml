@@ -12,15 +12,17 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/Theme.TBank">
-        <activity android:name=".ui.more.ContactActivity">
+        <activity android:name=".ui.more.ContactActivity"
+                  android:label="Support">
         </activity>
-        <activity android:name=".SignUp">
+        <activity android:name=".SignUp"
+                  android:label="Join us">
         </activity>
-        <activity android:name=".ui.more.UpdatePwdActivity">
+        <activity android:name=".ui.more.UpdatePwdActivity"
+                  android:label="Security">
         </activity>
-        <activity android:name=".ui.more.UpdateActivity">
-        </activity>
-        <activity android:name=".ui.login.TestActivity">
+        <activity android:name=".ui.more.UpdateActivity"
+                  android:label="Security &amp; Updates">
         </activity>
         <activity
                 android:name=".ui.accounts.AccountsActivity"

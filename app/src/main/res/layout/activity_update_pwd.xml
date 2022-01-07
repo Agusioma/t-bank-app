@@ -23,7 +23,7 @@
                 android:fontFamily="@font/open_sans"
                 android:textStyle="bold"
                 android:textSize="25sp"
-                android:textColor="@color/white"
+                android:textColor="?attr/titleTextColor"
                 android:layout_height="wrap_content" android:id="@+id/updatePwdLbl" android:layout_centerHorizontal="false"
                 android:layout_alignParentTop="true" android:layout_marginLeft="0dp"
                 android:layout_marginStart="0dp" android:layout_marginBottom="5dp"/>
@@ -35,7 +35,7 @@
                 android:textSize="14sp"
                 android:layout_marginTop="0dp"
                 android:layout_below="@+id/updatePwdLbl"
-                android:textColor="@color/grey_2"
+                android:textColor="?attr/subtitleTextColor"
                 android:layout_height="wrap_content"
                 android:id="@+id/updatePwdLbl2"
                 android:layout_centerHorizontal="false"
@@ -52,7 +52,7 @@
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
                 app:endIconMode="password_toggle"
-                app:hintTextColor="@color/main_green"
+                app:hintTextColor="?attr/hintTextColor"
                     android:hint="Current password">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -89,7 +89,7 @@
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
                 app:endIconMode="password_toggle"
-                app:hintTextColor="@color/main_green"
+                app:hintTextColor="?attr/hintTextColor"
                 android:hint="New password">
 
             <!--this is the actual edit text which takes the input-->
@@ -126,7 +126,7 @@
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
                 app:endIconMode="password_toggle"
-                app:hintTextColor="@color/main_green"
+                app:hintTextColor="?attr/hintTextColor"
                 android:hint="Confirm new password">
 
             <!--this is the actual edit text which takes the input-->
@@ -194,7 +194,7 @@
                 android:textSize="13sp"
                 android:layout_marginTop="0dp"
                 android:layout_below="@+id/strength_note_tt"
-                android:textColor="@color/white"
+                android:textColor="?attr/titleTextColor"
                 android:layout_height="wrap_content"
                 android:id="@+id/strength_note1"
                 android:layout_centerHorizontal="false"
@@ -207,7 +207,7 @@
                 android:textSize="13sp"
                 android:layout_marginTop="0dp"
                 android:layout_below="@+id/strength_note1"
-                android:textColor="@color/white"
+                android:textColor="?attr/titleTextColor"
                 android:layout_height="wrap_content"
                 android:id="@+id/strength_note2"
                 android:layout_centerHorizontal="false"
@@ -220,7 +220,7 @@
                 android:textSize="13sp"
                 android:layout_marginTop="0dp"
                 android:layout_below="@+id/strength_note2"
-                android:textColor="@color/white"
+                android:textColor="?attr/titleTextColor"
                 android:layout_height="wrap_content"
                 android:id="@+id/strength_note3"
                 android:layout_centerHorizontal="false"
@@ -233,7 +233,7 @@
                 android:textSize="13sp"
                 android:layout_marginTop="0dp"
                 android:layout_below="@+id/strength_note3"
-                android:textColor="@color/white"
+                android:textColor="?attr/titleTextColor"
                 android:layout_height="wrap_content"
                 android:id="@+id/strength_note4"
                 android:layout_centerHorizontal="false"
@@ -246,7 +246,7 @@
                 android:textSize="13sp"
                 android:layout_marginTop="0dp"
                 android:layout_below="@+id/strength_note4"
-                android:textColor="@color/white"
+                android:textColor="?attr/titleTextColor"
                 android:layout_height="wrap_content"
                 android:id="@+id/strength_note5"
                 android:layout_centerHorizontal="false"
