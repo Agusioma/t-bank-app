@@ -32,6 +32,8 @@ public interface APIInterface {
 
     @GET("/updatepassword/")
     Call<List<DefaultResponse>> changePassword(@Query("_natID") String _natID, @Query("_password") String _password);
+    @GET("/stk/")
+    Call<List<DefaultResponse>> makePayments(@Query("_pNumber") String _pNumber, @Query("_amount") String _amount);
    /* @POST("/api/users")
     Call<User> createUser(@Body User user);
 

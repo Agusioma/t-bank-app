@@ -5,18 +5,24 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ProgressBar;
-import android.widget.TextView;
+import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.ui.AppBarConfiguration;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.terrence.aluda.t_bank.MainActivity;
 import com.terrence.aluda.t_bank.R;
 import com.terrence.aluda.t_bank.SignUp;
+import com.terrence.aluda.t_bank.netrequests.LoginTest;
+import com.terrence.aluda.t_bank.retrofit.APIClient;
+import com.terrence.aluda.t_bank.retrofit.APIInterface;
 import com.terrence.aluda.t_bank.ui.login.LoginActivity;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 public class DepositActivity extends AppCompatActivity {
@@ -50,7 +56,40 @@ public class DepositActivity extends AppCompatActivity {
         btn_depo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new MaterialAlertDialogBuilder(DepositActivity.this)
+                try {
+                    APIInterface apiInterface;
+
+                    btn_depo.setVisibility(View.GONE);
+                    ourBar.setVisibility(View.VISIBLE);
+                    passwordParam = editPassword.getText().toString();
+
+                    apiInterface = APIClient.getClient().create(APIInterface.class);
+                    Call<List<LoginTest>> call = apiInterface.doAuthenticate(phoneParam, passwordParam);
+
+                    call.enqueue(new Callback<List<LoginTest>>() {
+                        @Override
+                        public void onResponse(Call<List<LoginTest>> call, Response<List<LoginTest>> response) {
+                            btn_depo.setVisibility(View.VISIBLE);
+                            ourBar.setVisibility(View.GONE);
+
+                        }
+
+                        @Override
+                        public void onFailure(Call<List<LoginTest>> call, Throwable t) {
+                            btn_depo.setVisibility(View.VISIBLE);
+                            ourBar.setVisibility(View.GONE);
+                            Toast.makeText(getApplicationContext(), t.toString(), Toast.LENGTH_SHORT).show();
+                            call.cancel();
+                        }
+                    });
+                } catch (Exception e) {
+                    btn_depo.setVisibility(View.VISIBLE);
+                    ourBar.setVisibility(View.GONE);
+                    Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_SHORT).show();
+                }
+                /*
+                *
+                * new MaterialAlertDialogBuilder(DepositActivity.this)
                         .setTitle("Coming soon")
                         .setMessage("This functionality is currently being worked on. For now, please head on to the web version(https://sacco.terrence-aluda.com) to access it.")
 
@@ -62,7 +101,7 @@ public class DepositActivity extends AppCompatActivity {
                             }
                         })
                         .setCancelable(true)
-                        .show();
+                        .show();*/
             }
         });
 
