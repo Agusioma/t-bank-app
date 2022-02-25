@@ -87,7 +87,7 @@
 
             <!--this is the actual edit text which takes the input-->
             <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/depo_amount"
+                    android:id="@+id/depo_amount_input"
                     android:inputType="phone"
                     android:fontFamily="@font/open_sans"
                     android:layout_width="match_parent"

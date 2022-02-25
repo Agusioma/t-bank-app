@@ -13,7 +13,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.terrence.aluda.t_bank.MainActivity;
 import com.terrence.aluda.t_bank.R;
 import com.terrence.aluda.t_bank.SignUp;
-import com.terrence.aluda.t_bank.netrequests.LoginTest;
+import com.terrence.aluda.t_bank.netrequests.DefaultResponse;
 import com.terrence.aluda.t_bank.retrofit.APIClient;
 import com.terrence.aluda.t_bank.retrofit.APIInterface;
 import com.terrence.aluda.t_bank.ui.login.LoginActivity;
@@ -26,10 +26,10 @@ import java.util.List;
 import java.util.Locale;
 
 public class DepositActivity extends AppCompatActivity {
-    private EditText our_edit;
+    private EditText depo_amount_input;
     private TextView nameDisplay, balanceDisplay;
     private SharedPreferences sharedPreferences;
-    private String firstName, lastName, total;
+    private String firstName, lastName, total, phoneParam, amountParam;
     private ProgressBar ourBar;
     private Button btn_depo;
 
@@ -42,12 +42,14 @@ public class DepositActivity extends AppCompatActivity {
         balanceDisplay = findViewById(R.id.depoAccAmount);
         ourBar = findViewById(R.id.progressBarDepo);
         btn_depo = findViewById(R.id.btn_depo);
+        depo_amount_input = findViewById(R.id.depo_amount_input);
 
         ourBar.setVisibility(View.GONE);
 
         sharedPreferences = this.getSharedPreferences("MyTax", 0);
         firstName = sharedPreferences.getString("Name", "defaultValue").toUpperCase(Locale.ROOT);
         lastName = sharedPreferences.getString("Last", "defaultValue").toUpperCase(Locale.ROOT);
+        phoneParam = sharedPreferences.getString("userPhone", "defaultValue");
         total = sharedPreferences.getString("tot", "defaultValue");
 
         nameDisplay.setText(firstName+" "+lastName);
@@ -61,21 +63,21 @@ public class DepositActivity extends AppCompatActivity {
 
                     btn_depo.setVisibility(View.GONE);
                     ourBar.setVisibility(View.VISIBLE);
-                    passwordParam = editPassword.getText().toString();
+                    amountParam = depo_amount_input.getText().toString();
 
                     apiInterface = APIClient.getClient().create(APIInterface.class);
-                    Call<List<LoginTest>> call = apiInterface.doAuthenticate(phoneParam, passwordParam);
+                    Call<List<DefaultResponse>> call = apiInterface.makePayments(phoneParam, amountParam);
 
-                    call.enqueue(new Callback<List<LoginTest>>() {
+                    call.enqueue(new Callback<List<DefaultResponse>>() {
                         @Override
-                        public void onResponse(Call<List<LoginTest>> call, Response<List<LoginTest>> response) {
+                        public void onResponse(Call<List<DefaultResponse>> call, Response<List<DefaultResponse>> response) {
                             btn_depo.setVisibility(View.VISIBLE);
                             ourBar.setVisibility(View.GONE);
 
                         }
 
                         @Override
-                        public void onFailure(Call<List<LoginTest>> call, Throwable t) {
+                        public void onFailure(Call<List<DefaultResponse>> call, Throwable t) {
                             btn_depo.setVisibility(View.VISIBLE);
                             ourBar.setVisibility(View.GONE);
                             Toast.makeText(getApplicationContext(), t.toString(), Toast.LENGTH_SHORT).show();
