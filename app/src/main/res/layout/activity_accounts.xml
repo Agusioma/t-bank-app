@@ -25,15 +25,15 @@
                 android:layout_width="match_parent"
                 android:paddingBottom="20dp"
                 android:layout_height="wrap_content">
-            <ImageView android:layout_width="wrap_content"
+            <ImageView android:layout_width="80dp"
                        android:layout_marginTop="20dp"
-                       android:layout_height="36dp"
+                       android:layout_height="43dp"
 
                        android:layout_marginRight="0dp"
                        android:id="@+id/icon_account"
-                       android:src="@mipmap/ic_launcher"
+                       android:src="@drawable/ic_test"
                        android:layout_alignParentRight="false" android:layout_alignParentLeft="true"
-                       android:layout_marginLeft="0dp" android:layout_marginStart="0dp"/>
+                       android:layout_marginLeft="14dp" android:layout_marginStart="0dp"/>
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
