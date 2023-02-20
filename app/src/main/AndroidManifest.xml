@@ -30,7 +30,8 @@
         </activity>
         <activity
                 android:name=".ui.login.LoginActivity"
-                android:label="T-Bank">
+                android:label="T-Bank"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
