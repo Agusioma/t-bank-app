@@ -1,5 +1,7 @@
 # t-bank-app
 
+[![Google Play icon](rep.png 'Google Play link')](https://play.google.com/store/apps/details?id=com.terrence.aluda.t_bank)
+
 This is a mini-banking app whose logic is based on [this](https://sacco.terrence-aluda.com/) website. It allows basic functionalities such as depositing, viewing statements, viewing balances, updating details etc. Currently, the deposit functionality is still being worked on. On completion, the app should have these features:
 
 1. Deposit
